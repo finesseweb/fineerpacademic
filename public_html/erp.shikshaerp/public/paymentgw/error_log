@@ -1,8 +1,0 @@
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: mmp_txn in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: mer_txn in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: f_code in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: prod in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: discriminator in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: amt in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: bank_txn in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 27
-[14-Nov-2019 12:53:21 UTC] PHP Notice:  Undefined index: signature in /home/finesse2348/public_html/finessewebtech/paymentgw/TransactionResponse.php on line 30

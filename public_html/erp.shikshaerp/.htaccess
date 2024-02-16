@@ -1,8 +1,0 @@
-
-# RewriteEngine on
-# RewriteCond %{HTTPS} off
-# RewriteCond %{HTTP:X-Forwarded-SSL} !on
-# RewriteCond %{HTTP_HOST} ^asset.shikshaerp\.com$ [OR]
-# RewriteCond %{HTTP_HOST} ^www\.asset.shikshaerp\.com$
-# RewriteRule ^/?$ "http\:\/\/asset.shikshaerp\.com\/" [R=301,L]
-
