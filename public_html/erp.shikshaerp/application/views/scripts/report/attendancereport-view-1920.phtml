@@ -1,0 +1,639 @@
+<?php
+$studentDetails = new Application_Model_StudentPortal();
+$attendance_info = $this->attendanceInfo;
+$distinctDate = $this->distinctdate;
+$month_diff = $this->monthDiff;
+$endMonth = $this->month;
+$startYear = $this->startYear;
+$monthTo = $this->monthTo;
+$monthFrom = $this->monthFrom;
+$department = $this->department;
+$endyear = $this->endYear;
+$session = $this->session;
+$batch = $this->batch;
+//===============[WIDTHS]
+$marks_width = '20px';
+$marks_width1 = '20px';
+$marks_width4 = '25px';
+$marks_width3 = "14px";
+$total_width = "10px";
+?>
+<style>
+    table{
+        margin:0;
+    }
+    .sub{
+        border:.01em solid #932e90;
+        text-align: center;
+    }
+    table>tr>td{
+        text-align: center;
+    }
+</style>
+
+
+
+<div class="grade-data-container" style="margin-top:10px;">
+    <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" id="dataTable" width="100%" cellspacing ="0" >
+
+        <tbody>
+            <tr>
+                <th class='sub'>
+        <table class="tablestyle1" width="100%" >
+            <thead>
+            <tr>
+                <th class='sub'>S.No</th>
+                <th class='sub'>Roll No.</th>
+                <th class='sub'>Name</th>
+                <th class='sub'>
+                    <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" cellspacing ="0">
+                        <thead>
+                                <tr>
+                                    <th class="sub"> 
+
+                                        Number Of Theory Class Held 
+
+                                    </th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                        <thead>
+                            <tr>
+                        <th class='sub'>
+                            <table class="tablestyle1" width="100%" >
+                                <thead>
+                                <tr>
+                                    <?php $monthName = $monthFrom; ?>
+                                    <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                    <th class='sub' >
+                                        <?php $monthName = $monthName>12?01:$monthName; ?>
+                                        <?=date("M", strtotime("$endyear-$monthName-01"));?>
+                                    </th>
+                                     <?php $monthName++; } ?>
+                                </tr>
+                            <thead>
+                            </table>
+                            </th>
+                            </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                </th>
+                <th class='sub'>Total</th>
+                <th class='sub'>(%)</th>
+                <th class='sub'> <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" cellspacing ="0">
+                        <thead>
+                                <tr>
+                                    <th class="sub" > 
+
+                                        Number Of Practical Class Held 
+
+                                    </th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                        <thead>
+                            <tr>
+                        <th class='sub'>
+                            <table class="tablestyle1" width="100%" >
+                                <thead>
+                                <tr><?php $monthName = $monthFrom; ?>
+                                    <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                    <th class='sub' >
+                                       <?php $monthName = $monthName>12?01:$monthName; ?>
+                                        <?=date("M", strtotime("$endyear-$monthName-01"));?>
+                                    </th>
+                                     <?php $monthName++;} ?>
+                                </tr>
+                                </thead>
+                            </table>
+                            </th>
+                            </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                </th>
+                <th class='sub'>Total</th>
+                <th class='sub'>(%)</th>
+                <th class='sub'>Overall %</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr><!---------[Second Blank columns]------------------->
+                    <td class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                               
+                                <th >
+                                     ---
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                     ---
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                    --
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Attended theory class-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                     <table class="tablestyle1" width="100%" >
+                                         <thead>
+                                        <tr>
+                                            <th >
+                                               <table class="tablestyle1" width="100%" >
+                                                    <tr><?php $monthName = $monthFrom;$total_theory = 0; ?>
+                                                        <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                                        <th class='sub' >
+                                                           <?php
+                                                           $monthName = strlen($monthName)==1?"0$monthName":$monthName;
+                                                           $monthName = $monthName>12?'01':$monthName; ?>
+                                                             
+                                                           <?php if(isset($distinctDate[$monthName])){
+                                                               foreach($distinctDate[$monthName] as $dateKey => $datevalue){ ?>
+                                                             
+                                                                <?=$datevalue['theory'];?>
+                                                           <?php $total_theory += $datevalue['theory']; }}else{ echo '---';} ?>
+                                                        </th>
+                                                         <?php (int)$monthName++;} ?>
+                                                    </tr>
+                                               </thead>
+                                            </table>
+                                            </th>
+                                            
+                                        </tr>
+                                         </thead>
+                                    </table>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th class='sub'>
+                                   <?=$total_theory;?>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead><tr>
+                                <th class='sub'>
+                                     100
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                       <th class='sub'><!------Attended practical class-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                     <table class="tablestyle1" width="100%" >
+                                         <thead>
+                                        <tr>
+                                            <th >
+                                               <table class="tablestyle1" width="100%" >
+                                                    <tr><?php $monthName = $monthFrom; $total_practical = 0; ?>
+                                                        <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                                        <th class='sub'>
+                                                            
+                                                           <?php 
+                                                           $monthName = strlen($monthName)==1?"0$monthName":$monthName;
+                                                           $monthName = $monthName>12?'01':$monthName; ?>
+                                                            <?php 
+                                                            if(isset($distinctDate[$monthName])){
+                                                            foreach($distinctDate[$monthName] as $dateKey => $datevalue){ ?>
+                                                                <?=$datevalue['practical'];?>
+                                                            <?php $total_practical += $datevalue['practical'];} } else {echo '---';}
+                                                            ?>
+                                                        </th>
+                                                         <?php (int)$monthName++;} ?>
+                                                    </tr>
+                                               </thead>
+                                            </table>
+                                            </th>
+                                            
+                                        </tr>
+                                         </thead>
+                                    </table>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th class='sub'>
+                                      <?=$total_practical;?>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead> <tr>
+                                <th class='sub'>
+                                     100
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                     
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead><tr>
+                                <th class='sub'>
+                                       100
+                                </th>
+                                </tr></thead>
+                        </table>
+                    </th>
+                </tr>
+                <tr>
+                    <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                 
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                    
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                     
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Attended theory class-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                     <table  width="100%" >
+                                        <tr>
+                                            <th class="sub" >
+                                               Attended thoery Class
+                                            </th>
+                                            
+                                        </tr>
+
+                                    </table>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                 
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                  
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                       <th class='sub'><!------Attended practicalclass-------------->
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" width="100%" >
+                            <thead>
+                            <tr>
+                                <th >
+                                     <table class="tablestyle1" width="100%" >
+                                        <tr>
+                                            <th class="sub" >
+                                               Attended Practical Class
+                                            </th>
+                                            
+                                        </tr>
+
+                                    </table>
+                                </th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                      
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                     
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                     <th class='sub'><!------blank cell-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                    
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+                <?php $inc = 1;foreach($attendance_info as $key => $value){ ?>
+                <?php  $student_info =  $studentDetails->getStudenInfoByU($value['u_id']);  ?>
+                <tr>
+                    <th class='sub'><!------Serial Number-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class='sub'>
+                                    <?= $inc++; ?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Student Roll no-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                
+                                <th class='sub'>
+                                    <?= $student_info['roll_no']; ?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Student Name-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th style='text-align: left;'>
+                                    <?= $student_info['stu_fname'].' '.$student_info['stu_lname']; ?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Attended Class for Theory-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                    <table class="tablestyle1" width="100%" >
+                                        <tr><?php $monthName = $monthFrom; 
+                                                $currentYear = $startYear;
+                                                $total_pr = 0;
+                                              
+                                        ?>
+                                            <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                            
+                                               <?php 
+                                               $monthName = strlen($monthName)==1?"0$monthName":$monthName;
+                                               $inc_month=$monthName;
+                                               $monthName = $monthName>12?'01':$monthName; 
+                                               $pr_value = 'no';
+                                               ?>   
+                                                <?php $yearCount = $inc_month>12?$currentYear++:$currentYear; ?>
+                                            
+                                            
+                                               <?php $yearCount = $currentYear; ?>
+                                                <?php   foreach($this->data[$value['u_id']] as $newkey => $newValue){ ?>
+                                              
+                                                <?php $effectiveDateArr = explode('-',$newValue['effective_date']);
+                                                    if("$effectiveDateArr[0]-$effectiveDateArr[1]" == "$yearCount-$monthName" && $newValue['component_2'] !==0){
+                                                          //echo '<pre>'; print_r($newValue) ; 
+                                                ?>
+                                         
+                                                <?php $pr_value = strlen($newValue['component_2'])==1?"0{$newValue['component_2']}":$newValue['component_2'];?>
+                                             
+                                           
+                                                    <?php } ?>
+                                                 
+                                                        
+                                                <?php } ?>
+                                             <th class='sub'>
+                                             <?php 
+                                                if($pr_value !=='no'){
+                                                    echo $pr_value;
+                                                    $total_pr+=$pr_value;
+                                                 } else{ 
+                                                 
+                                                  echo '---';
+                                                 } ?>
+                                                 </th>
+                                                 
+                                                 <?php 
+                                                
+                                                   (int)$monthName++; } ?>
+                                        </tr>
+
+                                    </table>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------total-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class="sub">
+                                     <?php if($total_pr){
+                                        echo $total_pr;
+                                    }else{echo '00';
+                                    $total_pr = 0;
+                                    }?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Theory Percentage-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class='sub'>
+                                    <?php $divisor = 2;if($total_pr==0 && $total_theory==0 ){$pract_per = 0;$divisor = 1;}else{ ?>
+                                    <?php $theory_per =  round(($total_pr/$total_theory)*100); $divisor = 2;}?>
+                                    <?=$theory_per;?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Attended Class for Practical-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th >
+                                    <table class="tablestyle1" width="100%" >
+                                         <tr><?php $monthName = $monthFrom; 
+                                                $currentYear = $startYear;
+                                                $total_pr = 0
+                                              
+                                        ?>
+                                            <?php for($i = 1; $i<=($month_diff+1); $i++){ ?>
+                                            
+                                               <?php 
+                                               $monthName = strlen($monthName)==1?"0$monthName":$monthName;
+                                               $inc_month=$monthName;
+                                               $monthName = $monthName>12?'01':$monthName; 
+                                               $pr_value = 'no';
+                                               ?>
+                                                 
+                                                <?php $yearCount = $monthName>12?$currentYear++:$currentYear; ?>
+                                                <?php $yearCount = $currentYear; ?>
+                                                <?php   foreach($this->data[$value['u_id']] as $newkey => $newValue){ ?>
+                                             
+                                                <?php $effectiveDateArr = explode('-',$newValue['effective_date']);
+                                                    if("$effectiveDateArr[0]-$effectiveDateArr[1]" == "$yearCount-$monthName" && $newValue['component_3'] !==0){
+                                                ?>
+                                                <?php $pr_value = strlen($newValue['component_3'])==1?"0{$newValue['component_3']}":$newValue['component_3'];?>
+                                           
+                                                    <?php } ?>
+                                                 
+                                                        
+                                                <?php } ?>
+                                             <th class='sub'>
+                                             <?php 
+                                                if($pr_value !=='no'){
+                                                    echo $pr_value;
+                                                    $total_pr+=$pr_value;
+                                                    
+                                                 } else{ 
+                                                 
+                                                  echo '---';
+                                                 } ?>
+                                                 </th>
+                                                 
+                                                 <?php 
+                                                
+                                                  (int) $monthName++; } ?>
+                                        </tr>
+
+                                    </table>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------tot-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class='sub'>
+                                    <?php if($total_pr){
+                                        echo $total_pr;
+                                    }else{echo '00';
+                                    $total_pr = 0;
+                                    }?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!------Practical percentage-------------->
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class='sub'>
+                                    <?php if($total_pr==0 && $total_practical==0 ){$pract_per = 0;$divisor = 1;}else{?>
+                                    <?php $pract_per = round(($total_pr/$total_practical)*100);}
+                                    ?>
+                                    <?=$pract_per ;?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                    <th class='sub'><!----OVER ALL PERCENTAGE------------>
+                        <table class="tablestyle1" width="100%" >
+                            <tr>
+                                <th class='sub'>
+                                    <?=round(($theory_per+$pract_per)/$divisor)?>
+                                </th>
+                            </tr>
+                        </table>
+                    </th>
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+                </th>
+    </tr>
+        </tbody>
+
+
+    </table>
+</div>
+</center>
+
+
+<?php 
+   function stackData($parent,$child){
+        $result = array();
+        try{
+            if(is_array($parent) && is_array($child)){
+                
+                foreach($parent as $index => $parent_value){
+                    foreach($parent_value as $parent_key => $parent_key_value){
+                        foreach($child as $child_index => $child_value){
+                            if($parent_key_value == $child_value[$parent_key] && array_key_exists($parent_key, $child_value)){
+                                $result[$parent_key_value][] = $child_value;
+                            }
+                        } 
+                    }  
+                }
+                return $result;
+        }else
+        {
+          throw new Exception('first and second param should be of type array !');  
+        }
+        
+        }
+         catch (Exception $e){
+     
+            echo '<strong>Error Message !</strong>'.$e->getMessage();
+        
+        
+    }
+        }?>
+<script>
+   modifiedDataTable(true);
+    </script>

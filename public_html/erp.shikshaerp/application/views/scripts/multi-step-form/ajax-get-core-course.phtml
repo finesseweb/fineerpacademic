@@ -1,0 +1,38 @@
+<style>
+    td input[type="radio"] {
+    width:20px;
+    height:20px;
+    display:block;
+    margin:0px auto;
+}
+</style>
+<table class="table table-striped table-bordered mb30 jambo_table bulk_action coreTable">
+    <thead>
+    <tr>
+        
+        <th style="width:50%"> Core Course</th>
+        <th style="text-align: center;"> Select your choice</th>
+    <tr>
+    </thead>
+    <tbody>
+<?php
+                                foreach ($this->paginator as $key => $results) {
+                                    //echo '<pre>';print_R($results);
+                                    ?>
+
+   
+        <tr>
+    <td><label> <?php echo $results['department']; echo " ";?></label>  </td>
+   
+    <td id='<?php echo $key; ?>' colspan="2"><input type="radio"   value="<?= $results['academic_year_id'];?> " required> </td> 
+        </tr>
+  
+                               <?php 
+                                }
+                               ?>
+ 
+    </tbody>
+</table>
+<script>
+
+</script>

@@ -1,0 +1,245 @@
+
+<table class="table table-striped table-bordered mb30 jambo_table bulk_action " id="datatable-responsive">
+
+    <thead>
+
+        <tr>
+
+            <th style="text-align:center;">S. No.</th>
+            <th style="text-align:center;" >Applicant Name</th>
+            <th style="text-align:center;" >Application Number</th>
+            <th style="text-align:center;">Form Id</th>
+            <th style="text-align:center;">Roll No</th>
+            <th style="text-align:center">Department</th>
+            <?php if($this->degree_id['degree_id'] !=1){ ?>
+            <th style="text-align:center">First Year Certificate</th>
+            <th style="text-align:center">Second Year Certificate </th>
+            <th style="text-align:center">Third Year Certificate</th>
+            <?php } else { ?>
+            <th style="text-align:center">InterMediate Mark-Sheet</th>
+            <?php } ?>
+            <th style="text-align:center">SLC Certificate</th>
+            <th style="text-align:center">Character Certificate</th>
+            <th style="text-align:center">Caste Certificate</th>
+            <th style="text-align:center">Baptism Certificate</th>
+            <th style="text-align:center">Provisional Admission/Undertaking Certificate</th>
+
+        </tr>
+        
+    </thead>
+
+    <tbody style="text-align:center;">
+
+        <?php
+                
+
+        $i = 1;
+
+        $pagination_tr = '';
+
+        if (count($this->paginator) != 0) {
+
+
+
+            foreach ($this->paginator as $results) {
+
+               //echo '<pre>'; print_r($results); exit;
+
+                ?>
+
+                <tr>
+
+                    <td><?php
+
+                        echo $i;
+                            $i++;
+
+                        ?>
+
+                    </td>
+                    <td><?php echo strtoupper($results['applicant_name']);?></td>
+                    <td><?php echo strtoupper($results['application_no']);?></td>
+                    <td id="form_id"><?php echo $results['form_id'];?></td>
+                    <td><?php echo $results['roll_no'];?></td>
+                    <td><?php echo $results['department_type'];?></td>
+                    
+                    <?php if($this->degree_id['degree_id'] !=1){ ?>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['f_year'], $output_array); ?>
+                        <?php if($results['f_year']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['f_year']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['f_year']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['s_year'], $output_array); ?>
+                        <?php if($results['s_year']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['s_year']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['s_year']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['t_year'], $output_array); ?>
+                        <?php if($results['t_year']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['t_year']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['t_year']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <?php } else { ?>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['marksheet'], $output_array); ?>
+                        <?php if($results['marksheet']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['marksheet']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['marksheet']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <?php } ?>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['slc_cert'], $output_array); ?>
+                        <?php if($results['slc_cert']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['slc_cert']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['slc_cert']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['char_cert'], $output_array); ?>
+                        <?php if($results['char_cert']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['char_cert']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['char_cert']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['caste_cert'], $output_array); ?>
+                        <?php if($results['caste_cert']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['caste_cert']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['caste_cert']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['bapt_cert'], $output_array); ?>
+                        <?php if($results['bapt_cert']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['bapt_cert']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['bapt_cert']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    <td style="text-align: center">
+                        <?php  preg_match('/.*\.(pdf|jpg|jpeg|png|PNG)/', $results['undertaking_cert'], $output_array); ?>
+                        <?php if($results['undertaking_cert']){
+                            if(isset($output_array[1]) && $output_array[1]!='pdf'){?>
+                                <img src="<?php echo $this->baseUrl($results['undertaking_cert']);?>" alt="img" height="80" width="100"> 
+                         <?php   }else{?>
+                                <div class="col-sm-12">
+                                    <a href="<?php echo $this->baseUrl($results['undertaking_cert']);?>"target="_blank">  <i style="font-size:10em"class="fa fa-file-pdf-o" aria-hidden="true"></i></a>
+                                </div>
+
+                      <?php    }?>
+
+                       <?php } else{
+                           echo 'Not Uploaded';
+                       }
+                       ?>
+                    </td>
+                    
+
+                    
+                </tr>            
+
+                <?php
+
+            }
+
+            $pagination_tr = $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+
+        }
+
+        ?>
+
+    </tbody>
+
+</table>
+<script>
+    setDatatables();
+
+//End
+
+</script>

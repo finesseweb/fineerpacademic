@@ -1,0 +1,403 @@
+<style>
+    @media print {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+  .visible-xs {
+    display: none !important;
+  }
+  .hidden-xs {
+    display: block !important;
+  }
+  table.hidden-xs {
+    display: table;
+  }
+  tr.hidden-xs {
+    display: table-row !important;
+  }
+  th.hidden-xs,
+  td.hidden-xs {
+    display: table-cell !important;
+  }
+  .hidden-xs.hidden-print {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+       #non-printable { display: none; }
+        #printable { display: block; } 
+        
+  .printdiv:last-child {
+     page-break-inside: avoid;
+}
+body * {
+    visibility: hidden;
+  }
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+    font-size:12px;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #offlinPayment{
+      width:100%;
+  }
+ 
+}
+ @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 1mm;
+         margin-top:-45%;/* this affects the margin in the printer settings */
+    }   
+   
+</style>
+
+<div class="admitCard" id="admitCardPreview">
+    <div class="multistepformArea offlinPayment" id="offlinPayment">
+   <div style="float:right;padding-bottom: 3em;">
+
+        <button type="button" id="printAppForm2" onclick="window.print()" class="btn btn-primary">Print</button>
+    </div>
+    <form class="regForm" id="formValidate1" action="" method="post" data-validate="parsley" >
+
+
+            <fieldset id="section-to-print">
+                <div class="col-sm-12 " id="secondpage">
+                    <div class="col-sm-2">
+                    <div class="form-group" style="float:right; padding-top: 1em;">
+                        <img src="<?php echo $this->baseUrl($this->paginator['photo']);?>" alt="img" height="120" width="130"> 
+                        <h4 style="text-align: center"> <?= $this->paginator['form_id'] ?> </h4>
+                    </div>
+                    </div>
+                    <div class="col-sm-8 employee_class ">
+
+                        <div class = 'sub' style="text-align: center; padding-top: 1em;">
+                            <p style ="font-size:1.2em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center"><u>PATNA WOMEN'S COLLEGE</u></p>
+                            <p style ="font-size:.8em; letter-spacing:.05em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center">AUTONOMOUS</p>
+                            <p style ="font-size:1em; font-weight:600">PATNA UNIVERSITY
+                                3rd Cycle NAAC Accredited at A Grade with CGPA 3.58/4</p>
+                            <p style ="font-size:1em; font-weight:600">'College with Potential for Excellence'(CPE) status accorded by UGC</p>
+                            <p style ="font-size:1em; font-weight:600"> BAILEY ROAD,PATNA - 800 001, BIHAR</p>
+                            <p style ="font-size:1em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1)"><u>Caste Application Form for Admission on the Reserved Seats in -   <?= $this->paginator['course_name'] ?> -Sem-1 </u></p>
+                            <p style ="font-size:-8em; letter-spacing:.03em; font-weight:700">Reserved Categories :-  <?= $this->paginator['caste_category'] ?> ( <?= $this->paginator['caste'] ?>) </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="form-group" style="float:right; padding-top: 1em;">
+                            <img src="<?php echo $this->mainconfig['publicpath']; ?>img/logo.png" width="120" height="130"> 
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    
+                   
+                        <b> 
+                            <p>(Note :- The Caste certificate only issued from S.D.O. /C.O. /D.M. is accepted )</p>
+                            <p>Session:<?= $this->paginator['session'] ?></p>
+
+                        </b>
+          
+               
+              
+            <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                <thead>
+                    <tr>
+                         
+                    </tr>
+                </thead>
+                <tbody>
+              
+                    <tr>
+                        <td class="col-sm-2"> Name Of Candidate  </td>
+                        <td class="col-sm-2"><?= $this->paginator['applicant_name'] ?> </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Father's Name  </td>
+                        <td class="col-sm-2"> <?= $this->paginator['father_name'] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Occupation  </td>
+                        <td class="col-sm-2"><?= $this->paginator['father_occup'] ?> </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Caste Category  </td>
+                        <td class="col-sm-2"><?= $this->paginator['caste_category'] ?></td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Form Id  </td>
+                        <td class="col-sm-2"> <?= $this->paginator['form_id'] ?> </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Caste Certificate No  </td>
+                        <td class="col-sm-2">
+                            <?php if($this->paginator['certificate_no']){
+                                echo $this->paginator['certificate_no'];
+                            }else{
+                                echo 'N/A';
+                            }?>
+                            
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Issued  By</td>
+                        <td class="col-sm-2">
+                            <?php if($this->paginator['certificate_issued']){
+                                echo $this->paginator['certificate_issued'];
+                            }else{
+                                echo 'N/A';
+                            }?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Place  </td>
+                        
+                        <td class="col-sm-2"> 
+                            <?php if($this->paginator['p_homeTown']){
+                                echo $this->paginator['p_homeTown'];
+                            }else{
+                                echo 'N/A';
+                            }?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-sm-2"> Full Address for Correspondence  </td>
+                        <td class="col-sm-2">Village: <?= $this->paginator['p_address'] ?>,Post-Office:<?= $this->paginator['p_postOffice'] ?>,Police St.:<?= $this->paginator['p_policeSt'] ?>,District:<?= $this->paginator['p_district'] ?>,State:<?= $this->paginator['p_state'] ?>,Pin Code:<?= $this->paginator['p_code'] ?>
+                        </td>
+                    </tr>
+                
+                </tbody>
+            </table>
+                
+                </div>
+                <div class="col-sm-12">
+                    <br><br>
+                </div>
+                <div class="col-sm-6">
+                    <b> 
+                        <p>Selected /Rejected</p>
+                    </b>
+                </div>
+                
+                <div class="col-sm-6" >
+                    <b> 
+                        <p style="float: right;">Signature of the Candidate</p><br>
+                        <br>
+                         <p style="float: right;">Date:___________________  </p>
+                    </b>
+                </div>
+                 <div class="col-sm-12">
+                    <br><br>
+                    ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                   <br><br>
+                </div>
+                 <div class="col-sm-12" >
+                    <b> 
+                        <p>Received application form for the reserved categories : <?= $this->paginator['course_name'] ?> - Sem 1 </p>
+                        
+                         <p>Received from : <?= $this->paginator['applicant_name'] ?> </p>
+                        
+                         <p>For Admission to the <?= $this->paginator['course_name'] ?> - Sem 1 </p>
+                    </b>
+                </div>
+                <div class="col-sm-12">
+                    <br><br>
+                   
+                </div>
+                <div class="col-sm-6">
+                    <b> 
+                        <p>Date:___________________ </p>
+                    </b>
+                </div>
+                <div class="col-sm-6" >
+                    <b> 
+                        <p style="float: right;">Receiving Officer, </p><br>
+                        <br>
+                        <p style="float: right;">&nbsp;&nbsp;Patna Women's College </p>
+                    </b>
+                </div>
+                &nbsp;<br>
+<!--                <div style="float:right;padding-bottom: 3em;">
+
+                    <button type="button" id="printAppForm1" onclick="window.print()" class="btn btn-primary">Print</button>
+                </div>-->
+            </fieldset>
+    </form>
+
+    </div></div>
+</div>
+
+<script>
+   
+</script>

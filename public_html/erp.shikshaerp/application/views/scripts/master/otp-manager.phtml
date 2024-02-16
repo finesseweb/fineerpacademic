@@ -1,0 +1,63 @@
+<style>
+   
+    
+    
+    
+</style>
+<div class="right_col bdoypayment">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                        <h3 class="page-title txt-color-blueDark">
+                            <i class="fa fa-bars">OTP Information</i>
+
+                        </h3>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                   <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label" style="float:left;">Enter Your Form Id:<span class="asterisk">*</span></label>
+                            <?php echo $this->form->otp_field; ?>
+                        </div>
+                   </div><hr>
+                <div style="float:left;padding-left:10%;">
+                    <button class="btn btn-primary submit" id="otpInfo">Submit</button>
+                </div>
+                </div>
+                 <div class="col-md-12">
+                   <div class="table-responsive" id="studentData"> 
+                       
+                    </div>
+                </div>
+                
+            </div>    
+           
+
+        </div>
+       
+        </div></center>
+    </div>
+    <?php 
+    
+
+    ?>
+
+<script>
+$("#otpInfo").click(function(){
+    var form_id= $('#otp_field').val().trim();
+        if (form_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Otp'; ?>',
+                data: {form_id: form_id}
+            }).done(function (data) {
+                $('#studentData').empty('');
+                $('#studentData').html(data);
+            });
+        }
+});
+</script>
+

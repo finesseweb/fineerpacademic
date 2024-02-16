@@ -1,0 +1,941 @@
+
+<style>
+@media print {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+  .visible-xs {
+    display: none !important;
+  }
+  .hidden-xs {
+    display: block !important;
+  }
+  table.hidden-xs {
+    display: table;
+  }
+  tr.hidden-xs {
+    display: table-row !important;
+  }
+  th.hidden-xs,
+  td.hidden-xs {
+    display: table-cell !important;
+  }
+  .hidden-xs.hidden-print {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+       #non-printable { display: none; }
+        #printable { display: block; } 
+        
+  .printdiv:last-child {
+     page-break-inside: avoid;
+}
+body * {
+    visibility: hidden;
+  }
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+    font-size:12px;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  #applicationFormPreview{
+      width:100%;
+  }
+ 
+}
+ @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 1mm;
+         margin-top:-45%;/* this affects the margin in the printer settings */
+    }   
+   
+    
+</style>
+<div class="appForm" id="applicationFormPreview">
+<div class="multistepformArea" id="applicationFormPreview">
+       <div style="float:right;padding-bottom: 3em;">
+            <button type="button" id="printAppForm2"  class="btn btn-primary" onclick="window.print()">Print</button>
+        </div>
+    <form class="regForm" id="formValidate1" action="" method="post" data-validate="parsley" >
+        <div class="row" id="section-to-print">
+        <div class="col-sm-12 employee_class">
+                
+            <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                <thead>
+                    <tr>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+               
+                        <td class="col-sm-2">
+                           
+                            <div class="form-group">
+                                <img src="<?php echo $this->baseUrl($this->paginator['photo']);?>" alt="img" height="160" width="190"> 
+                                <h4 style="text-align: center"> <?= $this->paginator['form_id'] ?> </h4><br>
+                            </div>
+                 
+
+                        </td>
+
+                        <td class="col-sm-8">
+                            <div class = 'sub' style="text-align: center;">
+                            <p style ="font-size:1.2em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center"><u>PATNA WOMEN'S COLLEGE</u></p>
+                            <p style ="font-size:.8em; letter-spacing:.05em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center">AUTONOMOUS</p>
+                            <p style ="font-size:1em; font-weight:600">PATNA UNIVERSITY
+                                3rd Cycle NAAC Accredited at A Grade with CGPA 3.58/4</p>
+                            <p style ="font-size:1em; font-weight:600">'College with Potential for Excellence'(CPE) status accorded by UGC</p>
+                            <p style ="font-size:1em; font-weight:600"> BAILEY ROAD,PATNA - 800 001, BIHAR</p>
+                            <p style ="font-size:1.2em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1)"><u>Application Form</u></p>
+                            <p style ="font-size:1em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1)"><?= $this->paginator['course_name'] ?> -Sem-1 -  <?= $this->paginator['session'] ?></p>
+                        </div>
+                        </td>
+                        <td class="col-sm-2">
+                            <div class="form-group" style="padding-top: 1em;">
+                                <img src="<?php echo $this->mainconfig['publicpath']; ?>img/logo.png" width="120" height="130"> 
+                            </div>
+                        </td>
+           
+
+                    </tr>
+                  
+                </tbody>
+            </table>
+         
+                <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:15%" id="a"> Applicant Information</th>
+                            <th style="width:15%"></th>   
+                            <th style="width:8%"></th>   
+                            <th style="width:15%"></th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                              Name
+                            </td>
+                            
+                            <td class="">
+                               <?= $this->paginator['applicant_name'] ?>
+                            </td>
+                            <td class="">
+                              Gender
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['gender'] == 1){
+                                    echo 'Female';
+                                }else{
+                                    echo 'Transgender';
+                                }  ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Date of Birth
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['dob'] ?>
+                            </td>
+                            <td class="">
+                             Nationality
+                            </td>
+                            <td>
+                                <?php if($this->paginator['nationality']){
+                                    echo $this->paginator['nationality'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Father's Name
+                            </td>
+                            
+                            <td class="">
+                               
+                                <?php echo $this->paginator['father_name'];?>
+                            </td>
+                            <td class="">
+                              Religion
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['religion'] == 'others'){
+                                    echo $this->paginator['others_religion'];
+                                 }else{
+                                   echo $this->paginator['religion'];
+                                 }  ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Mother's Name
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['mother_name'] ?>
+                            </td>
+                            <td class="">
+                              Category
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['caste'] ?>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+                <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1" >
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a"> First Preference</th>
+                            <th style="width:15%"></th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                              Core Course
+                            </td>
+                            
+                            <td class="">
+                               <?= $this->paginator['corecourse1'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Generic Elective
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['ge1'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Ability Enhancement Compulsory Course
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['aecc1'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Compulsory
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['comp_evs'] ?>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            <?php if(!empty($this->paginator['corecourse2'])){ ?>
+                <table id='b' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a"> Second Preference</th>
+                            <th style="width:15%"></th>   
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                              Core Course
+                            </td>
+                            
+                            <td class="">
+                               <?= $this->paginator['corecourse2'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Generic Elective
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['ge2'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Ability Enhancement Compulsory Course
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['aecc2'] ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Compulsory
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['comp_evs'] ?>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            <?php } ?>
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a"> Appearing Status</th>
+                           
+                            <th style="width:15%">
+                           </th>   
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                             Appearing Status
+                            </td>
+                            
+                            <td class="">
+                              <?php if($this->paginator['appearingStatus'] == 1){
+                                echo 'Yes';
+                            } else {
+                                echo 'No';
+                            }
+                            ?>
+                            </td>
+                            
+                           
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table> 
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:15%" id="a"> Educational Details</th>
+                            <th style="width:15%"></th>  
+                            <th style="width:15%"></th>   
+                            <th style="width:8%">
+                            </th>   
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                              School/College
+                            </td>
+                            
+                            <td class="">
+                               <?= $this->paginator['school'] ?>
+                            </td>
+                            <td class="">
+                             Board/University
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['i_board'];?>
+                                  
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                             Division/Grade
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['i_division']){
+                                    echo $this->paginator['i_division'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">
+                             Roll No.
+                            </td>
+                            <td>
+                                <?php if($this->paginator['i_roll']){
+                                    echo $this->paginator['i_roll'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Obtained Marks
+                            </td>
+                            
+                            <td class="">
+                               
+                                <?php if($this->paginator['obt_marks']){
+                                    echo $this->paginator['obt_marks'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">
+                              Total Marks
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['obt_marks']){
+                                    echo $this->paginator['obt_marks'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                              Percentage
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['percent']){
+                                    echo $this->paginator['percent'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">
+                             Passing Year
+                            </td>
+                            
+                            <td class="">
+                                <?php if($this->paginator['i_pass_year']){
+                                    echo $this->paginator['i_pass_year'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            
+                        </tr>
+                    </tbody>
+                </table>   
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:15%" id="a"> Details of Last Examination</th>
+                            <th style="width:15%"></th>  
+                            <th style="width:15%"></th>   
+                            <th style="width:8%">
+                           </th>   
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                              Name Of Institution
+                            </td>
+                            
+                            <td class="">
+                               <?= $this->paginator['school'] ?>
+                            </td>
+                            <td class="">
+                             Board/University
+                            </td>
+                            
+                            <td class="">
+                                <?= $this->paginator['i_board'];?>
+                                  
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            
+                            <td class="">
+                             Passing Year
+                            </td>
+                            
+                            <td class="">
+                               <?php if($this->paginator['i_division']){
+                                    echo $this->paginator['i_division'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">
+                           
+                            </td>
+                            <td>
+                              
+                            </td>
+                            
+                        </tr>
+                        
+                    </tbody>
+                </table>   
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a"> Extra Circular Activities</th>
+                           
+                            <th style="width:15%">
+                           </th>   
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                             Extra-Curricular Activities
+                            </td>
+                            
+                            <td class="">
+                               <?php if($this->paginator['ExtraCurricularSelection']){
+                                    echo $this->paginator['ExtraCurricularSelection'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>     
+                        </tr>
+                        <tr>
+                            
+                            <!--<td class="">
+                             You are applying under the quota
+                            </td>
+                            
+                            <td class="">
+                              
+                            </td> --> 
+                        </tr>
+                        
+                    </tbody>
+                </table>   
+        
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td colspan="2">
+                                <h4 style=" text-align:center" ><b> Declaration</b></h4>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td  style="width:5%" ></td>
+                            <td>I declare that all particulars furnished above are true and correct. I have studied the College prospectus and promise to abide by the rules and regulations of the College.
+</td>
+                        </tr>
+                        <tr>
+                            <td  style="width:5%; vertical-align: bottom" >
+                                Date:_______________
+                                   
+                            </td>
+                            <td style="height: 4em; vertical-align: bottom;text-align: right">
+                                Signature of Applicant
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                       
+                        <tr>
+                            <td  style="width:5%" ></td>
+                            <td>I give an assurance that my daughter/ward will observe the rules and regulations of the College faithfully.
+</td>
+                        </tr>
+                        <tr>
+                            <td  style="width:5% ;vertical-align: bottom" >
+                                Date:_______________
+                            </td>
+                            <td style="height: 4em; vertical-align: bottom; text-align: right">
+                                Signature of Parent/Guardian
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+        </div>
+   
+        <div class="col-sm-12 employee_class">
+                
+            <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                <thead>
+                    <tr></th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                  
+                    <tr>
+
+                        <td class="col-sm-2">
+                           
+                            <div class="form-group">
+                                <img src="<?php echo $this->baseUrl($this->paginator['photo']);?>" alt="img" height="160" width="190"> 
+                                <h4 style="text-align: center"> <?= $this->paginator['form_id'] ?> </h4><br>
+                            </div>
+                 
+
+                        </td>
+
+                        <td class="col-sm-8">
+                            <div class = 'sub' style="text-align: center;">
+                            <p style ="font-size:1.2em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center"><u>PATNA WOMEN'S COLLEGE</u></p>
+                            <p style ="font-size:.8em; letter-spacing:.05em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1);text-align: center">AUTONOMOUS</p>
+                            <p style ="font-size:1em; font-weight:600">PATNA UNIVERSITY
+                                3rd Cycle NAAC Accredited at A Grade with CGPA 3.58/4</p>
+                            <p style ="font-size:1em; font-weight:600">'College with Potential for Excellence'(CPE) status accorded by UGC</p>
+                            <p style ="font-size:1em; font-weight:600"> BAILEY ROAD,PATNA - 800 001, BIHAR</p>
+                            <p style ="font-size:1.2em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1)"><u>Application Form</u></p>
+                            <p style ="font-size:1em; letter-spacing:.03em; font-weight:900; text-shadow:0px 0px RGBA(147,46,144,1)"><?= $this->paginator['course_name'] ?> -Sem-1 -  <?= $this->paginator['session'] ?></p>
+                        </div>
+                        </td>
+                        <td class="col-sm-2">
+                            <div class="form-group" style="padding-top: 1em;">
+                                <img src="<?php echo $this->mainconfig['publicpath']; ?>img/logo.png" width="120" height="130"> 
+                            </div>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td ></td>
+                            <td colspan="2" class="col-sm-8"><h4 style=" text-align:center" > <b>Terms and conditions</b></h4></td>
+
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2"  style="vertical-align: bottom" >
+                              
+                            </td>
+                            <td colspan="2" class="col-sm-8">
+                                <b>Read carefully at the time of submission of filled in forms:</b>
+                                <p>Admission Form for<b> <?= $this->paginator['course'] ?> (Hons.) Part-I,<?= $this->paginator['session'] ?> </b>will be  available on the website of Patna Women’s College at www.pwcadmissions.in from                  01.04.2019 – 10.05.2019, on payment of Rs. 900/- for all Categories. Course is based on Choice Based Credit System (CBCS) syllabus. </p>
+                                <p><b><u>Forms to be filled in online.</u></b> Applicant can do the payment via their debit/credit card or net banking. If payment is in <b>Offline mode</b>, then take a  printout of   <b>Bank Challan</b> from the website and deposit at<b> Vijaya Bank, Extension Counter, Patna Women’s College </b>campus with the <b>printed challan.</b> One who will deposit offline mode, her Roll No. will be allotted after <b><u>10.05.2019</u></b> <b> (Please come with deposited bank challan). </b></p>
+                                <p>Candidates who are appearing for the qualifying examination for the current academic year are also eligible to apply subject to condition that they produce the proof of having passed the qualifying examination with at least 45% marks at the time of admission.  </p>
+                                <p><b>Caste Certificate issued by CO/SDO/DM only. </b></p>
+                                <p><b>Last date to submit the forms is 10.05.2019. </b></p>
+                                <p><b>Note: </b></p>
+            <ul>
+                <li>The Candidate should attach a photocopy of I.A./I.Sc./+2 level Mark-Sheet, as the case may be. </li>
+                <li>Appearing Candidate should attach a copy of Admit Card and mention in form “Appearing”. </li>
+                <li>Admission will be done on the basis of marks obtained at the Entrance Test 2019. </li>
+                <li>However, at the time of admission, the candidates should possess the mark-sheet of the qualifying examination, SLC/CLC and Migration certificate. </li>
+                <li>Compartment/failed candidates will not be considered for admission even if they have qualified in the Entrance test 2019. Minimum qualifying marks in the Entrance Test: </li>
+            </ul>
+                                <b> General Category : 50%  </b><br>
+                                <b> S.C./S.T./E.B.C. : 45%</b>
+
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td colspan="2"><h4 style=" text-align:center" ><b> Declaration</b></h4></td>
+                           
+                        </tr>
+                        <tr>
+                            <td  style="vertical-align: bottom" >
+                              
+                            </td>
+                            <td colspan="2" style="height: 4em; vertical-align: bottom; text-align: left">
+                                I declare that I have read and agree to the Terms & Conditions mentioned above as it is.
+
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                          
+                           <td  style="vertical-align: bottom" >
+                                Date:_______________
+                            </td>
+                            <td colspan="2" style="height: 4em; vertical-align: bottom; text-align: right">
+                                Signature of Parent/Guardian
+                            </td>
+                              
+                        </tr>
+                      
+
+               
+                 
+                </tbody>
+            </table>
+             &nbsp;<br>                     <div style="float:right;padding-bottom: 3em;">
+                            
+                            <button type="button" id="printAppForm1" class="btn btn-primary" onclick="window.print()">Print</button>
+                        </div>
+        </div></div></form></div>
+</div>
+<!--<script>
+   
+        function printGrid() {
+        var gridData = document.getElementById('formValidate1');
+            var windowUrl = ' ';
+            //set print document name for gridview
+            var uniqueName = new Date();
+            var windowName = 'Print_' + uniqueName.getTime();
+            var prtWindow = window.open(windowUrl, windowName, 'left=0,top=0,right=0,bottom=0,width=screen.width,height=screen.height,margin=0,0,0,0');
+            prtWindow.document.write('<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"></head>');
+            prtWindow.document.write('<body style="background:none !important; zoom: 87%;">');
+            prtWindow.document.write(gridData.outerHTML);
+            //prtWindow.document.write('<div class="footer">This is Footer</div></body></html>');
+            prtWindow.document.close();
+            prtWindow.focus();
+            prtWindow.print();
+            prtWindow.close();
+        }
+
+$('#printAppForm1,#printAppForm2').on('click',function(){
+    $('#printAppForm1').hide();
+    printGrid();
+    
+});
+</script>-->
+
+
+<!--<script>
+    $('#printAppForm2').click(function(){
+    
+      $('#downloadArea').hide(); 
+    
+    
+    })
+    </script>-->

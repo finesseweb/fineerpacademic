@@ -1,0 +1,611 @@
+<style>
+    
+
+    body>div>h1 {
+
+    display: none;
+
+}
+
+    .bdoypayment {
+        margin-top: 4.5em;
+        padding-left: 24.5em;
+        padding-right: 54.5em;
+
+    }
+
+    label.indent{
+
+        padding-left: 1.8em;
+
+    }
+
+    .cont{
+
+        position:absolute;
+
+        top:50%;
+
+        left:50%;
+
+        transform: translate(-50%,-50%);
+
+        
+
+        
+
+    }
+   
+
+    
+    /*.right_col{*/
+    /*    position:absolute;*/
+    /*    top:50%;*/
+    /*    left:50%;*/
+    /*    transform:translate(-50%,-70%);*/
+    /*    background:#fff;*/
+         
+    /*     padding:1em;*/
+    /*}*/
+    
+
+</style>
+ <?php $declaredTerms =  new Application_Model_Declaredterms();
+        $data = $declaredTerms->getDropDownList(); ?>
+<div class="right_col examid">
+  <?php
+      
+    if (count($this->messages)) {
+        foreach ($this->messages as $message) {
+            ?>
+            <div <?php
+            if ($_SESSION['admin_login']['admin_login']->flash_error == 0) {
+                echo 'class="alert alert-danger"';
+                $_SESSION['admin_login']['admin_login']->flash_error = 1;
+            } else {
+                echo "class='alert alert-success'";
+            }
+            ?>>
+                <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+            <?php echo $this->escape($message); ?>
+            </div>
+        <?php
+        }
+    }
+    ?>
+  <?php  if($this->type=='view') {?>
+     <div class="examid">
+      
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                      
+                    </h3>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">   
+                </div>
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <center><h2 class="title1">Semester Fee (Online Payment)</h2></center> </div>
+                           
+                       
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row">  <div class="col-md-offset-5 col-md-4">
+                            <h3 class="title1" style ="color:red;"><?=$this->msg?></h3> </div></div>
+                     </div>
+               
+                <div class="x_content">
+
+                    <div class="padding-md clearfix">
+                       
+                        <div class="table-responsive" id="studentData"> 
+
+<?php 
+//print_r($this->studetais);
+//die();
+?>
+<!--///////   raushan  -->
+ <div class="panel panel-default ">  
+    <div class="panel-body masterbox ">
+     <div class="col-md-12 container " style='background:#932e90; color:#fff;'>
+         <div class="col-md-offset-1 col-md-2 pull-left">
+        <img src="https://pwcadmissions.in/academic/public/images/img.png" alt="..." class="profile_img img-thumbnail">
+        <div class="clearfix"></div>
+        </div>
+        <div class="col-md-5">
+             <h2 style="text-align: center;">PATNA WOMEN'S COLLEGE </h2>
+                                   <h3 style="text-align: center;">Autonomous  </h3>
+                                   <h4 style="text-align: center;">(PATNA  UNIVERSITY) </h4>
+                                   <div class="clearfix"></div>
+        </div>
+        <div class="col-md-offset-2 col-md-2 pull-right" style="
+    position:relative;
+   transform:translateY(20%)
+">
+            <img src="https://pwcadmissions.in/academic/<?=$this->studetais['filename'];?>" width ="100px" alt="..." class="profile_img img-thumbnail">
+            <div class="clearfix"></div>
+        </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="panel panel-default " >
+
+                        <form class="no-margin" id="formValidate1" action="save" method="post" data-validate="parsley" enctype="multipart/form-data" >
+
+                            <div class="panel-body masterbox">
+                                <div class="row">
+
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Batch <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="hidden" name="due" value="<?=$this->due?>" id="due">
+                                            <input type="text" name="batch" id="batch" class="form-control" readonly="readonly" value="<?=$this->batch?>">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Name . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="name" id="name" class="form-control" readonly="readonly" value="<?=$this->studetais['stu_fname']?> <?=$this->studetais['stu_lname']?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Class Roll No . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="claas_roll" id="stu_id" class="form-control" readonly="readonly" value="<?=$this->studetais['roll_no']?>">
+                                        </div>
+                                    </div>
+                                      <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Examination Roll No . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="exam_id" id="exam_id" class="form-control" readonly="readonly" value="<?=$this->studetais['exam_roll']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Form iD . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="stu_id" id="stu_id" class="form-control" readonly="readonly" value="<?=$this->studetais['stu_id']?>">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Department. <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="department" id="department" class="form-control" readonly="readonly" value="<?=$this->department?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Mobile. <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="number" name="phone" id="phone" class="form-control" value ="<?=$this->studetais['father_mobileno'];?>" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Email Id . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="email" name="email" id="email"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Semester . <span class="asterisk">*</span></label>
+                                            <select name="semester" id="semester" class="form-control" required="required">
+                                                
+                                                <option value="">Select Semester</option>
+                                            <?php foreach ($data  as $cmn_term => $termname ){ if($this->sem==$cmn_term){ ?>
+                                                <option value="<?=$cmn_term; ?>"><?=$termname;?></option>
+                                                <?php } }?>
+                                            </select>
+                                           
+                                        </div>
+                                    </div>
+                                    <input type="hidden" value="<?=$this->departmentId;?>" name="department" />
+                                    </div>
+                                    <div class="row">
+                                     <div class="col-sm-4 employee_class">
+                                          <div class="form-group" >
+                                           
+                                           
+                                            <label  class="control-label" >Fee type<span class="asterisk">*</span></label>
+                                            <select name="type" id="type" class="form-control" required="required">
+                                                
+                                                <option value="">Select Fes Type</option>
+                                                <option value="R">Semester Full Fee</option>
+                                                <?php if($this->sem !='t1'){ ?>
+                                                <option value="I">Semester Installment Fee</optiion>
+                                                <?php } ?>
+                                            </select>
+                                            <div class="form-control-static">
+                                                 <h5 style="color:red;"> <b>**Notice:- </b> Once Fee type is Selected is Non Mutable !.</h5>
+                                            <h6 style="color:red"><span id="insdate"></span></h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-sm-4 employee_class">
+                                          <div class="form-group" >
+                                            
+                                           
+                                            <label  class="control-label" >Semester Fee(Rs.) <span class="asterisk">*</span></label>
+                                            <select name="fees" id="fees" class="form-control" required="required">
+                                                
+                                                <option value="">Select Fess</option>
+                                                
+                                            </select>
+                                            <div class="form-control-static" id="fullfee"><h5 style="color:red;"> <b>**Notice:- </b> The following amounts will need to be paid".</h5>
+                                            <h6 style="color:red"> total amount is <span id ="prAmount" style="font-size:1.2em;font-weight:bolder;"></span></h6></div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                             
+                                            <label  class="control-label" >Amount <span class="asterisk">*</span></label>
+                                            <input type="text" value="" name="fee" id="fee" readonly="readonly" class="form-control">
+                                            <div class="form-control-static"><h5 style="color:white;"> <b>**Notice:- </b> The following amounts will need to be paid".</h5>
+                                            <h6 style="color:white"> total amount is </h6></div>
+                                        </div>
+                                    </div>
+
+                                    
+
+
+                                </div>
+                                <div class="row">
+                                <div class="col-sm-offset-4 col-sm-4 employee_class">
+                                        <label></label>
+                                        <div class="form-group" >
+                                            <input type="submit" name="" value="Pay Now" class="btn btn-primary">
+                                            
+                                        </div>
+                                    </div>        
+                                        
+                                </div>
+                            </div>
+                        </form>
+
+                            </div>
+   
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->   
+     </div>
+            
+          
+<?php 
+
+    
+
+ } else {    ?>
+            
+     
+
+ <div class="examid">
+      
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars"> Student Admit Card</i>
+<?=$this->mssg;?>
+                    </h3>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">   
+                </div>
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h2 class="title1">Fees  Collection</h2></div>
+                       
+                    <div class="clearfix"></div>
+                </div>
+                     </div>
+               
+                <div class="x_content">
+
+                    <div class="padding-md clearfix">
+                       
+                        <div class="table-responsive" id="studentData"> 
+
+
+<!--///////   raushan  -->
+<div class="panel panel-default">
+                        <form class="no-margin" id="formValidate1" action="<?php echo $this->mainconfig['host']; ?>application/tuitionfees/type/view" method="post" data-validate="parsley" enctype="multipart/form-data" >
+
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Admission Form No . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="stu_id" id="stu_id" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-3 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Semester . <span class="asterisk">*</span></label>
+                                           
+                                            <select name="semester" id="semester" class="form-control" required="required">
+                                                  <option value="">Select Semester</option>
+                                                  <option value="t1">1st Semester</option>
+                                                   <option value="t3">3rd Semester</option>
+                                                   <option value="t5">5th Semester</option>
+                                               <!--<?php foreach($data as $cmn_term => $termname){ ?> -->
+                                               <!-- <option value="<?=$cmn_term;?>"><?=$termname;?></option>-->
+                                               <!-- <?php } ?>-->
+                                                
+                                            </select>
+                                        </div>
+                                    </div>
+                                  
+                                    <div class="col-sm-3 employee_class">
+                                        <label></label>
+                                        <div class="form-group" >
+                                            <input type="submit" name="search" value="Search">
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                            </div>
+   
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->   
+     </div>
+
+
+
+
+
+     
+     <?php
+ }
+
+    ?>
+      
+
+    </div>
+
+ 
+<script>
+$( "#semester>option:nth-child(2)" ).attr('selected','selected');
+
+     var sem = $("#semester").val();
+      var due = $('#due').val();
+    
+
+// //   if(sem==2){
+// //      if(due){
+// //          $('#fees').html('<option value="" selected="selected">Select Fees</option>'+'<option value="'+due+'">'+due+'</option>'); 
+// //      } else {
+// //      $('#fees').html('<option value="" selected="selected">Select Fess</option>'+'<option value="28320">28320</option>'+ '<option value="12570">12570</option>');
+// //  }  
+// //     } else {
+          
+// //      $('#fees').html('<option value="" selected="selected">Select Fees</option>'+'<option value="14000">14000</option>');
+// //      }
+
+let ftype = "<?=$this->ftype;?>";
+if(ftype == "R")
+{
+  $('#type').empty(); $('#type').html("<option value = R>Semester Full Fee</option>");
+   if(due){
+     $('#fees').html('<option value="" selected="selected">Select Fees</option>'+'<option value="'+due+'">'+due+'</option>'); 
+      $('#prAmount').text(due+ ' = INR '+due );
+     
+ }else if(sem){
+$.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-fee';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+                 if(data){
+                     $('#fees').empty();
+                     $('#fees').html(data);
+                       var amount = '';
+                     var total = 0;
+                     var coun = 1;
+                     var sign = '+';
+                     $('#fees>option').each(function(e){
+                         if(coun == $('#fees>option').length)
+                             sign = '';
+                         if($(this).val()){
+                             amount +=$(this).val() + ' '+ sign + ' ';
+                             total +=parseInt($(this).val());
+                         }
+                         coun++;
+                         
+                     });
+                   //  res  = amount.replace(/\+$/gi, "");
+                   //  alert(res);
+                     $('#prAmount').html('<b>'+amount+ ' = INR '+total+"</b>" );
+                      $('#insdate').empty();
+                 }               
+            });
+}
+}
+else if(ftype == "I"){
+     $('#type').empty();
+     $("#fullfee").hide();
+    $('#type').html("<option value = 'I'>Semester Installment Fee</option>");
+    
+       $.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-instalment';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+                 if(data){
+                     $('#fees').empty();
+                     $('#fees').html(data);
+                    let paidFee =  <?=$this->paidfee;?>;
+                    if(paidFee){
+                        paidFee.forEach(function(feeval){
+                            $('option[value="'+feeval+'"]').remove();
+                        });
+                        
+                    }
+                 }
+                 
+                 
+                  $.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-instalment-date';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+               let installmentDate =  JSON.parse(data)
+               let html = "";
+               installmentDate.forEach(value=> {
+                   let res = value.split('-');
+                 html+=`<p><b>Last Date of ${res[1]} is ${res[0]} </b></p>`;
+               });
+               $('#insdate').html(html);
+            });
+            });
+}
+
+
+  
+
+$("#type").change(function(){
+   let type = $(this).val();
+   if(type == 'R'){
+       
+       $.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-fee';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+                 $('#fee').empty();
+                 if(data){
+                     
+                     $('#fees').empty();
+                     $('#fees').html(data);
+                       var amount = '';
+                     var total = 0;
+                     var coun = 1;
+                     var sign = '+';
+                     $('#fees>option').each(function(e){
+                         if(coun == $('#fees>option').length)
+                             sign = '';
+                         if($(this).val()){
+                             amount +=$(this).val() + ' '+ sign + ' ';
+                             total +=parseInt($(this).val());
+                         }
+                         coun++;
+                         
+                     });
+                   //  res  = amount.replace(/\+$/gi, "");
+                   //  alert(res);
+                     $('#prAmount').html('<b>'+amount+ ' = INR '+total+"</b>" );
+                      $("#fullfee").show();
+                      $('#insdate').empty();
+                 }               
+            });
+       
+   }
+   else
+   {
+       $("#fullfee").hide();
+       $.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-instalment';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+                $('#fee').empty();
+                 if(data){
+                       
+                     $('#fees').empty();
+                     $('#fees').html(data);
+
+                 }   
+                 
+                 
+                                       
+                  $.ajax({
+              type: "POST",
+               url:"<?php echo $this->mainconfig['host'].'application/ajax-get-instalment-date';?>",
+              data: {
+                       term_id:sem,academic_id:$('input[name=stu_id]').val()}
+            }).done(function(data) {
+               let installmentDate =  JSON.parse(data)
+               let html = "";
+               installmentDate.forEach(value=> {
+                   let res = value.split('-');
+                  html+=`<p><b>Last Date of ${res[1]} is ${res[0]} </b></p>`; 
+               });
+               $('#insdate').html(html);
+            });
+                 
+                 
+            });
+   
+   
+   }
+    
+});
+
+
+
+
+ $( "#fees" ).change(function() {
+      var amount = $(this).val();
+      if(amount.includes('-')){
+          let res = amount.split('-');
+             $('#fee').val(res[0]);
+        }
+      else
+      {
+         $('#fee').val(amount); 
+      }
+     
+     });
+
+
+
+
+    </script>
+
+
+
+
+
+
+

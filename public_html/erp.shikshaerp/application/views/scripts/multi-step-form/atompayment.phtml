@@ -1,0 +1,96 @@
+<style>
+    .multistepformArea{
+    padding-top: 1px;
+    background-color: white;
+	width: 60%;
+    min-width: 300px;
+	margin: 50px auto;
+	position: relative;
+}
+/*form styles*/
+.regForm {
+    width: 90%;
+    min-width: 300px;
+	margin: 50px auto;
+	position: relative;
+}
+#formValidate1 fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	position: relative;
+}
+</style>
+ 
+<div class="payment">
+   
+<div class="multistepformArea">
+    
+<form class="regForm" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+ 
+   
+<div class="row">
+    <fieldset>
+    <div class="col-sm-12 table-responsive">
+        <?php if($this->paginator['form_id']=='0') {
+            
+             header( "Location:".$this->mainconfig['erp'].'academic/multi-step-form/index/type/step4/a_id/'.md5($this->paginator['application_no']));
+            
+        }
+?>
+        
+            <input type="hidden" name="application_no" value="<?= $this->paginator['application_no']; ?>">
+            <input type="hidden" name="applicant_name" value="<?= $this->paginator['applicant_name']; ?>">
+            <input type="hidden" name="email_id" value="<?= $this->paginator['email_id'] ?>">
+            <input type="hidden" name="phone" value="<?=$this->paginator['phone']; ?>">
+            <input type="hidden" name="form_id" value="<?= $this->paginator['form_id']; ?>">
+            <input type="hidden" name="course" value="<?= $this->paginator['course'] ;?>">
+            <input type="hidden" name="form_fee" value="<?= $this->paginator['examFee'];?>">
+            <input type="hidden" name="product_id" value="<?= $this->paginator['product_id'];?>">
+              <?php echo $this->form->csrftoken; ?>   
+            <table class="table table-bordered tableheader"><thead><th scope="col">Name</th><th>Email Id </th><th>Phone No</th><th>Course (Applied For)</th><th>Form Id</th></thead>
+            <tbody>
+                <tr><td><?= $this->paginator['applicant_name'] ?></td>
+                    <td><?= $this->paginator['email_id'] ?></td>
+                    <td><?= $this->paginator['phone'] ?></td>
+                    <td> <?= $this->paginator['course_name'] ?></td>
+                    <td><?= $this->paginator['form_id'] ?></td>
+                   
+                </tr>
+            </tbody>
+            </table>    
+<!--        <p>Name: <b>  <?= $this->paginator['applicant_name'] ?></p></b>
+        <p>Email Id :  </label> <b>  <?= $this->paginator['email_id'] ?></p></b>
+        <p> Phone No.:</label>  <b>   <?= $this->paginator['phone'] ?></p></b> 
+        <p>Course (Applied For):</label>  <b> &nbsp; <?= $this->paginator['course_name'] ?></p></b>  
+        <p> Form Id :</label>  <b>  <?= $this->paginator['form_id'] ?></b> </p> <br>-->
+     
+            <div class="col-sm-6 employee_class">
+                <div class="form-group">
+         <input type='Checkbox' name='form_fee' class='evs' value='<?=$this->paginator['examFee'] ;?>' checked='checked' onclick="return false" />
+                  Application fee: Rs. <?=$this->paginator['examFee'] ;?>/-
+                  
+                </div>
+            </div>
+            <div class="col-sm-3 col-sm-offset-3 employee_class">
+                <div class="form-group">
+                   <button id="onlinePayment" value="Online" class="btn btn-primary submit paymentMode">Pay Now</button>
+                </div>
+            </div>
+         
+
+            </div>
+        </div>
+        <div style="float:right;margin-right:2px;padding-bottom: 3em;">
+
+</fieldset>
+    </div> 
+     
+        </form>
+                      
+
+    </div>
+
+</div>

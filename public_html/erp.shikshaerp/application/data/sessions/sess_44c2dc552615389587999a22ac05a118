@@ -1,0 +1,1 @@
+left_attempt_msg|s:92:"You have made 1  unsuccessful attempt(s). The maximum retry attempts allowed for login are 3";flash_message_error|s:47:"Invalid username or password. Please try again.";accountLockedmsg|s:23:"Your Account Is Locked.";Captcha|s:6:"f033ab";admin_login|a:2:{s:11:"admin_login";N;s:11:"agents_data";N;}

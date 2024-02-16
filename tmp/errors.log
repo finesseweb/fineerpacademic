@@ -1,0 +1,537 @@
+[15-Feb-2024 06:50:17 Europe/Berlin] PHP Fatal error:  Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` in D:\xampp\htdocs\assetmanagement\gl\includes\db\gl_db_trans.inc on line 574
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $date declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $ref declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:gl_db_rates.inc:129:[before upgrade] Optional parameter $provider declared before required parameter $date is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:po_db.inc:505:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:po_db.inc:616:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:po_db.inc:652:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:po_db.inc:737:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:po_db.inc:801:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:invoice_items_db.inc:14:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:invoice_items_db.inc:38:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_charge declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_amount declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:custalloc_db.inc:101:[before upgrade] Optional parameter $customer_id declared before required parameter $settled is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:cust_trans_details_db.inc:59:[before upgrade] Optional parameter $line_id declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $rate declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $charge declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $bank_amount declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:class.data_set.inc:100:[before upgrade] Optional parameter $key declared before required parameter $data is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $units declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $mb_flag declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:renderer.php:84: usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:current_user.inc:207: Undefined array key "HR_OCCMASTER"
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:current_user.inc:207: Trying to access array offset on value of type null
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:current_user.inc:207: Undefined array key "HR_LEAVENCASHBASED"
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:current_user.inc:207: Trying to access array offset on value of type null
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $opts declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $type declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $selected_id declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $all_option declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $submit_on_change declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $editkey declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $selected_id declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $all_option declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $submit_on_change declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:2704: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:2713: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $selected_id declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $all_option declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $submit_on_change declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $show_inactive declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $editkey declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $id declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $multiple declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $cancel declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $title declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $image declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:items.php:331: Undefined array key "to_date"
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:items.php:332: Undefined array key "from_date"
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:items.php:333: Undefined array key "warranty"
+[15-Feb-2024 09:22:21 Europe/Berlin] 0:admin:ui_lists.inc:183: Unhandled exception [0]: implode(): Argument #2 ($array) must be of type ?array, string given.
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $date declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $ref declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:gl_db_rates.inc:129:[before upgrade] Optional parameter $provider declared before required parameter $date is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:po_db.inc:505:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:po_db.inc:616:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:po_db.inc:652:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:po_db.inc:737:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:po_db.inc:801:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:invoice_items_db.inc:14:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:invoice_items_db.inc:38:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_charge declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_amount declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:custalloc_db.inc:101:[before upgrade] Optional parameter $customer_id declared before required parameter $settled is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:cust_trans_details_db.inc:59:[before upgrade] Optional parameter $line_id declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $rate declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $charge declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $bank_amount declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:class.data_set.inc:100:[before upgrade] Optional parameter $key declared before required parameter $data is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $units declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $mb_flag declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $opts declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $type declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $selected_id declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $all_option declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $submit_on_change declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $editkey declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $selected_id declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $all_option declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $submit_on_change declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:2704: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:2713: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $selected_id declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $all_option declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $submit_on_change declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $show_inactive declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $editkey declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $id declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $multiple declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $cancel declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $title declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $image declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:26 Europe/Berlin] 0:admin:ui_lists.inc:183: Unhandled exception [0]: implode(): Argument #2 ($array) must be of type ?array, string given.
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $date declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:gl_db_banking.inc:135:[before upgrade] Optional parameter $ref declared before required parameter $memo is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:gl_db_rates.inc:129:[before upgrade] Optional parameter $provider declared before required parameter $date is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:po_db.inc:505:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:po_db.inc:616:[before upgrade] Optional parameter $open_items_only declared before required parameter $location_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:po_db.inc:652:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:po_db.inc:737:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:po_db.inc:801:[before upgrade] Optional parameter $supplier_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:invoice_items_db.inc:14:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:invoice_items_db.inc:38:[before upgrade] Optional parameter $err_msg declared before required parameter $hsn_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_charge declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:supp_payment_db.inc:12:[before upgrade] Optional parameter $bank_amount declared before required parameter $tds is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:custalloc_db.inc:101:[before upgrade] Optional parameter $customer_id declared before required parameter $settled is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:cust_trans_details_db.inc:59:[before upgrade] Optional parameter $line_id declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $rate declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $charge declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:payment_db.inc:23:[before upgrade] Optional parameter $bank_amount declared before required parameter $currency is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:class.data_set.inc:100:[before upgrade] Optional parameter $key declared before required parameter $data is implicitly treated as a required parameter
+[15-Feb-2024 09:22:39 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $units declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:items_db.inc:12:[before upgrade] Optional parameter $mb_flag declared before required parameter $sl_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:renderer.php:84: usort(): Returning bool from comparison function is deprecated, return an integer less than, equal to, or greater than zero
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:current_user.inc:207: Undefined array key "HR_OCCMASTER"
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:current_user.inc:207: Trying to access array offset on value of type null
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:current_user.inc:207: Undefined array key "HR_LEAVENCASHBASED"
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:current_user.inc:207: Trying to access array offset on value of type null
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $opts declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:991: Optional parameter $type declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1149: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1156: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $selected_id declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $all_option declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $submit_on_change declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1288: Optional parameter $editkey declared before required parameter $subcat is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $selected_id declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $all_option declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $submit_on_change declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1306: Optional parameter $editkey declared before required parameter $group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $selected_id declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $all_option declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:1356: Optional parameter $submit_on_change declared before required parameter $subcate is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:2704: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:2713: Optional parameter $selected_id declared before required parameter $type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3463: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3480: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $selected_id declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $spec_opt declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3489: Optional parameter $submit_on_change declared before required parameter $empl_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3522: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3539: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $selected_id declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $spec_opt declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3549: Optional parameter $submit_on_change declared before required parameter $desig_group is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3555: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3564: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $selected_id declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $spec_opt declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3570: Optional parameter $submit_on_change declared before required parameter $designation is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3671: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3687: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3701: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3710: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $none_option declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3720: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3756: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3770: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3793: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3802: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $selected_id declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $spec_opt declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3811: Optional parameter $submit_on_change declared before required parameter $sub_cat_name is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $selected_id declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $spec_opt declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3818: Optional parameter $submit_on_change declared before required parameter $category_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3922: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3934: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3943: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3951: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3964: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $selected_id declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $spec_opt declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3973: Optional parameter $submit_on_change declared before required parameter $utly_type is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:3984: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4000: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4016: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4026: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4035: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4042: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4052: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4068: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4083: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4094: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4103: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $selected_id declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $spec_opt declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4110: Optional parameter $submit_on_change declared before required parameter $utility_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $selected_id declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $all_option declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4157: Optional parameter $submit_on_change declared before required parameter $order_no is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $selected_id declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $all_option declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $submit_on_change declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $show_inactive declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:4229: Optional parameter $editkey declared before required parameter $dept_id is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $id declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $multiple declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $cancel declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $title declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_input.inc:1374: Optional parameter $image declared before required parameter $value is implicitly treated as a required parameter
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:items.php:331: Undefined array key "to_date"
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:items.php:332: Undefined array key "from_date"
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:items.php:333: Undefined array key "warranty"
+[15-Feb-2024 09:22:40 Europe/Berlin] 0:admin:ui_lists.inc:183: Unhandled exception [0]: implode(): Argument #2 ($array) must be of type ?array, string given.
+[15-Feb-2024 10:42:23 Europe/Berlin] PHP Fatal error:  Unparenthesized `a ? b : c ? d : e` is not supported. Use either `(a ? b : c) ? d : e` or `a ? b : (c ? d : e)` in D:\xampp\htdocs\assetmanagement\sales\includes\ui\sales_order_ui.inc on line 691

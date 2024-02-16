@@ -1,0 +1,175 @@
+<style>
+   
+    
+    
+    
+</style>
+<div class="right_col">
+    <?php if ($this->type) { 
+          //echo"<pre>";print_r($this->item_result);
+        ?>
+        <div class="padding-md">
+            <div class="row">
+                <div class="col-md-12 " >
+                    <h3 class="page-title txt-color-blueDark" >
+                        <div><i class="fa fa-eye">Update Student's Info </i></div>
+                    </h3>
+                    <div class="panel panel-default">
+                      
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label  class="control-label" >Student Name<span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="stu_mobileno" value="<?php echo  $this->item_result['stu_fname']; ?>">
+                                           
+                                        </div>
+                                    </div>
+                                        <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"> UID <span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="stu_id" id="stu_id" value="<?php echo $this->item_result['stu_id']; ?>">
+                                            <input type="hidden" class="form-control" name="stu_id" id="student_id" value="<?php echo $this->item_result['student_id']; ?>">
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"> Student Mobile No. <span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="stu_id" id="stu_mobile" value="<?php echo $this->item_result['stu_mobileno']; ?>">
+                                            <input type="hidden" class="form-control" name="stu_id" id="student_id" value="<?php echo $this->item_result['student_id']; ?>">
+                                        </div>
+                                        </div>    
+                                        <div class="col-sm-3 employee_class">
+                                             <div class="form-group">
+                                                <label class="control-label">Student Father Mobile No.<span class="asterisk">*</span></label>
+                                                <input type="text" class="form-control" name="fathermobileNo" id="fathermobileNo" value="<?php echo $this->item_result['father_mobileno']; ?>">
+
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3 employee_class">
+                                             <div class="form-group">
+                                                <label class="control-label">Student Email.<span class="asterisk">*</span></label>
+                                                <input type="text" class="form-control" name="student_email" id="student_email" value="<?php echo $this->item_result['stu_email_id']; ?>">
+
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                   
+                    </div> 
+                </div>
+                <div>
+                    <div class="panel-footer">									
+                        <div class="row">
+                            <div class="col-sm-7 col-sm-offset-5">
+                                <?php if ($this->type == 'add') { ?> 
+                                    <div style="float:left;margin-right:2px;">
+                                        <button class="btn btn-primary submit" onclick="return confirmUpdate()">Submit</button>
+                                    </div>
+                                    <div style="float:left;padding:0px 10px;">
+                                        <button type="reset" class="btn btn-danger btn-default">Reset</button>
+                                    </div>
+                                <?php } else { ?>
+                                    <div style="float:left;">
+                                         <button class="btn btn-primary submit" id="updateMobile">Update</button>
+                                    </div>
+                                    <div style="float:left;">
+                                        <a class="btn btn-primary" href="<?php echo $this->mainconfig['host']; ?>master/update-mobile/">Back</a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div><!-- /panel -->
+        </div><!-- /.col-->				
+    </div><!-- /.row -->
+</div>
+    </div><!-- /.padding-md -->	
+<?php } else { ?>
+        <div class="panel panel-default"> 
+               
+            <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars">Update Participants Details</i>
+
+                    </h3>
+                </div>
+            </div>
+                <div class="panel-body cont">
+                </div>
+                <div class="col-md-12">
+                   
+                    <span id="updatemsg" style="color:green;"></span>
+                   <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label" style="float:left;">Enter Your Form Id:<span class="asterisk">*</span></label>
+                            <?php echo $this->form->otp_field; ?>
+                        </div>
+                   </div><hr>
+                <div style="float:left;padding-left:10%;">
+                    <button class="btn btn-primary submit" id="otpInfo">Submit</button>
+                </div>
+                </div>
+                 <div class="col-md-12">
+                   <div class="table-responsive" id="studentData"> 
+                       
+                    </div>
+                </div>
+                
+            </div>    
+           
+
+        </div>
+       
+        </div></center>
+    <?php 
+    
+    }
+    ?>
+
+<script>
+$("#otpInfo").click(function(){
+    var form_id= $('#otp_field').val().trim();
+        if (form_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Student-Mobile-Info'; ?>',
+                data: {form_id: form_id}
+            }).done(function (data) {
+                $('#studentData').empty('');
+                $('#studentData').html(data);
+            });
+        }
+});
+//Ajax to update Mobile info date:19 Nov. 2019
+$("#updateMobile").click(function(){
+    var s_id= $('#student_id').val().trim();
+    var stu_mobile= $('#stu_mobile').val().trim();
+    var father_mobile= $('#fathermobileNo').val().trim();
+    var student_email= $('#student_email').val().trim();  //alert(s_id);
+        if (s_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Update-Student-Mobile-Info'; ?>',
+                data: {s_id: s_id,stu_mobile,stu_mobile,father_mobile:father_mobile,student_email:student_email}
+            }).done(function (data){
+                if(data) {
+                    alert('Updated Successfully');
+                    location.href = '<?php echo $this->mainconfig['host'] . 'master/update-mobile'; ?>';
+                
+            }
+                
+            });
+        }
+});
+</script>

@@ -1,0 +1,297 @@
+<?php
+//echo "<pre>";print_r($this->category_data);die;
+?>
+<style>
+    input { 
+        text-align: center; 
+    }
+
+    input:focus{
+        border:2px solid #00ed22;
+
+    }
+</style>
+<?php
+$attendanceCheck = array(
+    '0' => 'Allowed',
+    '1' => 'Not Allowed'
+);
+//echo "<pre>"; print_r($attendanceCheck);
+?>
+<div style="overflow-x:scroll">
+    <div class="padding-md clearfix">
+
+        <div class="col-sm-0" style="float:right;">
+            <a class="btn btn-link" role="button" href="#" id="print"><span class='glyphicon glyphicon-print'></span></a>
+        </div>
+        <table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable-grade" id="dataTable" style="height:100%;">
+
+            <thead>
+                <tr>
+                    <th>S.No.</th>
+                    <th>Participants Name</th>
+                    <th>Roll No.</th>
+                    <th>Batch</th>
+                    <th> UID</th>
+                    <th> Reg. No.</th>
+                    <th>Exam Roll. No.</th>
+
+
+                    <?php foreach ($this->weightage as $k => $val) {
+                        ?>
+                        <th id='total_<?=$k;?>'><?php
+                    echo $val['component'];
+                        ?>
+                        </th>
+                    <?php } ?>
+
+                    <th style="width:2%">Total class Attend</th>
+                    <th style="width:2%">Total Percent</th>  
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                if (!empty($this->result)) {
+                    $i = 1;
+
+                    foreach ($this->result as $k => $result) {
+                        //echo "<pre>";print_r($result);exit;
+                        ?>
+                        <tr>
+                            <td><?php echo $i;
+                        $i++;
+                        ?>
+                            </td>
+                            <td><?php echo $result['student_name']; ?></td> 
+                    <input type="hidden" name="stu_id[]" id="student_id" value="<?php echo $result['student_id']; ?>" /> 
+                    <input type="hidden" name="grade[academic_id_<?php echo $result['student_id']; ?>_<?php echo $result['grade_id']; ?>][]" id="term_id1" value="<?php echo $result['academic_id']; ?>" />
+                    <input type="hidden" name="grade[term_id_<?php echo $result['student_id']; ?>_<?php echo $result['grade_id']; ?>][]" id="academic_id1" value="<?php echo $result['term_id']; ?>" />
+                    <input type="hidden" name="u_id[]" id="student_id" value="<?php echo $result['stu_id']; ?>" />
+                    <td><?php echo $result['roll_no']; ?></td> 		
+                    <td><?php echo $result['stu_id']; ?></td> 		 
+                    <td><?php echo $result['stu_id']; ?></td>
+                    <td><?php echo $result['reg_no']; ?></td>
+                    <td><?php echo $result['exam_roll']; ?></td>
+                    <!--[Ashutosh]-->
+        <?php 
+        foreach ($this->weightage as $k => $val) { ?>
+                        <td>
+                            <input tabindex="<?=$i;?>" name ="component_<?= result['stu_status']== 3 ?'t.c': $val['id']; ?>[]"  value ="" />
+                        </td>
+                    <?php } ?>
+                    <!--[end]----->
+                    <td><input type="text" name="attended_class[]" class="attended_class"  id = "attended_class" value="<?= $result['attended_class']; ?>" /></td>
+
+                    </tr>
+                <?php }
+            } else { ?>
+                        <?php
+                        $i = 1;
+                        $j = 1;
+                        ?>
+    <?php if (isset($this->category_data) ){
+         
+        foreach ($this->category_data as $key => $val) { 
+                     //echo "<pre>";print_r($val);exit; ?>
+                        <tr>
+                            <td><?php echo $i;
+            $i++;
+            ?>
+                            </td>
+                            <td><?php echo $val['students']; ?></td> 
+                        <input type="hidden" name="stu_id[]" id="student_id" value="<?php echo $val['student_id']; ?>" /> 
+                        <input type="hidden" name="grade[student_id][]" id="student_id" value="<?php echo $val['student_id']; ?>" />
+                        <input type="hidden" name="grade[academic_id_<?php echo $val['student_id']; ?>][]" id="term_id1" value="<?php echo $val['academic_id']; ?>" />
+                        <input type="hidden" name="grade[term_id_<?php echo $val['student_id']; ?>][]" id="academic_id1" value="<?php echo $val['term_id']; ?>" />
+                        <input type="hidden" name="u_id[]" id="student_id" value="<?php echo $val['stu_id']; ?>" />
+                        <td><?php echo $val['roll_no']; ?></td> 	
+                        <input type="hidden" name="batch_code[]" id="batch_code" value="<?php echo $val['short_code']?$val['short_code']:$val['batch']; ?>" />
+                        <td><?php echo $val['short_code']?$val['short_code']:$val['batch']; ?></td> 		
+
+                        <td><?php echo $val['stu_id']; ?></td>
+                        <td><?php echo $val['reg_no']; ?></td>
+                        <td><?php echo $val['exam_roll']; ?></td>
+                        <!--[Ashutosh]-->
+            <?php foreach ($this->weightage as $k => $valc) { //echo '<pre>'; print_r($valc); ?>
+                            <td>
+                                <table>
+                                    <tr>
+                                        
+                                        
+                                        
+                                      <?php   ${"tabindex_$k"} = (($k + 1) * count($this->category_data)) + $key  ?>
+                                        <td><input tabindex="<?=${"tabindex_$k"};?>" data-id='#total_<?=$k;?>' name ="component_<?= $valc['id']; ?>[]" data-toggle="number" size="5"  value ="<?php if(!empty($val["component_{$valc['id']}"])){ echo $val["component_{$valc['id']}"]; } else { if($valc['id'] == 2){   echo  $val['attended_class']; } }?>" /></td>
+        
+        
+        
+                                                <td>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input tabindex="-<?=$i;?>"  name ="component_<?= $valc['id']; ?>_%[]" value="<?= $val['stu_status']== 3 ?'t.c': $val["component_{$valc['id']}_%"]; ?>" size="5" class='c_percent' />
+                                                    </td>
+                                                    <td><b>%</b></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        <?php } ?>
+                        <!--[end]----->
+
+                        <td><input type="text" name="attended_class[]" data-toggle="number" id="attended_class"  data-toggle="number" autocomplete="off" class="attended_class"  value="<?=  $val['attended_class']; ?>" /></td>
+                        <td><table><tr><td>
+                                        <input type="text" name="percent_sum[]" size="3" length="3" id="percent_sum" class="percent_sum"   value="<?php echo $val['percent']; ?>" /></td><td><b>%</b></td></tr></table></td>
+                        </tr>
+        <?php }
+    }
+} ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+    
+    setDatatables();
+    $('div.dt-buttons').hide();
+    $('input[name^="attended_class"],.c_percent,input[name^="percent_sum"]').css("background-color", "#D3D3D3");
+
+    $('body').on('keyup blur', '[name^="component"]', function (e) {
+
+//        if (e.which != '37' && e.which != '38' && e.which != '39' && e.which != '40' && e.which != 9) {
+            var tot_conducted_cl = $('#conducted_class').val();
+            var name = $(this).attr('name');
+            var number = 0;
+            
+            if (name == 'component_2[]' ) {
+                            if (parseInt($(this).val()) > parseInt($('[name="theory"]').val())) {
+                                alert('Theory class should not be greater than total theory conducted class.');
+                                $(this).val(0);
+                            }
+                            number1 = isNaN(parseInt($(this).val()))?0:parseInt($(this).val());
+                            number2 = isNaN(parseInt($(this).parents('table table').parent().next('td').find('input').val()))?0:parseInt($(this).parents('table table').parent().next('td').find('input').val());
+                            number =  number1 + number2 ;
+                            number = isNaN(number) ? parseInt($(this).val()) : number;
+                            
+                            $(this).parents('table table').parent().next('td').next().find('input').val(number);
+                            //==========[theory percentage calculation]===========================================//
+                            var theory_percent = Math.round(parseInt($(this).val()) / parseInt($('[name="theory"]').val()) * 100);
+                            $(this).parent().next().find('input').val(isNaN(theory_percent) ? 0 : theory_percent);
+                            var pract_percent = isNaN(parseInt($(this).parents('table table').parent().next('td').find('td').eq(1).find('input').val())) ? 0 : parseInt($(this).parents('table table').parent().next('td').find('td').eq(1).find('input').val());
+                            //=============[Average of percentage]============================//
+                            theory_percent = isNaN(theory_percent)?0:theory_percent;
+                            if (parseInt($('[name="theory"]').val()) > 0 && parseInt($('[name="practical"]').val()) > 0) {
+                                var percent = Math.round((theory_percent + pract_percent) / 2);
+                            } else 
+                            {
+                                var percent = isNaN(theory_percent)?pract_percent:theory_percent;
+                            }
+
+                            percent = percent=0 ? pract_percent: percent;
+                            //=======================[for Total Percentage]==========================================//
+                           // if(parseInt($(this).val()) )
+                                $(this).parents('table table').parent().next('td').next().next().find('input').val(percent);
+                            $(this).parents('table table').parent().next('td').next().next().find('input').css("background-color", "#D3D3D3");
+            } else {
+                            if (parseInt($(this).val()) > parseInt($('[name="practical"]').val())) {
+                                alert('Practical class should not be greater than total practical conducted class.');
+                                $(this).val(0);
+                            }
+                            number1 = isNaN(parseInt($(this).val()))?0:parseInt($(this).val()) ;
+                            number2 = isNaN(parseInt($(this).parents('table table').parent().prev('td').find('input').val()))?0:parseInt($(this).parents('table table').parent().prev('td').find('input').val())
+                            number = number1 + number2 ;
+                            number = isNaN(number) ? parseInt($(this).val()) : number;
+
+                            $(this).parents('table table').parent().prev('td').next().next().find('input').val(number);
+                            //===========================[practical percentage calculation]===========================//
+                            var practical_percent = Math.round(parseInt($(this).val()) / parseInt($('[name="practical"]').val()) * 100);
+
+
+                            $(this).parent().next().find('input').val(isNaN(practical_percent) ? 0 : practical_percent);
+var theory_percent = isNaN(parseInt($(this).parents('table table').parent().prev('td').find('td').eq(1).find('input').val())) ? 0 :  parseInt($(this).parents('table table').parent().prev('td').find('td').eq(1).find('input').val());           
+                      
+                 practical_percent = isNaN(practical_percent)?0:practical_percent;
+                   
+                            if (parseInt($('[name="theory"]').val()) > 0 && parseInt($('[name="practical"]').val()) > 0) {
+                                var percent = Math.round((theory_percent + practical_percent) / 2);
+                            } else
+                            {
+                                var percent = isNaN(practical_percent)?theory_percent:practical_percent;
+                            }
+                            percent = percent==0 ? theory_percent : percent;
+                            //==================[for total Percentage]=======================================================//
+                          //  if(parseInt($(this).val()) ||  )
+                                $(this).parents('table table').parent().prev('td').next().next().next().find('input').val(percent);
+                            $(this).parents('table table').parent().prev('td').next().next().next().find('input').css("background-color", "#D3D3D3");
+            }
+
+//        }
+    });
+
+    $('input[data-toggle="number"]').bind('keyup blur', function () {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g, ''));
+    });
+   // $('input').val(0);
+</script>
+
+<!--==================Traversing with arrow key=======================---------------------->
+<script>
+    $(document).keydown(function (e) {
+        var element = $(':focus');
+        if (e.which == '37') { //left arrow key 
+            $(element).parents('table table').parent().prev('td').find('td').eq(0).find('input').focus();
+
+        }
+    });
+    $(document).keydown(function (e) {
+        var element = $(':focus');
+        if (e.which == '39') { //rightt arrow key 
+            $(element).parents('table table').parent().next('td').find('td').eq(0).find('input').focus();
+
+        }
+    });
+    $(document).keydown(function (e) {
+        var element = $(':focus');
+        if (e.which == '40') { //down arrow key
+            var i = $(element).parents('td').eq(1).index();
+            var name = $(element).attr('name');
+            if (name == 'component_2[]') {
+                $(element).parents('tr').eq(1).next().find('table td').eq(0).find('input').focus();
+            } else
+            {
+                $(element).parents('tr').eq(1).next().find('table td').eq(i - 10).find('input').focus();
+            }
+
+        }
+    });
+    $(document).keydown(function (e) {
+        var element = $(':focus');
+        if (e.which == '38') { //up arrow key
+            var i = $(element).parents('td').eq(1).index();
+            var name = $(element).attr('name');
+            if (name == 'component_2[]') {
+                $(element).parents('tr').eq(1).prev().find('table td').eq(0).find('input').focus();
+            } else
+            {
+                $(element).parents('tr').eq(1).prev().find('table td').eq(i - 10).find('input').focus();
+            }
+
+        }
+    });
+    
+//    $(document).keydown(function (e) {
+//        if(e.which == '9'){
+//            e.preventDefault();
+//        }
+//    });
+    
+//       $('body').on('keyup','input[name^="component_2"],input[name^="component_3"]',function(){
+//       var theory = isNaN(parseInt($(this).val()))?0:parseInt($(this).val());
+//       $(this).val(theory);
+//   });
+
+    //==============[end traversing]====================================================================//        
+
+</script> 

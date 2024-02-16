@@ -1,0 +1,140 @@
+<style>
+
+    body>div>h1 {
+
+    display: none;
+
+}
+
+    .bdoypayment{
+
+        margin-top: 4.5em;
+
+        padding-left: 24.5em;
+
+        padding-right: 54.5em;
+
+    }
+
+    label.indent{
+
+        padding-left: 1.8em;
+
+    }
+
+    .cont{
+
+        position:absolute;
+
+        top:50%;
+
+        left:50%;
+
+        transform: translate(-50%,-50%);
+
+        
+
+        
+
+    }
+
+    
+    .table{
+        width: 75%!important;
+        margin-bottom: 0px !important;
+    }    
+
+    
+
+</style>
+
+<div class="right_col bdoypayment">
+
+    <center>  <div class="panel-body cont">
+
+        
+
+
+
+
+
+        <div class="panel panel-default">
+
+<?php 
+
+
+
+
+
+ ?> 
+
+
+
+            <div class="panel-body" style="width:100em;" >
+
+                <div class="col-md-12">
+
+                <?php
+               
+            if($this->response_data['f_code'] =='Ok'){
+                    $termdetails =  new Application_Model_Declaredterms(); 
+                   ?>
+                    <div class="col-md-12" style="text-align:center;"> <span class="text-success" style='letter-spacing: .2em; font-size:1.4em'><strong>Transaction Successful</strong></span> </div> <br/><br/>
+                    <table class="table-bordered table" border="1" tabindex="1" style="margin-left:20%">
+                    <tr><td class="sub">Transaction Date & Time</td><td class="sub"><?=$this->details['date'];?></td></tr>
+                    <tr><td class="sub">Transaction Reference ID</td><td class="sub"><?=$this->details['mmp_txn'];?></td></tr>
+                    <tr><td class="sub">Amount</td><td class="sub"><?=$this->details['amount'];?></td></tr>
+                    
+                    <tr><td class="sub">Student Name</td><td class="sub"><?=$this->details['name'];?></td></tr>
+                    <tr><td class="sub">Form ID</td><td class="sub"> <?=$this->details['stu_id']?></td></tr>
+                    <tr><td class="sub">Transaction Status</td><td class="sub">Success</td></tr>
+                    
+                    
+                    
+                    
+                    
+                    </table>
+                   
+              <?php     }
+
+                 else
+
+                   { ?>
+                    
+
+                <div class="col-md-12 text-center"> <span class="text-danger" style='letter-spacing: .2em; font-size:1.4em'><strong>Transaction Failure</strong></span> </div> 
+
+                    <br/><br/>
+
+                      <p class="col-md-12 text-center text-info"><b>Transaction Id:</b><?=$this->response_data['mmp_txn'];?></p>
+
+                      <p class="col-md-12 text-center text-info">Your transaction has failed. Please try again to complete the payment process.
+If the amount was deducted from your bank account during the failed transaction, it will be refunded to your account within 7 to 10 working days.</p>
+<p class="col-md-12 text-center" style="color:red">Please contact your bank (the bank in which you have your account) for any assistance in the matter.</p>
+  
+
+                  <?php }  ?>   
+
+                </div>
+
+                
+
+            </div>    
+
+            <div class="panel-footer">
+              
+               
+
+                
+
+            </div>
+
+
+
+        </div>
+
+       
+
+        </div></center>
+
+    </div>

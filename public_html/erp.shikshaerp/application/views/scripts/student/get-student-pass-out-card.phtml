@@ -1,0 +1,49 @@
+<div class="padding-md clearfix">
+			<table class="table table-striped table-bordered mb30 jambo_table bulk_action" id="dataTable" width="100%">
+				<thead>
+					<tr>
+					    <th>S.No.</th>
+					    <th>Participant ID </th>
+						<th>Participant Name</th>
+						<th>Publish Date</th>
+                        <th colspan="2"> </th>
+					</tr>
+				</thead>
+				<tbody>
+				<tbody>
+
+					<?php $result=$this->corecourseresult;
+
+                                          $term_string = '';
+
+                                            if(!empty($this->term_id)){
+
+                                                $term_string = '/term/'.$this->term_id; 
+
+                                            }
+                                            $i=1;
+					      foreach($result as $results) { ?>
+
+					<tr>
+                    <td><?php echo $i; ?> </td>
+                    <input type="hidden" name="stu_id[]" id="student_id" value="<?php echo $results['student_id']; ?>" />
+					<td><?php echo $results['stu_id'];?></td>
+                   
+					<td><?php echo $results['stu_fname'].'&nbsp;&nbsp;'.$results['stu_lname'];?></td> 
+					<td><?php echo $results['stu_fname'].'&nbsp;&nbsp;'.$results['stu_lname'];?></td> 
+					<td>
+					
+					<a class="btn btn-primary pdf"  target="_blank" href="<?php echo $this->mainconfig['host'];?>student/passoutprint/stu_id/<?php echo $results['stu_id']; ?>
+                       ">PDF </a>
+                     </td>
+                                        
+					</tr>
+					<?php $i++; } ?>										
+				</tbody>
+			</table>
+			 <?php //echo $pagination_tr; ?>
+		</div><!-- /.padding-md -->
+<script>
+    //modifiedDataTable(true,true,true);    
+   
+</script>

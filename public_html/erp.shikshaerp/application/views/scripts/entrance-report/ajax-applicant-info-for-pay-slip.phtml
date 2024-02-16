@@ -1,0 +1,188 @@
+<style>
+    table.jambo_table thead {
+    background: #F1A66A;
+    color: black;
+}
+th {
+    width: 7em;
+    text-align: center;
+}
+.modal-dialog {
+    width: 1370px;
+    margin: 30px auto;
+}
+</style>
+<div class="x_title">
+    <b>Payment Mode Detail</b>
+    <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        </li>
+        <li><a class="close" data-dismiss="modal"><i class="fa fa-close"></i></a>
+        </li>
+    </ul>
+       
+    <div class="clearfix">
+        <label id="alert_msg" style="color:green;  position: absolute;"></label>   
+    </div>
+    
+
+
+</div>
+
+<table class="table left-column table-striped table-bordered mb30 jambo_table bulk_action documentTable" id="" style="height:100%">
+        <thead>
+         
+                <th rowspan="2" style="width: 1em">S.No.</th>
+                <th rowspan="2" style="width: 5em">Applicant Name</th>
+                <th rowspan="2" style="width: 5em">Form Id</th> 
+                <th>
+                    <table class="table left-column table-striped table-bordered mb30 jambo_table bulk_action">
+                        <tr style="width: 10em;">
+                            <th style="text-align: center" colspan="4"><?= !empty($this->online_details['Account_Name1'])? $this->online_details['Account_Name1']:'PRINCIPAL PATNA WOMENS COLLEGE(OFFLINE)'?>
+
+                            <?php   
+                                $data = array(
+                                    '0'=>'Select',
+                                    '1'=>'Online',
+                                    '2'=>'DD',
+                                    '3'=>'NEFT',
+                                    '4'=>'RTGS'
+                                );
+                                
+                                
+                                ?>
+                                <select class="form-control  pay_mode<?=$i;?>"  name ="pay_mode1"> 
+                                    <?php foreach($data as $key => $val){ ?>
+                                    
+                                    <option <?php if ($this->paginator['pay_mode1'] == $key ) echo 'selected' ; ?>  value = "<?=$key;?>" > <?=$val;?></option>
+                                    <?php } ?>
+                                </select>
+                            </th> 
+                        </tr>
+                    </table>
+                </th>
+                
+            </tr>
+            <tr >
+                <th>
+                    <table class="table left-column table-striped table-bordered mb30 jambo_table bulk_action documentTable" id="" style="height:100%">
+                        <tr id="paymode1">
+                                <th>Amount </th>
+                                <th>Account No. </th>
+                                <th>Transaction Id </th>   
+                                <th>Transaction Date </th>
+                        </tr>
+                    </table>
+                </th>
+                
+            </tr>
+          
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.<input type="hidden" value="<?php echo $this->paginator['course']; ?>" id="course_id"</td>
+                <td > <?= $this->paginator['applicant_name']; ?> 
+                <input type="hidden" value="<?php echo $this->pay_method; ?>" id="pay_mode"/>
+                </td> 
+                <td id="form_id"> <?= $this->paginator['form_id']; ?> </td> 
+                
+                <td>
+                    <table class="table left-column table-striped table-bordered mb30 jambo_table bulk_action documentTable" id="" style="height:100%">
+                    <td>
+                        <input type="hidden" value="<?php echo $this->paginator['application_no']; ?>" id="app_id"/>
+                        <?php 
+                            if(!empty($this->online_details['Amount1'])){
+                                $this->paginator['amount1']=$this->online_details['Amount1'];
+                            }
+                        ?>
+                         <input type="text" name="amount1" value="<?=!empty($this->paginator['amount1'])?$this->paginator['amount1']:'' ?>" <?=!empty($this->paginator['amount1'])?'readonly':'' ?> class="form-control" required="required"  autocomplete="off" id="amount1"/>
+                    </td>
+                    <td>
+                        <input type="text" name="unique_id1" value="<?=!empty($this->paginator['unique_id1'])?$this->paginator['unique_id1']:$this->paginator['mmp_txn'] ?>" class="form-control" required="required" autocomplete="off" id="unique_id1"/>
+                    </td> 
+                    <td>
+                        <input type="text" name="bank_id1" value="<?=!empty($this->paginator['bank_id1'])?$this->paginator['bank_id1']:'431705000340' ?>" class="form-control" readonly required="required" autocomplete="off" id="bank_id1"/>
+                    </td>
+                    <td>
+                        <input type="text" name="date_time1" value="<?=!empty($this->paginator['date_time1'])?$this->paginator['date_time1']:$this->paginator['date'] ?>" class="form-control monthYearPicker" required="required" autocomplete="off" id="date_time1"/>
+                    </td>
+                    </table>
+                </td>
+                
+</tr>    
+                <tfoot>  
+               
+                </tfoot>
+                        <?php
+                
+            ?>
+
+        </tbody>
+    </table>
+<script>
+    $('.monthYearPicker').datepicker();
+    var pay_mode2= $('select[name="pay_mode2"]').val();
+    
+    $('#paymode2').empty();
+        $.ajax({
+        type: "POST",
+        url: '<?php echo $this->mainconfig['host'] . 'entrance-report/ajax-get-paymode'; ?>',
+        data: {pay_mode:pay_mode2}
+    }).done(function (data) {
+            $('#paymode2').html(data);
+       });
+    
+    var pay_mode1= $('select[name="pay_mode1"]').val();
+    
+    $('#paymode2').empty();
+        $.ajax({
+        type: "POST",
+        url: '<?php echo $this->mainconfig['host'] . 'entrance-report/ajax-get-paymode'; ?>',
+        data: {pay_mode:pay_mode1}
+    }).done(function (data) {
+            $('#paymode1').html(data);
+       });
+           
+           
+    var online=$('select[name="pay_mode1"]').val(); 
+    if(online==1){
+        $('#unique_id1').attr('readonly','readonly');
+    }else{
+        $('#unique_id1').removeAttr('readonly','readonly');
+    }
+           
+    $('select[name="pay_mode1"]').change(function(){
+       $('#paymode1').empty();
+        let pay_mode=$(this).val();
+        if(pay_mode==1){
+            $('#unique_id1').attr('readonly','readonly');
+        }else{
+            $('#unique_id1').removeAttr('readonly','readonly');
+        }
+         $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'entrance-report/ajax-get-paymode'; ?>',
+            data: {pay_mode:pay_mode}
+        }).done(function (data) {
+            
+            $('#paymode1').html(data);
+           });
+      
+    });
+    
+    $('select[name="pay_mode2"]').change(function(){
+       let pay_mode=$(this).val();
+        $('#paymode2').empty();
+      $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'entrance-report/ajax-get-paymode'; ?>',
+            data: {pay_mode:pay_mode}
+        }).done(function (data) {
+            $('#paymode2').html(data);
+           });
+    });
+   
+</script>

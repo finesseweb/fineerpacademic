@@ -1,0 +1,79 @@
+
+<div class="x_title">
+    <b>  Generic Elective Report </b>
+
+    <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        </li>
+        <li><a class=""><i class="fa fa-close"></i></a>
+        </li>
+    </ul>
+
+    <div class="clearfix"></div>
+</div>
+<table class="table left-column table-striped table-bordered mb30 jambo_table bulk_action geTable" id="" style="height:100%">
+        <thead>
+            <tr>
+                <th>S.No.</th>
+                <th>Generic Elective Name</th>
+                <th>Sanctioned Seats</th>  
+                <th>Admission Taken</th>  
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+             //echo '<pre>'; print_r($this->paginator);
+            $i = 1;
+            $pagination_tr = '';
+            if (count($this->paginator) != 0) {
+                foreach ($this->paginator as $results) {
+                   
+
+
+                    ?>
+                    <tr>
+                        <td><?php echo $i;
+                    $i++;
+                    ?>
+                        </td>						
+
+                        <td><?php echo $results['general_elective_name']; ?></td>
+                        <td><?php echo $results['max_seat']; ?></td>
+                        <td id="geTaken"><?php echo $results['applied'];?></td>
+                        </td>
+                    </tr>            
+                    
+                <?php
+                }?>
+                <tfoot>  
+                <tr>    
+                    <td class=" text-left" colspan = 3 style="letter-spacing:.1em; font-size: 1.5em">Total Count</td>
+                        
+                    <td id="totalGeSum"   style="letter-spacing:.1em;font-size: 1.5em"> </td>
+                </tr>
+                </tfoot>
+                        <?php
+                $pagination_tr = $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+            }
+            ?>
+
+        </tbody>
+    </table>
+<script>
+    $(function () {
+        let result = [];
+        $('.geTable tr').each(function(){
+            $('#geTaken', this).each(function(index, val){
+                //alert('k');
+                if(!result[index]) result[index] = 0;
+              result[index] += parseInt($(val).text());
+            });
+            //alert(result);
+        });
+        //setDatatables();
+        $('#totalGeSum').text(result);
+    });
+</script>

@@ -1,0 +1,97 @@
+<div class="row">
+                                        
+                                     <?php 
+                                        // $i =0; 
+                                     
+                                    // foreach($this->course_cat as $cat_index => $cat_value ){ 
+                                         //$str = '';
+                                        // $paper_val = '';
+                                        // $inc2 = $inc = 0;
+                                           //print_r($this->course_cat);
+                                               //  die();
+                                         
+                                         ?> 
+                                        <?php  ?>
+                                        <?php //foreach($this->core_details_arr as $core_index => $core_val){
+                                           // if($core_val['cc_name'] == $cat_value ){
+                                                //$str.= $core_val['ct_name'].',';
+                                                //}
+                                            //}
+                                           
+                                            //if($i == 0){
+                                            //foreach($this->core_details_arr as $core_index => $core_val){
+                                                //if($core_val['ge_id']==0){
+                                                   // $paper_val.= $core_val['course_code'].',';
+                                                ////}
+                                           // }
+                                            ////$i++;
+                                            //}
+                                          
+                                            ?>
+                                        
+<!--                                        <div class="col-sm-6 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label"><?=$cat_value;?><span class="asterisk">*</span></label>
+                                            
+                                                <input type="text" name="course_group[]" value ="<?=$str;?>" class="form-control" readonly="readonly"  />
+                                            </div>
+                                        </div> -->
+                                             <?php 
+                                             //$inc = 0;
+                                             //foreach($this->course_val as $Course_index => $course_val){
+                                             //  print_r($this->ge_arr);
+                                               //  die(); 
+                                               
+                                            ///if($this->ge_arr[$cat_index] == $course_val['ge_id'] && $course_val['ge_id'] !=0  )                                             {
+                                               // print_r($course_val);
+                                                // die();
+                                               // $course_model = new Application_Model_Course();
+                                               // $result_course = $course_model->getRecord($course_val['electives']);
+                                                
+                                               // $paper_val.= $result_course['course_code'].',';}
+                                             //}
+                                            ?>
+<!--                                        <div class="col-sm-6 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Papers <span class="asterisk">*</span></label>
+                                            
+                                                <input type ="text" name="paper_name[]" value="<?=$paper_val;?>" class="form-control" readonly="readonly" />           
+                                            </div>
+                                        </div>-->
+                                
+                                     <?php //} ?>
+ <table class="table table-bordered">
+                                            <thead>
+                                                <tr><th>Course Code</th><th>Paper</th><th>Allowed</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                <?php
+                                                
+                                                ?>
+                                                <?php 
+                                                
+                                                 foreach($this->exam_sch as $key => $value ){ 
+                                                 //print_r($value); 
+                                                 //die();
+                                                  $course_name = new Application_Model_Course();
+                                                     $datetime = new Application_Model_ExamScheduleModel();
+                                                     $exam_date =$datetime->getDateByCourseId($value['course_id']); 
+                                                    $coursname = $course_name->getRecord($value['course_id']);
+                                               
+                                               $allow_model1 = new Application_Model_BatachSemesterAttendance();
+                                              if($value['ge_id']==0)
+                                                  $value['course_id'] = 0;
+                                             ?>
+                                             
+                                             <tr>
+                                                 <td><?=$value['course_code'];?></td>
+                                                 <td><?=$value['course_name'];?></td>
+                                                 <td><?="yes";?></td>
+                                             </tr>
+                                              
+                                               <?php      } ?>
+                                            </tbody>
+                                            
+                                        </table>
+                                    </div>

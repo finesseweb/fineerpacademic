@@ -1,0 +1,24 @@
+
+<?php if($this->pay_method == 1){ ?>
+                    <th>Amount </th>
+                    <th>Transaction Id </th>
+                    <th>Account No. </th>
+                    <th>Transaction Date </th> 
+       
+<?php } else if($this->pay_method == 2) { ?>
+                    <th>Amount </th>
+                    <th>DD Number </th>
+                    <th>Bank Name </th>   
+                    <th>Date  </th> 
+<?php } else if($this->pay_method == 3) { ?>
+                    <th>Amount </th>
+                    <th>NEFT Number </th>
+                    <th>Bank Name </th>   
+                    <th>Date  </th> 
+<?php } else if($this->pay_method == 4) { ?>
+                    <th>Amount </th>
+                    <th>RTGS Number </th>
+                    <th>Bank Name </th>   
+                    <th>Date  </th> 
+                     
+       <?php } ?>

@@ -1,0 +1,157 @@
+<style>
+   
+    
+    
+    
+</style>
+<div class="right_col">
+  
+    
+    <div class="load-box">
+    <img src="<?php echo $this->mainconfig['publicpath']; ?>/images/loader.gif" width='200px'  class="loder_img1" />
+ </div>  
+
+    
+        <div class="panel panel-default"> 
+               
+            <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars">Download Individual Promotion Certificate by Form Id. </i>
+
+                    </h3>
+                </div>
+            </div>
+                <div class="panel-body cont">
+                </div>
+                <div class="col-md-12">
+                   
+                    <span id="updatemsg" style="color:green;"></span>
+                   <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label" style="float:left;">Enter Your Form Id:<span class="asterisk">*</span></label>
+                            <input type="text" name="form_id" id="form_id" value="" class="form-control" placeholder="Enter Your Form Id" pattern="\d+" title="xxx.." autocomplete="off">
+                        </div>
+                   </div>
+                    <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label" style="float:left;">Semester To Be Promoted:<span class="asterisk">*</span></label>
+                    <select name="cmn_terms" id="cmn_terms" class="form-control chosen-select" required="required">
+                            <option value="" label="Select">Select</option>
+                            <option value="t1" label="Sem-1">Sem-1</option>
+                            <option value="t2" label="Sem-2">Sem-2</option>
+                            <option value="t3" label="Sem-3">Sem-3</option>
+                            <option value="t4" label="Sem-4">Sem-4</option>
+                            <option value="t5" label="Sem-5">Sem-5</option>
+                            <option value="t6" label="Sem-6">Sem-6</option>
+                        </select>
+                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                <div style="float:left;padding-left:15%;">
+                    <button class="btn btn-primary submit" id="char_cert">Submit</button>
+                </div>
+                </div><br>
+                 <div class="col-md-12">
+                   <div class="table-responsive" id="studentData"> 
+                       
+                    </div>
+                </div>
+                
+            </div>    
+           
+
+        </div>
+       
+        </div></center>
+
+  
+
+<script>
+$("#char_cert").click(function(){
+    //alert('kk');
+    
+    var form_id= $('#form_id').val().trim();
+    var term_id= $('#cmn_terms').val();
+    if(!term_id){
+        alert('Term id is required.')
+    }
+        if (term_id) {
+            $('.load-box').css('display','block');	
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'student/ajax-get-student-info-for-promotion'; ?>',
+                data: {form_id: form_id,term_id:term_id}
+            }).done(function (data) {
+                $('#studentData').empty('');
+                $('.load-box').css('display','none');	
+                $('#studentData').html(data);
+            });
+        }
+});
+ 
+   
+
+$('body').on('change', '#academic_year_id', function() {
+    $('.load-box').css('display','block');	
+      getstudentDetails();
+});
+function getstudentDetails() {
+        $url = '<?php echo $this->mainconfig['host']; ?>student/get-student-char-card';
+        $.post($url,
+                {
+                    'academic_id': $('#academic_year_id').val(),
+					'year_id': $('#year_id').val(),
+                    'term_id': $('#term_id').val(),
+					'stu_id': $('#stu_id').val()
+        })
+                .done(function(data) {
+                  
+                    //$('#payslipData').html('');
+                     $('.load-box').css('display','none');
+                     $('#getstudent').empty();
+                    $('#getstudent').html(data);
+                    setDatatables();
+                     
+                });
+
+    }   
+
+$("#academic_year_id").change(function() {
+	var academic_year_id=$("#academic_year_id").val();
+	
+  if(academic_year_id !=''){
+        $('.load-box').css('display','block');
+	 $.ajax({ 
+			type: "POST",
+			url:"<?php echo $this->mainconfig['host'].'report/ajax-get-student-details';?>",
+			data: { academic_year_id : academic_year_id}
+		}).done( function( data ) { 
+	     //alert(data);	
+			$("#stu_id").html(data);
+		
+            $('.load-box').css('display','none');
+		});
+	}
+});
+
+$('body').on('change', '#academic_year_id', function() {		
+    var academic_id=$('#academic_year_id').val();
+    if(academic_id){
+    $('#batch').show();
+        $.ajax({ 
+                type: "POST",
+                url:'<?php echo $this->mainconfig['host'].'master/ajax-get-batch-code';?>',
+                data: {academic_id:academic_id}
+            }).done(function( data ) {
+                var result = $.parseJSON(data);
+                if((data!='')){
+                    $('#batch').val(result['short_code']);
+                }
+        });
+    }
+	 
+ });
+</script>

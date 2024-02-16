@@ -1,0 +1,1054 @@
+<style>
+    .multistepformArea{
+    padding-top: 1px;
+    background-color: white;
+	width: 60%;
+    min-width: 300px;
+	margin: 50px auto;
+	position: relative;
+}
+/*form styles*/
+.regForm {
+    width: 90%;
+    min-width: 300px;
+	margin: 50px auto;
+	position: relative;
+}
+#formValidate1 fieldset {
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	position: relative;
+}
+.table-bordered td, th {
+    padding: 8px;
+}
+</style>
+<style type="text/css">
+<!--
+span.cls_002{font-family:Times,serif;font-size:13.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_002{font-family:Times,serif;font-size:13.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_003{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_003{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_004{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_004{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_005{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_005{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_006{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_006{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_007{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: underline}
+div.cls_007{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_008{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_008{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_009{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_009{font-family:Times,serif;font-size:9.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_010{font-family:Times,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_010{font-family:Times,serif;font-size:7.0px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_011{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: underline}
+div.cls_011{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_012{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_012{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_013{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+div.cls_013{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_014{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: underline}
+div.cls_014{font-family:Times,serif;font-size:10.1px;color:rgb(0,0,0);font-weight:normal;font-style:normal;text-decoration: none}
+span.cls_015{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_015{font-family:Times,serif;font-size:11.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+span.cls_016{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+div.cls_016{font-family:Times,serif;font-size:8.1px;color:rgb(0,0,0);font-weight:bold;font-style:normal;text-decoration: none}
+-->
+</style>
+<script type="text/javascript" src="wz_jsgraphics.js"></script>
+
+<div class="instruction">
+    <div class="multistepformArea">
+        <form class="regForm" id="formValidate1" action="" method="post" data-validate="parsley" >
+
+            <div class="row">
+                <div class="col-sm-12">
+                     
+
+                    <p>&nbsp; &nbsp; Dear Applicant</p>
+                    
+                     
+                    <p dir="ltr" style="text-align:center">
+    ADMISSION NOTICE - 2020
+</p>
+
+<br/>
+
+<p dir="ltr" style="text-align:justify">
+    Applications are invited for admission to the various Courses being run at
+    Patna Women’s College, Patna for the academic year 2020 – 2023. All Courses
+    are based on Choice Based Credit System (CBCS) Syllabus.
+</p>
+<br/>
+<div dir="ltr" align="center">
+    <table class="table-bordered">
+        <colgroup>
+            <col width="208"/>
+            <col width="180"/>
+            <col width="76"/>
+            <col width="76"/>
+            <col width="87"/>
+            <col width="130"/>
+        </colgroup>
+        <tbody>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        Courses offered
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Qualification
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Level
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Duration
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Date of Entrance Test
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Time
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Sc. Computer Applications (BCA)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I.Sc./I.Com. and +2 with Maths only
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        01.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Com. Advertising &amp; Marketing Management (AMM)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I.Sc./I.Com. and +2
+                    </p>
+                    <br/>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                       01.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.A. Communicative English and Media
+                    </p>
+                    <p dir="ltr">
+                        Studies (CEMS)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I.Sc./I.Com. and +2
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        01.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.A. Mass Communication (BMC)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I.Sc./I.Com. and +2
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        02.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Sc. Microbiology (MBIO)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.Sc./+2 (Sc.) with Biology
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        02.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Com. Business Administration (BBA)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I.Sc./I.Com. and +2
+                    </p>
+                    <br/>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                       02.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2.00 – 3.00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        Master in Computer Applications (AICTE Approved)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        BCA/B.Sc.(CS)/
+                    </p>
+                    <p dir="ltr">
+                        Graduate with Maths
+                    </p>
+                    <p dir="ltr">
+                        and
+                    </p>
+                    <p dir="ltr">
+                        One year Diploma in Computing
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                    <br/>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        20.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        11.00 A.M – 01.00 P.M
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.A. (Main Stream Course)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I. Sc. /I.Com. (+2)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                         03.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        12:00 noon – 2:00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Sc. (Main Stream Course)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.Sc./(+2 Science)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                       06.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        12:00 noon – 2:00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        B.Com.(Self-financed)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        I.A./I. Sc./I.Com. (+2)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Hons.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        3 Yrs.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        05.06.2020
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        12:00 noon – 2:00 P.M.
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        Diploma in:
+                    </p>
+                    <ul>
+                        <li dir="ltr">
+                            <p dir="ltr">
+                                P.G.D.C.A. (Computer Applications)
+                            </p>
+                        </li>
+                        <li dir="ltr">
+                            <p dir="ltr">
+                                P.G.D.A.M.M. (Advertising and Marketing
+                                Management)
+                            </p>
+                        </li>
+                        <li dir="ltr">
+                            <p dir="ltr">
+                                P.G.D.F.D. (Fashion Designing)
+                            </p>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Any Graduation
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Diploma
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        1 Yr.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in Home Science
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        B.A./B.Sc. (Hons.) in Home Science/ Zoology/
+                        Psychology/Sociology/ Bio-Chemistry/ B.A./B.Sc./B.Com.
+                        with Diploma in Clinical Nutrition/ Diploma in
+                        Dietetics/or Home Sc. as subsidiary subject
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in Geography
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        B.A./B.Sc.(Hons.) in Geography/Geology/Env.
+                        Sc./Sociology/Economics/ Pol. Sc. or Geography as
+                        subsidiary subject
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in English
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        B.A.(Hons.) in English/ Functional English/
+                        Communicative English
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in Applied Psychology
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        B.A./B.Sc. (Hons.) in Psychology/Sociology/Pol.
+                        Sc./Economics/BBA/ History/Zoology/Home Sc./ or
+                        Psychology as subsidiary subject
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.Sc. in Zoology
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        B.Sc. (Hons.) in Zoology/B.Sc. or B.Tech. in
+                        Biotechnology/ Env. Sc./Microbiology/Life
+                        Sc./Bio-Chemistry or Zoology as subsidiary subject
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in Social Work (MSW)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Graduate in any Subject (B.A./B.Sc./B.Com./Voc.)
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.A. in Political Science
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Public Administration/ History/ Sociology/ Economics/
+                        Geography/ Philosophy/ or Political Science as
+                        subsidiary subject
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p dir="ltr">
+                        M.Sc. in Physics
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        Group A – B.Tech./B.E. in Electronics/Electrical &amp;
+                        Electronics/Electronics &amp; Communication
+                        Engineering/ Electronics &amp; Instrumentation/Computer
+                        Science/Information &amp; Communication Technology/
+                        Material Science/Nano Science/Nano Technology/ Energy
+                        Studies.
+                    </p>
+                    <p dir="ltr">
+                        Group B – B.Sc. Hons. in Math with Physics as
+                        subsidiary/B.Sc. Hons. in Chemistry with Physics &amp;
+                        Math as a subsidiary subject/B.Sc. Hons. in Geology
+                        with Physics &amp; Math as a subsidiary/B.Sc. Hons. in
+                        Electronics with Math as a subsidiary/B.Sc. Hons. in
+                        Statistics with Physics and Math as a Subsidiary/B.Sc.
+                        Hons in Computer Science with Physics &amp; Math as a
+                        subsidiary/Three year degree course after 10+2 with
+                        Physics &amp; Math/B.Sc. in Applied Physics/B.Sc. in
+                        Energy Studies/B.Sc. in Material Science/B.Sc. in Nano
+                        Science.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        P.G.
+                    </p>
+                </td>
+                <td>
+                    <p dir="ltr">
+                        2 Yrs.
+                    </p>
+                </td>
+                <td colspan="2">
+                    <p dir="ltr">
+                        No Entrance Test
+                    </p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-sm-12" style="margin-top:15px;">
+<p dir="ltr">
+    Eligibility:
+</p>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            Vocational: Candidates who are appearing for the qualifying
+            examination for the current academic year are also eligible to
+            apply subject to the condition that they produce proof of having
+            passed the qualifying examination with 50% (General category
+            including BC-I &amp; BC-II/EWS) and 45% for SC &amp; ST only and
+            have the required % of marks at the time of admission.
+        </p>
+    </li>
+</ul>
+<br/>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            B.A. &amp; B. Sc.: Must obtain not less than 45% marks in the
+            subject opted for Honours study in the +2 or equivalent examination
+            recognized by the Govt. of Bihar, with not less than 45% marks in
+            the aggregate.
+        </p>
+    </li>
+</ul>
+<br/>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            B. Com.: Should pass the +2 equivalent examination recognized by
+            the Govt. of Bihar, in Commerce with not less than 45% marks in the
+            aggregate.
+        </p>
+    </li>
+</ul>
+<p dir="ltr">
+    or
+</p>
+<p dir="ltr">
+    The Candidates have passed the +2 equivalent examination recognized by the
+    Govt. of Bihar in Arts or Science with not less than 50% marks in
+    aggregate.
+</p>
+<br/>
+<p dir="ltr">
+    Compartment/failed candidates will not be considered even if they have
+    qualified in the entrance examination (Written +Viva ).
+</p>
+<br/>
+<p dir="ltr">
+    The applicants have to attach Xerox copies of qualifying examination Admit
+    Card and Caste Certificate issued by the C.O./S.D.O./D.M. only along with
+    the application form.
+</p>
+<p dir="ltr">
+    Entrance Test Form Fee :
+</p>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            AMM/BBA/BMC/BCA/MBIO/CEMS/PGDCA/PGDFD/PGDAMM (Self-financed) : Rs.
+            1,000/-
+        </p>
+    </li>
+    <li dir="ltr">
+        <p dir="ltr">
+            MCA (AICTE Approved) (Self-financed) : Rs. 1,000/-
+        </p>
+    </li>
+    <li dir="ltr">
+        <p dir="ltr">
+            B.Com. (Self-Financed) : Rs. 1,000/-
+        </p>
+    </li>
+    <li dir="ltr">
+        <p dir="ltr">
+            B.A. &amp; B.Sc. (Main Stream) : Rs. 1,000/-
+        </p>
+    </li>
+    <li dir="ltr">
+        <p dir="ltr">
+            M.A. (Home Sc.) : Rs. 300/-
+        </p>
+    </li>
+    <li dir="ltr">
+        <p dir="ltr">
+            M.A.(Geography/English/Applied Psy./Social Work/Political Sc.)
+            (Self-financed)
+            <img
+                src="https://docs.google.com/drawings/u/1/d/sKk5AgqhkArzt6Yg0UglSSQ/image?w=6&amp;h=50&amp;rev=1&amp;ac=1&amp;parent=1_sKrrq_Y5yuh0OoEXiE8RsKtg71CX-JkwVkyLU4O24w"
+                width="6"
+                height="50"
+            />
+        </p>
+    </li>
+</ul>
+<p dir="ltr">
+    &amp; : Rs. 1,000/-
+</p>
+<p dir="ltr">
+    M.Sc. (Zoology/Physics) (Self-financed)
+</p>
+<p dir="ltr">
+    Application forms for all Courses (2020 – 2023) will be available on the
+College website (    <a href="http://www.patnawomenscollege.in">www.patnawomenscollege.in</a>)
+    from 01.04.2020 to 11.05.2020
+    (B.A./B.Sc./B.Com./AMM/BBA/BMC/BCA/MBIO/CEMS/PGDCA/PGDFD/PGDAMM) and P.Gs.
+    and MCA from 15.04.2020 to 25.05.2020. Forms to be filled in online. If
+    payment is in Offline mode, then Printout a Bank Challan from the website
+    and deposit at Bank of Baroda, Patna Women’s College, Patna, campus. One
+    who will deposit Offline mode, her Roll no. will be allotted after the
+    payment (Please come with deposited bank challan).
+</p>
+<br/>
+<p dir="ltr">
+    P.S.: Only those candidates who have passed with Mathematics at the
+    Intermediate/10+2 level are allowed to opt for Economics as their Core
+    Course (CC).
+</p>
+<br/>
+<br/>
+<br/>
+<p dir="ltr">
+    Last Date for online applying the application forms :
+</p>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            B.A./B.Sc./B.Com./AMM/BBA/BMC/BCA/MBIO/CEMS/PGDCA/PGDFD/PGDAMM : 25-05-2020 </p>
+        
+       
+    </li>
+</ul>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            P.Gs. and MCA : 15.05.2020
+        </p>
+    </li>
+</ul>
+<p dir="ltr">
+    Admission will be done strictly on the basis of the Merit list prepared
+    after the Entrance Test for the Respective Programmes of study.
+</p>
+<br/>
+<br/>
+<p dir="ltr">
+    Written Test :
+</p>
+<table class="table"><tr><thead> </thead><th>Date </th><th>Batch</th><th>Time</th>
+    <tbody>
+        <tr><td>01.06.2020</td><td> Bachelor of Computer Applications (BCA)</td><td>2.00 – 3.00 P.M.</td></tr>
+        <tr><td>01.06.2020</td><td>  Bachelor of Advertising &amp; Marketing Management (AMM) (BCA</td><td>2.00 – 3.00 P.M.</td></tr>
+        <tr><td>01.06.2020</td><td> Bachelor of Communicative English and Media Studies (CEMS)</td><td>2.00 – 3.00 P.M.</td></tr>
+        <tr><td>02.06.2020</td><td> Bachelor of Mass Communication (BMC)(CEMS)</td><td>2.00 – 3.00 P.M.</td></tr>
+        <tr><td>02.06.2020</td><td> Bachelor of Microbiology (MBIO)</td><td>2.00 – 3.00 P.M.</td></tr>
+        <tr><td>02.06.2020</td><td> Bachelor of Business Administration (BBA)</td><td>2.00 – 3.00 P.M.</td></tr>
+         <tr><td>03.06.2020</td><td> B.A</td><td>12.00 – 2.00 P.M.</td></tr>
+         <tr><td>03.06.2020</td><td> B.A</td><td>12.00 – 2.00 P.M.</td></tr>
+         <tr><td>04.06.2020</td><td>B.A. English Proficiency Test</td><td>9.30 A.M – 10.30 A.M.</td></tr>
+         <tr><td>05.06.2020</td><td> B.Com</td><td>12.00 – 2.00 P.M.</td></tr>
+         <tr><td>06.06.2020</td><td> B.Sc</td><td>12.00 – 2.00 P.M.</td></tr>
+         <tr><td>20.06.2020</td><td> MCA</td><td>11.00 A.M – 1.00 P.M.</td></tr>
+    </tbody>
+</table>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<p dir="ltr">
+    Publication of 1st Admission List
+</p>
+<br/>
+<table class="table"><tr><thead> </thead><th>Date </th><th>Batch</th>
+    <tbody>
+        <tr><td>06.06.2020</td><td>BCA/AMM/CEMS/BCA/BBA/BMC/MBIO/PGDCA/PGDFD/PGAMM</td></tr>
+         <tr><td>10.06.2020</td><td> B.Com</td></tr>
+         <tr><td>11.06.2020</td><td> B.Sc</td></tr>
+         <tr><td>12.06.2020</td><td> B.A</td></tr>
+         <tr><td>24.06.2020</td><td> MCA</td></tr>
+    </tbody>
+</table>
+<br/>
+<p dir="ltr">
+    Viva Voice of Mca : 22.06.2020
+</p>
+<br/>
+<br/>
+<p dir="ltr">
+    Admission of First List :
+</p>
+
+<p dir="ltr">
+    17.06.2020 and 18.06.2020 – B.A.
+</p>
+<p dir="ltr">
+    15.06.2020 – B.Com.
+</p>
+<p dir="ltr">
+    16.06.2020 – B.Sc.
+</p>
+<p dir="ltr">
+    10.06.2020 – BCA/MBIO/CEMS/BMC/BBA/AMM/PGDCA/PGDAMM/PGDFD
+    
+</p>
+
+<p dir="ltr">
+    27.06.2020 – MCA
+</p>
+<p dir="ltr">
+    26.06.2020 – All PGs Courses
+</p>
+<br/>
+<p dir="ltr">
+    Publication of 2nd Admission list (if any vacancy exists): See the College
+    notice board and website.
+</p>
+<p dir="ltr">
+    IMPORTANT : Only those who are interested to complete the course are
+    encouraged to apply. Those who wish to leave the course should do so before
+    the commencement of Classes otherwise the fees will not be refunded.
+</p>
+<br/>
+<p dir="ltr">
+    CLASSES WILL COMMENCE FROM 1st JULY, 2020.
+</p>
+<br/>
+<p dir="ltr">
+FOR MORE DETAILS CONTACT COLLEGE OFFICE &amp; See    <a href="http://www.patnawomenscollege.in/">www.patnawomenscollege.in</a>
+</p>
+<br/>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            CBCS :- Choice Based Credit System
+        </p>
+    </li>
+</ul>
+<br/>
+<ul>
+    <li dir="ltr">
+        <p dir="ltr">
+            Prospectus :- College prospectus for the year 2020-2023 will be
+            available at the College Office
+        </p>
+    </li>
+</ul>
+<p dir="ltr">
+    from 15th May 2020.
+</p>
+<br/>
+<br/>
+<p dir="ltr" style="float: right">
+    (Dr. Sister M. Rashmi A.C.)
+</p>
+
+<div>
+    <br/>
+</div>
+                        <div class="col-sm-12 employee_class">
+                            <div class="form-group">
+                                <input type='Checkbox' name='instruction' id="instruction" class='instruction' value='EVS'  />
+                              I have read the above instructions and agree to follow them.
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-sm-offset-5 employee_class">
+                            <div class="form-group">
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                               <a href="<?=  $this->baseUrl("entrance-exam-form/registeration"); ?>"> <button type="button" id="continue" class="btn btn-primary">Continue</button></a>
+                            </div>
+                        </div>
+                     
+
+                    </fieldset> 
+                    &nbsp;<br>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script>
+    $('#continue').hide();
+    $('#instruction').click(function(){
+        if (this.checked) {
+            $('#continue').show();
+        }else{
+            $('#continue').hide();
+        }
+    });
+</script>

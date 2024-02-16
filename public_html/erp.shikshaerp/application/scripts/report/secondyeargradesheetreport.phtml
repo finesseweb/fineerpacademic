@@ -1,0 +1,1343 @@
+<?php
+//echo "hello";die;
+$stu_details = $this->stu_details;
+$extra_span = 0;
+if(in_array($stu_details['academic_id'],array(53,54))){
+    $extra_span = 1;
+}
+else if(in_array($stu_details['academic_id'],array(49,50)))
+{
+     $extra_span = 1;
+}
+$url = $this->url;
+$passmarks = $this->passpercent;
+
+$sl_no = $this->gradesheet_number;
+//===============[WIDTHS]
+$marks_width = '20px';
+$marks_width1 = '20px';
+$marks_width4 = '25px';
+$marks_width3 = "14px";
+$total_width = "10px";
+ $single_pr = $this->single;
+$cgpaf = array();
+$degree_id = 0;
+ 
+?>
+<style>
+    table{
+        margin:0;
+    }
+    .sub{
+        border:.01em solid #932e90;
+        text-align: center;
+  font-size:18px;
+    }
+    
+    .cleanup{
+        border-top:0px solid #000;
+    }
+    .cleandown{
+        border-bottom:0px solid #000;
+    }
+    th{
+        width:auto !important;
+     
+    }
+    
+    td,tr{
+        margin:0 !important;
+        
+    }
+    
+    
+  
+</style>
+
+
+
+<div class="grade-data-container" style="margin-top:10px;">
+    <table class="tablestyle1" width="100%" cellspacing ="0" >
+        <thead>
+            
+            <tr >
+                <!--[COLLEGE HEADER AND LOG STUDENT IMAGE]--->
+                <th class="<?php if($this->year_id) {echo "sub" ;}?>" <?php if(!$this->year_id){ echo 'style="text-align:left"';}?> width='<?= $marks_width; ?>' ><img src="<?= $this->mainconfig['publicpath']; ?>/images/img.png" style="margin-right:100px" height="130"></th>
+                <th class="<?php if($this->year_id) {echo "sub" ;}?>"  width='<?= $marks_width1; ?>' >
+<pre style="font-family:'Times New Roman'; background-color: #fff !important;border:1px solid #fff;">
+            <span style ="font-size:1.5em;  font-weight:900">PATNA&nbsp;WOMEN'S&nbsp;COLLEGE</span>
+            <?php if($this->year_id){ ?>
+<span style ="font-size:1.3em; letter-spacing:.05em; font-weight:900">AUTONOMOUS</span>
+            <span style ="font-size:1em; font-weight:900">PATNA UNIVERSITY</span>
+            <?php } else{ ?>
+    <br/><span style ="font-size:1.3em; letter-spacing:.05em; font-weight:900; margin-left:80px">AUTONOMOUS</span><br />
+            <span style ="font-size:1.3em; font-weight:900">PATNA UNIVERSITY, PATNA</span>
+            <?php } ?>
+<?php if($this->year_id){ ?>3rd Cycle NAAC Accredited <span style="text-transform: lowercase;">at</span> A Grade <span style="text-transform: lowercase;">with</span> CGPA 3.58/4
+'College<span style="text-transform: lowercase;"> with</span> Potential <span style="text-transform: lowercase;">for</span> Excellence'(CPE) <span style="text-transform: lowercase;">status accorded by </span>UGC
+           <span style ="font-size:1em; font-weight:900"> BAILEY ROAD,PATNA</span> - 800 001, BIHAR
+           
+            </pre>
+                </th>
+                <th class="sub" width='<?= $marks_width; ?>'>
+                      <?php if (!empty($stu_details['filename'])) { ?>
+                                    <img  width="132" src="<?= $this->mainconfig['host'] . $stu_details['filename']; ?>">
+                                <?php } else { ?>
+                                    No image.
+                                <?php } ?><br>
+                                <?=$stu_details['stu_id'];?>
+                                
+                </th>
+                <?php } else {?>
+                  <th class="<?php if($this->year_id) {echo "sub" ;}?>" width='<?= $marks_width; ?>' style="text-align:right">
+                                    <img  src="<?= $this->mainconfig['imagesurl'] . "Patna_University.png"; ?>" width="200"  >
+                                
+                </th>
+                
+                <?php } ?>
+            </tr>
+            
+            <?php if($this->year_id){ ?>
+            <tr>
+                <th class="sub"><small>SL. No: <?=$sl_no;?></small></th>
+
+                <th class="sub">
+                    STATEMENT OF MARKS AND GRADE POINTS
+                </th>
+
+                <th class="sub" style="text-align:left;">
+                    <small>
+                        <?php
+                        $session_name = 'XXXX-XXXXX';
+                        if($stu_details['academic_id']){
+                        $academic_model = new Application_Model_Academic();
+                        $academic_details = $academic_model->getRecord($stu_details['academic_id']);
+                        $session_model = new Application_Model_Session(); 
+                        $session_name = $session_model->getRecord($academic_details['session'])['session'];}
+                        ?>
+                        <span style ="font-size:1em; font-weight:900"> SESSION: </span> <?= $session_name; ?>
+
+                    </small>
+                </th>
+            </tr>
+           
+            <!--            AACADEMIC SESSION AND PRINT OUT DATE-->
+            <tr>
+			<?php if(!$stu_details['academic_id']){ 
+			$col_span = 3;
+			$align = 'center';
+			}else{
+				$col_span = '';
+				$align = 'left';
+			}
+			?>
+			
+			
+                <td class="sub" style='text-align:left;' colspan = "<?=$col_span;?>" ><small>
+                    <?php $academic_model = new Application_Model_Academic();
+					if(!$stu_details['academic_id']){
+						echo "Student Report Card Not Pepared !";exit;
+					}
+                            $academic_details = $academic_model->getRecord($stu_details['academic_id']);
+                        $d_id = $academic_details['department'];
+                        $deg_details = new Application_Model_Department();
+                        $degree_id= $deg_details->getRecord($d_id)['degree_id'];
+                    ?>
+                        <span style ="font-size:1em; font-weight:900">PROGRAMME:</span> <?=$academic_details['batch_code'] ;?>
+                    </small>
+                </td >
+                   <th class="sub"  >CHOICE BASED CREDIT SYSTEM (CBCS)</th>
+              
+                <td class="sub" style='text-align:left;'>
+                    <small><span style ="font-size:1em; font-weight:900">
+                            <?php  $reval_date = new Application_Model_Revalstatus();
+                                     $added_date = $reval_date->getRecordby($this->student_marks_details[$this->term_marks[0]][0]['tabl_id'],$this->student_marks_details[$this->term_marks[0]][0]['student_id']);
+                                    $added_date="";
+                                   if(!empty($added_date['added_date'])){
+                            ?>
+                            Date:&nbsp; </span><?= $added_date['added_date']; ?> 
+                            <?php }else{ ?>
+                        Date:&nbsp; </span><?= $this->term_id !=0?Date('d-m-Y',strtotime($this->publish_dates)):Date('d-m-Y'); ?> 
+                        
+                        <?php } ?> 
+                    </small></td>
+            </tr>
+
+            <!--            STUDENT PERSONAL DETAILS-->
+            <tr>
+                <td class="sub" style='text-align:left;' ><small> <span style ="font-size:1em; font-weight:900">STUDENT'S NAME: </span><?= $stu_details['stu_fname'] . ' ' . $stu_details['stu_lname']; ?> </small></td>
+                 <td class="sub" ></td>
+                <td class="sub" style='text-align:left;' ><small> <span style ="font-size:1em; font-weight:900">EXAMINATION ROLL NO: </span><?= $stu_details['exam_roll']; ?></small> </td>
+            </tr>
+
+            <tr>
+                <td class="sub" style='text-align:left;' ><small><span style ="font-size:1em; font-weight:900">MOTHER'S NAME: </span><?= $stu_details['mother_fname'] . ' ' . $stu_details['mother_lname']; ?></small></td>
+                <th class="sub"  >  
+                    <?php if($single_pr){ 
+                        $term_det = new Application_Model_TermMaster();
+                        $term_name = $term_det->getRecord($this->term_marks[0])['term_name'];
+                        echo "$term_name (Examination December 2019)";
+                        ?>
+                    
+                    <?php } else {
+                    
+                    echo "Acumulative Grades";
+                    }?>
+                    
+                
+                </th>
+                <td class="sub" style='text-align:left;'><small><span style ="font-size:1em; font-weight:900">REGISTRATION NO:</span> <?= $stu_details['reg_no']; ?></small></td>
+            </tr>
+            <tr ><td class="sub" style='text-align:left;' colspan="3"><small><span style ="font-size:1em; font-weight:900">FATHER'S NAME:</span> <?= $stu_details['father_fname'] . ' ' . $stu_details['father_lname']; ?></small></td></tr>
+            <?php } else { ?>
+            
+                <!--fixed header in  final grade sheet-->
+                <tr>
+                    <th  colspan=3 style="text-align:center;font-size:20px">STATEMENT OF MARKS AND GRADE POINTS</th>
+                </tr>
+                 <tr>
+                    <th colspan=3 style="text-align:center;font-size:20px">CHOICE BASED CREDIT SYSTEM (CBCS)</th>
+                </tr>
+             
+               <tr>
+                    <th style="text-align:left">SL. No: <?=$sl_no;?></th>
+                    <th ></th>
+                     <th  rowspan=7 style="text-align:right; padding-right:29px; padding-top:0px;"> <?php if (!empty($stu_details['filename'])) { ?>
+                                    <img  width="160" height="160" style="" src="<?= $this->mainconfig['host'] . $stu_details['filename']; ?>">
+                                <?php } else { ?>
+                                    No image.
+                                <?php } ?>
+                                </th>
+                </tr>
+                <tr>
+                    <th style="text-align:left">PROGRAMME</th>
+                       <?php $academic_model = new Application_Model_Academic();
+					if(!$stu_details['academic_id']){
+						echo "Student Report Card Not Pepared !";exit;
+					}
+                            $academic_details = $academic_model->getRecord($stu_details['academic_id']);
+                        $d_id = $academic_details['department'];
+                        $deg_details = new Application_Model_Department();
+                        $degree_id= $deg_details->getRecord($d_id)['degree_id'];
+                    ?>
+                    <th style="text-align:left"><?=$academic_details['batch_code'] ;?></th>
+                   <th></th>
+                </tr>
+                  
+                <tr>
+                    <th style="text-align:left">STUDENT'S NAME</th>
+                    <th style="text-align:left"><?= $stu_details['stu_fname'] . ' ' . $stu_details['stu_lname']; ?> </th>
+                    <th></th>
+                </tr>
+                 <tr>
+                    <th style="text-align:left">FATHER'S NAME</th>
+                    <th style="text-align:left"><?= $stu_details['father_fname'] . ' ' . $stu_details['father_lname']; ?> </th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th style="text-align:left" >REGISTRATION NO.</th>
+                    <th style="text-align:left"><?= $stu_details['reg_no']; ?></th>
+                    <th  ></th>
+                </tr>
+                
+            <tr>
+                    <th style="text-align:left">EXAMINATION ROLL NO.</th>
+                    <th style="text-align:left"><?= $stu_details['exam_roll']; ?></th>
+                    <th ></th>
+                </tr>
+            
+            <tr>
+                    <th style="text-align:left">SESSION</th>
+                    <?php
+                        $session_name = 'XXXX-XXXXX';
+                        if($stu_details['academic_id']){
+                        $session_model = new Application_Model_Session(); 
+                        $session_name = $session_model->getRecord($academic_details['session'])['session'];}
+                        ?>
+                    <th style="text-align:left"><?=$session_name; ?></th>
+                    <th ></th>
+                </tr>
+            
+                <tr>
+                    <th style="text-align:left">DATE OF RESULT
+                   
+                        
+                           <?php  $reval_date = new Application_Model_Revalstatus();
+                                    $added_date = $reval_date->getRecordby($this->student_marks_details[$this->term_marks[0]][0]['tabl_id'],$this->student_marks_details[$this->term_marks[0]][0]['student_id']);
+                                  //  echo "<pre>";print_r($this->student_marks_details[$this->term_marks[0]][0]['tabl_id']);exit;
+                                   if(!empty($added_date['added_date'])){
+                                       
+                            ?>
+                  <th style="text-align:left">16-10-2020 <?php //$added_date['added_date']; ?></th>
+                            <?php }else{  ?>
+                            
+                     <th style="text-align:left"><?= Date('d-m-Y',strtotime($this->publish_dates)); ?></th> 
+                        
+                        <?php } ?> 
+                        
+                    
+                    <th  style="text-align:center;padding-left:90px; padding-right:-10px"><?=$stu_details['stu_id'];?></th>
+                </tr>
+            <?php } ?>
+        </thead>
+        <tbody>
+            
+           
+            <!-----------[Important Variables]-------------->
+            <?php  $header_component = $this->header_component[$this->term_marks[0]]; ?>
+             
+            <!-----------------[END]---------------------->
+            <tr>
+                <td colspan="3">
+                    <table class="tablestyle1" width="100%" cellspacing="0" id='marks'>
+                        <thead>
+                            <?php if($this->year_id){ ?>
+                            <tr><?php  if(!$single_pr){  ?> <td class="sub" rowspan ="2" width="<?= $marks_width; ?>" >Semester</th> <?php } if($single_pr){ ?>
+                            
+                                <td class="sub" rowspan ="2" width="<?= $marks_width; ?>" >Group</th>
+                                <?php } ?>
+                                <th class="sub" rowspan="2" width="<?= $marks_width; ?>">Code</th>
+                                <?php foreach ($header_component as $component_key => $compo_val) { ?>
+                                    <th class="sub"  colspan="2" width ="<?= $marks_width; ?>"><?= $compo_val['component_name']; ?></th>
+                                <?php } ?>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Total</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2">Total Marks Obtained</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Credit</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Grade Letter</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Grade Point</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Credit Point<hr/><br/>(Credit x Grade Point)</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >SGPA<br/>(Credit Point/ Credit)</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Remarks</th>
+                                
+                                <th class="sub" width ="<?= $marks_width; ?>" rowspan="2" >Final Remarks / Fail <span style="text-transform: lowercase;">in</span></th>
+                            </tr>
+                            <tr>
+                                <?php foreach ($header_component as $component_key => $compo_val) { ?>
+                                    <th class="sub" width ="<?= $marks_width; ?>">Full Marks/ Pass Marks</th>
+                                    <th class="sub" width ="<?= $marks_width; ?>">Marks Obtained</th>
+                                <?php } ?>
+                            </tr>
+                           
+                            <?php } else{ ?>
+                               
+                               
+                               
+                                  <tr><?php  if(!$single_pr){  ?> <th class="sub" width="<?= $marks_width; ?>" >Semester</th> <?php } if($single_pr){ ?>
+                            
+                                <td class="sub"  width="<?= $marks_width; ?>" >Group</th>
+                                <?php } ?>
+                                <th class="sub"  width="<?= $marks_width; ?>">Course Code</th>
+                               
+                                <th class="sub" width ="<?= $marks_width; ?>"  >Full Marks</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" >Pass Marks</th>
+                                <th class="sub" width ="<?= $marks_width; ?>" > Marks Obtained</th>
+                                <th class="sub" width ="<?= $marks_width; ?>"  >Credit</th>
+                                <th class="sub" width ="<?= $marks_width; ?>"  >Grade Letter</th>
+                                <th class="sub" width ="<?= $marks_width; ?>"  >Grade Point</th>
+                                <th class="sub" width ="<?= $marks_width; ?>"  >Credit Point<hr/><br/>(Credit x Grade Point)</th>
+                                <th class="sub" width ="<?= $marks_width; ?>"  >SGPA<br/>(Credit Point/ Credit)</th>
+                           <?php } ?>
+                                
+                        </thead>
+                        <tbody> 
+                        
+                         <?php  
+              //==========================[term_iteration_starts]===========//
+              $grand_total = $grand_ob_total = $grand_cr_total = $grand_gr_total = $grand_crp_total = 0;
+              $gr_pr = 1;
+             
+              foreach($this->term_marks as $term_index => $term_id){
+                 
+                  //====chnage according to term id iterate====//
+                    $term_pr_id = $term_id;
+                    $stu_marks = $this->student_marks_details[$term_pr_id];
+                    $sgpa = $this->stu_sgpa[$term_pr_id];
+                    $prom = $this->prom[$term_pr_id];
+                    $fail_ct_id = $this->stu_fail_in[$term_pr_id];
+                    $term_details = $this->stu_term_details[$term_pr_id];
+                    $academic_details = $this->stu_academic_details[$term_pr_id];
+                    $session_details = new Application_Model_Session();
+                    $session_name = $session_details->getRecord($academic_details['session'])['session'];
+                    $ct_ids = $this->stu_course[$term_pr_id];
+                    
+                    //=============[Spans]
+                    $core_span = $this->corespan[$term_pr_id];
+                    
+                    $course_des_span = count($stu_marks); 
+                    $grand_name  = 'GRAND TOTAL';
+                   
+                    if(!$single_pr){ 
+                        $grand_name = 'TOTAL';
+                    }
+                   
+              ?>
+            
+                            <?php
+                            $row_span_arr = array();
+                            $non_term = $term_one = $promo_one = $sgpa_one = $course_group_arr = array();
+                            $empty_cell_prin_len = count($header_component);
+                            $all_total = $ob_total = $cr_total = $gr_total = $crp_total = 0;
+                            $sgpa_span = $this->sgpaspan[$term_details['term_id']]['sgpa_span'];
+                            $tem_percent = 0;
+                            $j = 1;
+                             $sgfa = " ";
+                             $tpfa = [];
+                           
+                            ?>
+                            <?php
+                            
+                            foreach ($stu_marks as $marks_key => $marks_val) {
+                                
+                                if($marks_key == 1 && $term_pr_id==310){
+                                    $marks_val = $stu_marks[2]; 
+                                }
+                                else if($marks_key == 2 && $term_pr_id ==310){
+                                    $marks_val =$stu_marks[1];
+                                }    
+                                
+                                //====[student marks sheet details]============//
+                                $component_weightages = explode(',', $marks_val['component_weightages']);
+                                $component_grades = explode(',', $marks_val['component_grades']);
+                                $marks_obtained = explode(',', $marks_val['number_value']);
+                                $grade_value = explode(',', $marks_val['grade_value']);
+                               
+                                 $core_course_master = new Application_Model_Corecourselearning();
+                                 $course_credit_info = $core_course_master->getCoreCouseDetailByTermAcademicCourse($academic_details['academic_year_id'], $term_details['term_id'], $marks_val['course_id']);
+                                 if($course_credit_info['count_id'] == 0){
+                               ?>
+                                <?php
+                                foreach ($ct_ids as $key => $ct_values) {
+                                    
+                                    $i = 1;
+                                    $total = $tot_obtained = $tot_marks = 0;
+                                    $pass_fail = 'P';
+                                    
+                                    ?>
+
+                                    <?php
+                                    foreach ($ct_values as $ct_keys => $ct_value) {
+                                    
+                                      //===============[for end semester exam result]===========================//
+                                      if($this->year_id){
+                                        if ($marks_val['course_id'] == $ct_value['course_id']) {
+                                            $row_span_arr[$key] += 1;
+                                            ?>
+                                            <tr>
+                                                <!--
+                                                PRint Only one Course Group-->
+                                                <?php if (!in_array($key, $course_group_arr)) {
+                                                    $course_group_arr[] = $key;
+                                                     if(!$single_pr){ 
+                                                         if (!in_array($sgpa, $term_one)) {
+                                                    $term_one[] = $sgpa;
+                                                    ?>
+                                                      
+                                                        <td class='sub' width="<?= $marks_width; ?>" style="width:20px !important;" rowspan="<?= $sgpa_span; ?>"><?=$term_details['term_name'];?></td>
+                                                    <?php } } if($single_pr){?>
+                                                    <td class="sub" rowspan="<?=count($ct_values) ?>" style='text-align:left;width:40% !important' > <?= $key; ?></td><?php } }?>
+
+                                                <!--print Course Code-->
+                                                <?php
+                                                $courseMaster = new Application_Model_Course();
+                                                $course_code = $courseMaster->getRecord($ct_value['course_id'])['course_code'];
+                                                ?>
+                                                <td class="sub" style='text-align:left; width:30px !important' ><?= $course_code; ?></td>
+                                                <!------print total component and number obtained------>
+                                                <?php for ($k = 0; $k < count($component_grades); $k++) { ?>
+                                                    <?php
+                                                    $tot_marks += $component_weightages[$k];
+                                                    $tot_obtained += !empty($marks_obtained[$k]) ? $marks_obtained[$k] : 0;
+                                                    if($tem_percent == 0){
+                                                    $tem_percent = $passmarks;
+                                                    }
+                                                    $passmarks = $tem_percent;
+                                                    
+                                                    if($component_weightages[$k]==250)
+                                                        $passmarks = 50;
+                                                        else if($ct_value['course_id']==721)
+                                                       $passmarks = 50;
+                                                    ?>
+                                                    <td class="sub" ><?= $component_weightages[$k]==0?'--':$component_weightages[$k].' / '.((int)$passmarks/100)*(int)$component_weightages[$k]; ?></td>
+                                                   <?php if(!empty($grade_value[$k])){ ?>
+                                                    <td class="sub" style ='<?php if(strtolower($grade_value[$k])=="ab" || strtolower($grade_value[$k])=="na" )echo "color:red;";?>'><?php 
+                                                    if((!empty($marks_obtained[$k]) || $marks_obtained[$k]==0) && $grade_value[$k]!=='Ab' && $grade_value[$k]!=='NA'){
+                                                     echo  $marks_obtained[$k];
+                                                      if($grade_value[$k] == 'F'){
+                                                      $pass_fail = 'F';}
+                                                    }
+                                                    else{
+                                                       echo $grade_value[$k];
+                                                       $pass_fail = 'F';
+                                                    }
+                                                    ?>
+                                                    
+                                                    </td>
+                                                   <?php } else { ?>
+                                                    <td class="sub">--</td>
+                                                   <?php } ?>
+
+                                                    <?php
+                                                    $i += 1;
+                                                }
+                                                ?>
+                                                <!-- //================[print empty cell]==============//-->
+
+                                                <?php
+                                                if ($i < ($empty_cell_prin_len + 1)) {
+                                                    for ($pr = $i; $pr <= $empty_cell_prin_len; $pr++) {
+                                                        ?>
+                                                        <td class="sub" >-- </td>
+                                                        <td class="sub" >-- </td>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
+
+                                                <!-------print total marks or total marks obtained----->         
+                                                <td class="sub" width ="<?= $total_width; ?>"><?= $tot_marks; ?></td>
+
+                                                <?php
+                                                $all_total += $tot_marks;
+                                                $ob_total += $tot_obtained;
+                                                ?>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $tot_obtained; ?></td>
+
+                                              
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $course_credit_info['count_id'] == 0 ? $course_credit_info['credit_value'] : 00; ?>  </td>
+
+
+                                                <?php $cr_total += $course_credit_info['count_id'] == 0 ? $course_credit_info['credit_value'] : 0; ?> 
+
+
+                                                <?php
+                                                $num = round(((int) $tot_obtained / $tot_marks) * 100);
+                                                $ref_grade_item = new Application_Model_ReferenceGradeMasterItems();
+                                                $letter_grade = $ref_grade_item->getRecordByNumGrade($num,$degree_id);
+                                                ?>
+                                                
+                                                <td  class="sub" width ="<?= $marks_width; ?>"><?= !empty($letter_grade) ? $letter_grade : '--'; ?></td>
+
+                                                <?php
+                                                if (!is_numeric($letter_grade)) {
+
+                                                    $ReferenceGradeMaster_model = new Application_Model_ReferenceGradeMaster();
+                                                    $letter_grade_result = $ReferenceGradeMaster_model->getNumberGradeValue(0, $letter_grade,$degree_id);
+                                                    $numeric_grade = $letter_grade_result['number_grade'];
+                                                } else if (is_numeric($letter_grade)) {
+                                                    $numeric_grade = $letter_grade;
+                                                } $total = $course_credit_info['count_id'] == 0 ? $numeric_grade * $course_credit_info['credit_value'] : 0;
+                                                ?>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $numeric_grade; ?></td>
+                                                <td class="sub" width ="10px"><?= $total; ?></td>
+
+                                                <?php if (!in_array($sgpa, $sgpa_one)) {
+                                                    $sgpa_one[] = $sgpa;
+                                                    ?>
+
+                                                    <td  class="sub" width ="<?= $marks_width; ?>" rowspan="<?= $sgpa_span; ?>">
+                                                        <?php
+                                                        if(empty($fail_ct_id)){
+                                                            echo $sgpa;
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '--';
+                                                            $cgpaf[] = 'F';
+                                                        }
+                                                        ?>
+                                                    </td>
+                <?php } ?>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $letter_grade == 'F' ? 'F*' : $pass_fail == 'F'?'F*':'P'; ?></td>
+                                                <?php if(!in_array($prom,$promo_one)  ){
+                                                        $promo_one[] = $prom;
+                                                   
+                                                        $cour_det = new Application_Model_Course();
+                                                      $fail_cts = $cour_det->getctname($fail_ct_id);  
+                                                       if($fail_cts){
+                                                      ?>    
+                                                <td class="sub" rowspan="<?= $sgpa_span; ?>"><?=($prom); ?> /<br/><?=$fail_cts;?></td>
+                                                       <?php }else{?>
+                                                <td class="sub" rowspan="<?= $sgpa_span; ?>"><?="$prom";?></td>
+                                                <?php } }?>
+                                                <?php
+                                                $gr_total += $numeric_grade;
+                                                $crp_total += $total;
+                                                ?>
+                                            </tr>
+                                        <?php } ?>
+                                    <?php }else{ ?> 
+                                    
+                                    <?php
+                                      if ($marks_val['course_id'] == $ct_value['course_id']) {
+                                            $row_span_arr[$key] += 1;
+                                            ?>
+                                            <tr id = "<?=$ct_value['course_id'];?>">
+                                                <!--
+                                                PRint Only one Course Group-->
+                                                <?php if (!in_array($key, $course_group_arr)) {
+                                                    $course_group_arr[] = $key;
+                                                     if(!$single_pr){ 
+                                                         if (!in_array($sgpa, $term_one)) {
+                                                                $term_one[] = $sgpa;
+                                                    ?>
+                                                      
+                                                        <th class='sub cleandown' width="<?= $marks_width; ?>" style="width:20px !important;" rowspan="<?= $sgpa_span+1+$extra_span; ?>"><?=$term_details['term_name'];?></th>
+                                                    <?php } } if($single_pr){?>
+                                                    <td class="sub" rowspan="<?=count($ct_values) ?>" style='text-align:left;width:40% !important' > <?= $key; ?></td><?php } }?>
+
+                                                <!--print Course Code-->
+                                                <?php
+                                                $courseMaster = new Application_Model_Course();
+                                                $course_code = $courseMaster->getRecord($ct_value['course_id'])['course_code'];
+                                                ?>
+                                                <td class="sub" style='text-align:left; width:30px !important'  ><?= $course_code; ?></td>
+                                                <!------print total component and number obtained------>
+                                                <?php for ($k = 0; $k < count($component_grades); $k++) { ?>
+                                                    <?php
+                                                    $tot_marks += $component_weightages[$k];
+                                                    $tot_obtained += !empty($marks_obtained[$k]) ? $marks_obtained[$k] : 0;
+                                                    
+                                                    if($tem_percent==0){
+                                                        $tem_percent = $passmarks;
+                                                    }
+                                                    $passmarks = $tem_percent;
+                                                    
+                                                    if($component_weightages[$k]==250){
+                                                        $passmarks = 50;}
+                                                        else if($ct_value['course_id']==721){
+                                                       $passmarks = 50;
+                                                    }
+                                                    else
+                                                    {
+                                                        if($degree_id ==3){
+                                                      $passmarks = 45;  
+                                                        }
+                                                    }
+                                                    ?>
+                                                  
+                                                   <?php if(!empty($grade_value[$k])){ ?>
+                                                <?php 
+                                                    if((!empty($marks_obtained[$k]) || $marks_obtained[$k]==0) && $grade_value[$k]!=='Ab' && $grade_value[$k]!=='NA'){
+                                                      if($grade_value[$k] == 'F'){
+                                                      $pass_fail = 'F';}
+                                                    }
+                                                    else{
+                                                       echo $grade_value[$k];
+                                                       $pass_fail = 'F';
+                                                    }
+                                                ?>
+                                                 
+                                                   <?php } else { ?>
+                                                   <?php } ?>
+
+                                                    <?php
+                                                    $i += 1;
+                                                }
+                                                ?>
+                                                <!-- //================[print empty cell]==============//-->
+
+                                                <?php
+                                                if ($i < ($empty_cell_prin_len + 1)) {
+                                                    for ($pr = $i; $pr <= $empty_cell_prin_len; $pr++) {
+                                                        ?>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
+
+                                                <!-------print total marks or total marks obtained----->         
+                                                <td class="sub" width ="<?= $total_width; ?>"><?= $tot_marks; ?></td>
+                                                    <td class="sub" ><?= ((int)$passmarks/100)*$tot_marks; ?></td>
+                                                <?php
+                                                $all_total += $tot_marks;
+                                                $ob_total += $tot_obtained;
+                                                ?>
+                                                
+                                                
+                                                <?php
+                                                
+                                                $num = round(((int) $tot_obtained / $tot_marks) * 100);
+                                                $ref_grade_item = new Application_Model_ReferenceGradeMasterItems();
+                                                $letter_grade = $ref_grade_item->getRecordByNumGrade($num,$degree_id);
+                                            
+                                                
+                                                ?>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $tot_obtained; ?><?php if(in_array($letter_grade,array('F','D')) || $pass_fail =="F"){echo "*";$sgfa = "F"; $tpfa[] = 'F';}else{$sgfa = "";} ?></td>
+
+                                              
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $course_credit_info['count_id'] == 0 ? $course_credit_info['credit_value'] : 00; ?>  </td>
+
+
+                                                <?php $cr_total += $course_credit_info['count_id'] == 0 ? $course_credit_info['credit_value'] : 0; ?> 
+
+
+                                                
+                                                <td  class="sub" width ="<?= $marks_width; ?>"><?= !empty($letter_grade) ? $letter_grade : '--'; ?></td>
+
+                                                <?php
+                                                if (!is_numeric($letter_grade)) {
+
+                                                    $ReferenceGradeMaster_model = new Application_Model_ReferenceGradeMaster();
+                                                    $letter_grade_result = $ReferenceGradeMaster_model->getNumberGradeValue(0, $letter_grade,$degree_id);
+                                                    $numeric_grade = $letter_grade_result['number_grade'];
+                                                } else if (is_numeric($letter_grade)) {
+                                                    $numeric_grade = $letter_grade;
+                                                }   $total = $course_credit_info['count_id'] == 0 ? $numeric_grade * $course_credit_info['credit_value'] : 0;
+                                                ?>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?php if($sgfa=='F'){echo "--";}else{ ?><?= $numeric_grade; ?><?php } ?></td>
+                                                <td class="sub" width ="10px"><?php if($sgfa=='F'){echo "--";}else{ ?><?= $total; ?><?php } ?></td>
+
+                                                <?php if (!in_array($sgpa, $sgpa_one)) {
+                                                    $sgpa_one[] = $sgpa;
+                                                    ?>
+
+                                                    <th  class="sub" width ="<?= $marks_width; ?>" rowspan="<?= $sgpa_span+1+$extra_span; ?>">
+                                                        <?php
+                                                        if(empty($fail_ct_id)){
+                                                            echo $sgpa;
+                                                        }
+                                                        else
+                                                        {
+                                                            echo '--';
+                                                            $cgpaf[] = 'F';
+                                                        }
+                                                        ?>
+                                                    </th>
+                <?php } ?>
+
+                                                <!--<td class="sub" width ="<?= $marks_width; ?>"><?= $letter_grade == 'F' ? 'F*' : $pass_fail == 'F'?'F*':'P'; ?></td>-->
+                                              
+                                                <?php
+                                                $gr_total += $numeric_grade;
+                                                $crp_total += $total;
+                                                ?>
+                                            </tr>
+                                        <?php } ?>
+                                    
+                                    <?php } }?>
+
+                                <?php } ?>
+                                <?php
+                                 }
+                                $j++;
+                                
+                            }
+                            ?>
+                            <tr></tr>
+                            <!-----------Total or Grand Total --------------------->
+                            <?php  if($this->year_id) {?>
+                            <tr>
+                                <th class="sub" style='text-align:left;' ><?=$grand_name;?></th>
+                                <?php for($i =0 ; $i<($empty_cell_prin_len * 2) + 1; $i++) { ?>
+                                <th class="sub" ></th>
+                                <?php } ?>
+                                <th class="sub"  ><?= $all_total; ?></th>
+                                <th class="sub" ><?= $ob_total; ?></th>
+                                <th class="sub"><?= $cr_total; ?></th>
+                                <th class="sub"></th>
+                                <th class="sub" ><?= $gr_total; ?></th>
+                                <th class="sub" ><?= $crp_total; ?></th>
+                                <th class="sub" ></th>
+                                <th class="sub"></th>
+                                 <?php if($single_pr){ ?>
+                                <th class="sub"></th>
+                                 </tr>
+                                 <?php } ?>
+                           
+                            <?php } else{ ?>
+                            <tr >
+                             
+                               <th class="sub" ><?=$grand_name;?></th>
+                                <th class="sub"  ><?= $all_total; ?></th>
+                                <th class="sub"></th>
+                                <th class="sub" ><?php if(count($tpfa)!==0){ echo "--"; }else{ ?><?= $ob_total; ?><?php } ?></th>
+                                <th class="sub"><?= $cr_total; ?></th>
+                                <th class="sub"></th>
+                                <th class="sub" ></th>
+                                <th class="sub" ><?php if(count($tpfa)!==0){ echo "--"; }else{ ?><?= $crp_total; ?><?php } ?></th>
+                                
+                               </tr>
+                            <?php } ?>
+                            
+                            <!------[For Non countable Values]-------------------->
+                            
+                             <?php
+                            foreach ($stu_marks as $marks_key => $marks_val) {
+                                //====[student marks sheet details]============//
+                                $component_weightages = explode(',', $marks_val['component_weightages']);
+                                $component_grades = explode(',', $marks_val['component_grades']);
+                                $marks_obtained = explode(',', $marks_val['number_value']);
+                                $grade_value = explode(',', $marks_val['grade_value']);
+                               
+                                 $core_course_master = new Application_Model_Corecourselearning();
+                                 $course_credit_info = $core_course_master->getCoreCouseDetailByTermAcademicCourse($academic_details['academic_year_id'], $term_details['term_id'], $marks_val['course_id']);
+                                 if($course_credit_info['count_id'] == 1){
+                               ?>
+                                <?php
+                                foreach ($ct_ids as $key => $ct_values) {
+
+                                    $i = 1;
+                                    $total = $tot_obtained = $tot_marks = 0;
+                                    $pass_fail = 'P';
+                                    ?>
+
+                                    <?php
+                                    foreach ($ct_values as $ct_keys => $ct_value) {
+                                        if($this->year_id){
+                                        if ($marks_val['course_id'] == $ct_value['course_id']) {
+                                            $row_span_arr[$key] += 1;
+                                            ?>
+                                            <tr>
+                                                <!--
+                                                PRint Only one Course Group-->
+                                                <?php if (!in_array($key, $course_group_arr)) {
+                                                    $course_group_arr[] = $key;
+                                                     if(!$single_pr){ 
+                                                   
+                                                    ?>
+                                                      
+                                                        <th class="sub" rowspan="<?=count($ct_values) ?>"></th>
+                                                    <?php  }if($single_pr){?>
+                                                    <td class="sub" rowspan="<?=count($ct_values) ?>" style='text-align:left;' > <?= $key; ?></td><?php } }?>
+
+                                                <!--print Course Code-->
+
+                                                <?php
+                                                $courseMaster = new Application_Model_Course();
+                                                $course_code = $courseMaster->getRecord($ct_value['course_id'])['course_code'];
+                                                ?>
+                                                <td class="sub" style='text-align:left;' ><?= $course_code; ?></td>
+
+
+                                                <!------print total component and number obtained------>
+
+                                                <?php for ($k = 0; $k < count($component_grades); $k++) { ?>
+                                                    <?php
+                                                    $tot_marks += $component_weightages[$k];
+                                                    $tot_obtained += !empty($marks_obtained[$k]) ? $marks_obtained[$k] : 0;
+                                                    if($tem_percent == 0){
+                                                    $tem_percent = $passmarks;
+                                                    }
+                                                    $passmarks = $tem_percent;
+                                                     if($component_weightages[$k]==250)
+                                                        $passmarks = 50;
+                                                        else if($ct_value['course_id']==721)
+                                                       $passmarks = 50;
+                                                    ?>
+                                                    <td class="sub" ><?= $component_weightages[$k]==0?'--':$component_weightages[$k].' / '.((int)$passmarks/100)*(int)$component_weightages[$k]; ?></td>
+                                                   <?php if(!empty($grade_value[$k])){ ?>
+                                                    <td class="sub" style ='<?php if(strtolower($grade_value[$k])=="ab" || strtolower($grade_value[$k])=="na" )echo "color:red;";?>'><?php 
+                                                    if((!empty($marks_obtained[$k]) || $marks_obtained[$k]==0) && $grade_value[$k]!=='Ab' && $grade_value[$k]!=='NA'){
+                                                      echo  $marks_obtained[$k];
+                                                         if($grade_value[$k] == 'F'){
+                                                      $pass_fail = 'F';}
+                                                      
+                                                    }
+                                                    else{
+                                                       echo $grade_value[$k];
+                                                       $pass_fail = 'F';
+                                                    }
+                                                    ?>
+                                                    </td>
+                                                   <?php } else { ?>
+                                                    <td class="sub">--</td>
+                                                   <?php } ?>
+
+                                                    <?php
+                                                    $i += 1;
+                                                }
+                                                ?>
+                                                <!-- //================[print empty cell]==============//-->
+
+                                                <?php
+                                                if ($i < ($empty_cell_prin_len + 1)) {
+                                                    for ($pr = $i; $pr <= $empty_cell_prin_len; $pr++) {
+                                                        ?>
+                                                        <td class="sub" >-- </td>
+                                                        <td class="sub" >-- </td>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
+
+                                                <!-------print total marks or total marks obtained----->         
+                                                <td class="sub" width ="<?= $total_width; ?>"><?= $tot_marks; ?></td>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $tot_obtained; ?></td>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?=$course_credit_info['credit_value'] ; ?>  </td>
+
+
+                                                <?php
+                                                $num = round(((int) $tot_obtained / $tot_marks) * 100);
+                                                $ref_grade_item = new Application_Model_ReferenceGradeMasterItems();
+                                                $letter_grade = $ref_grade_item->getRecordByNumGrade($num,$degree_id);
+                                                ?>
+                                                
+                                                <td  class="sub" width ="<?= $marks_width; ?>"><?='--'; ?></td>
+
+                                                <?php
+                                                if (!is_numeric($letter_grade)) {
+
+                                                    $ReferenceGradeMaster_model = new Application_Model_ReferenceGradeMaster();
+                                                   $letter_grade_result = $ReferenceGradeMaster_model->getNumberGradeValue(0, $letter_grade,$degree_id);
+                                                    $numeric_grade = $letter_grade_result['number_grade'];
+                                                } else if (is_numeric($letter_grade)) {
+                                                    $numeric_grade = $letter_grade;
+                                                } 
+                                                ?>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= '--'; ?></td>
+                                                <td class="sub" width ="10px"><?='--'; ?></td>
+                                                    <td  class="sub" width ="<?= $marks_width; ?>" >
+                                                    </td>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $letter_grade == 'F' ? 'F*' : $pass_fail == 'F'?'F*':'P'; ?></td>
+                                                <?php if($single_pr) { ?>
+                                               <td class="sub" width ="<?= $marks_width; ?>"></td>
+                                                <?php } ?>
+                                                <?php
+                                                ?>
+                                                <td class="sub" width ="<?= $marks_width; ?>"></td>
+                                            </tr>
+                                        <?php } 
+                                    }else{
+                                            if ($marks_val['course_id'] == $ct_value['course_id']) {
+                                            $row_span_arr[$key] += 1;
+                                            ?>
+                                            <tr>
+                                                <!--
+                                                PRint Only one Course Group-->
+                                                <?php if (!in_array($key, $course_group_arr)) {
+                                                    $course_group_arr[] = $key;
+                                                     if(!$single_pr){ 
+                                                   
+                                                    ?>
+                                                      
+                                                  
+                                                    <?php  }if($single_pr){?>
+                                                    <td class="sub" rowspan="<?=count($ct_values) ?>" style='text-align:left;' > <?= $key; ?></td><?php } }?>
+
+                                                <!--print Course Code-->
+
+                                                <?php
+                                                $courseMaster = new Application_Model_Course();
+                                                $course_code = $courseMaster->getRecord($ct_value['course_id'])['course_code'];
+                                                ?>
+                                                <td class="sub" style='text-align:left;' ><?= $course_code; ?></td>
+
+
+                                                <!------print total component and number obtained------>
+
+                                                <?php for ($k = 0; $k < count($component_grades); $k++) { ?>
+                                                    <?php
+                                                    $tot_marks += $component_weightages[$k];
+                                                    $tot_obtained += !empty($marks_obtained[$k]) ? $marks_obtained[$k] : 0;
+                                                    if($tem_percent == 0){
+                                                    $tem_percent = $passmarks;
+                                                }
+                                                    $passmarks = $tem_percent;
+                                                     if($component_weightages[$k]==250)
+                                                        $passmarks = 50;
+                                                        else if($ct_value['course_id']==721)
+                                                       $passmarks = 50;
+                                                    ?>
+                                                  
+                                                   <?php if(!empty($grade_value[$k])){ ?>
+                                                  <?php 
+                                                    if((!empty($marks_obtained[$k]) || $marks_obtained[$k]==0) && $grade_value[$k]!=='Ab' && $grade_value[$k]!=='NA'){
+                                                      echo  $marks_obtained[$k];
+                                                         if($grade_value[$k] == 'F'){
+                                                      $pass_fail = 'F';}
+                                                      
+                                                    }
+                                                    else{
+                                                       echo $grade_value[$k];
+                                                       $pass_fail = 'F';
+                                                    }
+                                                    ?>
+                                                   
+                                                   <?php } else { ?>
+                                                   <?php } ?>
+
+                                                    <?php
+                                                    $i += 1;
+                                                }
+                                                ?>
+                                                <!-- //================[print empty cell]==============//-->
+
+                                                <?php
+                                                if ($i < ($empty_cell_prin_len + 1)) {
+                                                    for ($pr = $i; $pr <= $empty_cell_prin_len; $pr++) {
+                                                        ?>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
+
+
+                                                <!-------print total marks or total marks obtained----->         
+                                                <td class="sub" width ="<?= $total_width; ?>"><?= $tot_marks; ?></td>
+                                                     <td class="sub" ><?= ((int)$passmarks/100)*$tot_marks; ?></td>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= $tot_obtained; ?></td>
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?=$course_credit_info['credit_value'] ; ?>  </td>
+
+
+                                                <?php
+                                                $num = round(((int) $tot_obtained / $tot_marks) * 100);
+                                                $ref_grade_item = new Application_Model_ReferenceGradeMasterItems();
+                                                $letter_grade = $ref_grade_item->getRecordByNumGrade($num,$degree_id);
+                                                ?>
+                                                
+                                                <td  class="sub" width ="<?= $marks_width; ?>"><?='--'; ?></td>
+
+                                                <?php
+                                                if (!is_numeric($letter_grade)) {
+
+                                                    $ReferenceGradeMaster_model = new Application_Model_ReferenceGradeMaster();
+                                                   $letter_grade_result = $ReferenceGradeMaster_model->getNumberGradeValue(0, $letter_grade,$degree_id);
+                                                    $numeric_grade = $letter_grade_result['number_grade'];
+                                                } else if (is_numeric($letter_grade)) {
+                                                    $numeric_grade = $letter_grade;
+                                                } 
+                                                ?>
+
+                                                <td class="sub" width ="<?= $marks_width; ?>"><?= '--'; ?></td>
+                                                <td class="sub" width ="10px"><?='--'; ?></td>
+                                                    
+                                                <!--<td class="sub" width ="<?= $marks_width; ?>"><?= $letter_grade == 'F' ? 'F*' : $pass_fail == 'F'?'F*':'P'; ?></td>-->
+                                                <?php if($single_pr) { ?>
+                                               <td class="sub" width ="<?= $marks_width; ?>"></td>
+                                                <?php } ?>
+                                                <?php
+                                                ?>
+                                             
+                                            </tr>
+                                        <?php } 
+                                     } } ?>
+
+                                <?php } ?>
+                                <?php
+                                 }
+                                $j++;
+                            }
+                            ?>
+                            
+                            
+                            
+                            
+                            
+                            <!-------this will print only for single term in ug------------------->
+                            <?php if($single_pr) { ?>
+                            <!---YET TO PRINT-->
+                            <tr>
+                                <th class="sub"  style='text-align:left;' >Abbreviation Codes:</th>
+                                <th class="sub"  colspan ="<?= ($empty_cell_prin_len * 2) + 6; ?>"></th>
+                                <th class="sub"  colspan ="3" style='text-align:left;' >*To Reappear in Concerned semester. </th>
+                                <?php if($single_pr) { ?>
+                                <th class="sub"></th>
+                                <?php } ?>
+                            </tr>
+
+
+
+                            <?php
+                            $sppear_semester = $course_des = 0;
+                            $check_course_id= array();
+                           // echo "<pre>";print_r($stu_marks);exit;
+                            $na_inc = 0;
+                            foreach ($stu_marks as $key => $value) {
+                                $courseMaster = new Application_Model_Course();
+                               $course_details['course_code'] = '';
+                               $course_details['course_name'] = '';
+                               $course_details1['course_code'] = '';
+                               $course_details1['course_name'] = '';
+                                if(!in_array($value['course_id'], $check_course_id) ){
+                                    if(!empty($stu_marks[$key]['course_id']))
+                                     $course_details = $courseMaster->getRecord($stu_marks[$key]['course_id']);
+                                    if(!empty($stu_marks[$key+1]['course_id']))
+                                     $course_details1 = $courseMaster->getRecord($stu_marks[$key+1]['course_id']);
+                                ?>
+                                <tr>
+                                    <th class="sub"  style='text-align:left;'   colspan ="<?= ($empty_cell_prin_len * 2); ?>"> <?=!empty($course_details['course_code'])?"{$course_details['course_code']} : ":'';echo $course_details['course_name']; ?></th>
+                                    <th class='sub' style='text-align:left;' colspan ="<?= ($empty_cell_prin_len * 2)+1 ; ?>"><?=!empty($course_details1['course_code'])?"{$course_details1['course_code']} : ":''; echo $course_details1['course_name']; ?></th>
+                                    <?php if($na_inc ==0) {?>
+                                    <td class="sub" colspan="3"></td>
+                                    <th class="sub">NA = Not Allowed</th>
+                                    
+                                    <?php $na_inc++;}else{ ?>
+                                    <td class="sub" colspan="4"></td>
+                                    <?php } ?>
+                                </tr>
+                            <?php $check_course_id[$key] = $value['course_id'];
+                            $check_course_id[$key+1] = $stu_marks[$key+1]['course_id'];
+                            
+                            } 
+                            
+                            } ?>
+                            <tr>
+                                <th class="sub">GRADE LETTER:</th> 
+                                
+                                <?php $grades = $ref_grade_item->getRecordByDegId($degree_id); 
+                                foreach($grades as $grade_key => $grade_val){
+                                    if($grade_val['letter_grade'] != 'NA'){
+                                ?>
+                                <td class="sub"><?="{$grade_val['letter_grade']} = {$grade_val['des']}";?></td> 
+                                
+                                <?php }} ?>
+                                <th class="sub" colspan="<?=(count($grades)-1)>8?7-((count($grades)-1)-8):(count($grades)-1)<8?7+(8-(count($grades)-1)):7;?>"></th>
+                                <th class="sub"></th>
+                            </tr>
+                            
+                             <tr>
+                                <th  colspan=17>
+                                    
+                                    <table class="tablestyle1" width="100%" cellspacing="0" cellpadding=0>
+                                        <tbody>
+                                              
+                                                <?php if($single_pr) { ?>
+                                                <tr>
+                                                    <th class="sub" colspan ="3" >CIA : Continous Internal Assessment</th>
+                                                    <th class="sub" colspan=14>SGPA: Semester Grade Point Average</th>
+                                                    
+                                                </tr>
+                                    
+                                                <tr>
+                                                    <th class="sub"  colspan="17">
+                                                        **Disclaimer: If any discrepancy is cropped up inadvertantly due to software then contact examination cell PWC for rectification
+                                                    </th>
+                                                </tr>
+                                                <tr>
+                                                    <td class="sub" colspan="8"><img src="<?php echo $this->mainconfig['publicpath']; ?>images/controler.jpg" height="40" width="200"  alt="..."  ></td>
+                                                   
+                                                    <td class="sub" colspan="9"><img src="<?php echo $this->mainconfig['publicpath']; ?>images/principal.jpg" height="40" width="200"  alt="..."  ></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="sub" colspan="8">Controller of Examinations</th>
+                                                        
+                                                    <th class="sub" colspan="9">Principal</th>
+                                                </tr>
+                                                <?php } ?>
+                                        </tbody>
+                                    </table>
+                                    
+                                    
+                                </th>
+                            </tr>
+                            
+                            <?php } else{ ?>
+                                  <?php 
+                            //===============[Grand Total for al the semeseter]======//
+                            $grand_total+=$all_total;
+                            $grand_ob_total+=$ob_total;
+                            $grand_cr_total+=$cr_total;
+                            $grand_gr_total+=$gr_total;
+                            $grand_crp_total+=$crp_total;
+                            
+                            $percent = ($grand_ob_total/$grand_total)*100;
+                            $ref_grade_item = new Application_Model_ReferenceGradeMasterItems();
+                            $letter_grade = $ref_grade_item->getRecordByNumGrade1($percent,$degree_id);
+                     
+                            
+                            $cgpa = $grand_crp_total/$grand_cr_total;
+                    ?>
+                                <?php if(count($this->term_marks)==$gr_pr){ if($this->year_id){ ?>
+                                <tr>    
+                  
+                                    <th class="sub" style='text-align:left;'><?='GRAND TOTAL';?></th>
+                                       <?php for($i =0 ; $i<($empty_cell_prin_len * 2) + 1; $i++) { ?>
+                                <th class="sub" ></th>
+                                <?php } ?>
+                                        <th class="sub"  ><?= $grand_total; ?></th>
+                                        <th class="sub" ><?= $grand_ob_total; ?></th>
+                                        <th class="sub"><?= $grand_cr_total; ?></th>
+                                        <th class="sub"></th>
+                                        <th class="sub" ><?= $grand_gr_total; ?></th>
+                                        <th class="sub" ><?= $grand_crp_total; ?></th>
+                                        <th class="sub"></th>
+                                        <th class="sub"></th>
+                                        
+                            </tr>
+                            <tr></tr>
+                            <tr>
+                                <th class="sub" style='text-align:left;' >Total Grades</th>
+                                 <?php for($i =0 ; $i<($empty_cell_prin_len * 2) + 2; $i++) { ?>
+                                <th class="sub" ></th>
+                                <?php } if(count($cgpaf)==0){
+                                $cgpa =  number_format($cgpa,2);
+                                $percent = number_format($percent,2);
+                                }else
+                                {
+                                $cgpa = 'Pending';
+                                $percent = '--';
+                                $letter_grade['letter_grade'] = '--';
+                                $letter_grade['des'] = '--';
+                                
+                                }?>
+                                <th class="sub" style='text-align:left;' >Total Full Marks : <?= $grand_total; ?></th>
+                                <th class="sub" style='text-align:left;' >Obtained Marks : <?= $grand_ob_total; ?></th>
+                                <th class="sub" style='text-align:left;' >% of Marks : <?= $percent ?></th>
+                                <th class="sub" style='text-align:left;' >Final Grade : <?= $letter_grade['letter_grade'] ?></th>
+                                <th class="sub" colspan="2"></th>
+                                <th class="sub" style='text-align:left;' >*CGPA : <?=$cgpa; ?></th>
+                                <th class="sub"></th>
+                                
+                                
+                                
+                            </tr>
+                            
+                                
+                           <?php 
+                                } else{?>
+                                
+                                
+                                   <tr>    
+                  
+                                    <th class="sub" style='text-align:left;'><?='GRAND TOTAL';?></th>
+                                    <th class="sub" style='text-align:left;' ></th>
+                                        <th class="sub"  ><?= $grand_total; ?></th>
+                                         <th class="sub"></th>
+                                        <th class="sub" ><?php if(count($cgpaf)!=0){ echo "--"; }else{ ?><?= $grand_ob_total; ?><?php } ?></th>
+                                        <th class="sub"></th>
+                                        <th class="sub"></th>
+                                        <th class="sub" ></th>
+                                        <th class="sub" ></th>
+                                        <th class="sub"></th>
+                                      
+                                       
+                            </tr>
+                            <tr></tr>
+     
+                            <tr>
+                                <th class="sub" style='text-align:left;' >CGPA(Credit Point/Credit)</th>
+                                 
+                                <?php  if(count($cgpaf)==0){
+                                     
+                                $cgpa =  number_format($cgpa,2);
+                                $percent =  number_format(($cgpa*9),2);
+                                if($degree_id==3)
+                                $percent = number_format(($cgpa*9.25),2);
+                                else if($degree_id > 1 ){
+                                    $percent = number_format(($cgpa*9.5),2);
+                                }
+                               
+                                 $letter_grade = $ref_grade_item->getRecordByNumGrade1($percent,$degree_id);
+                                
+                                }else
+                                {
+                                $cgpa = 'Pending';
+                                $percent = '--';
+                                $letter_grade['letter_grade'] = '--';
+                                $letter_grade['des'] = '--';
+                                
+                                }  ?>
+                                <th class="sub" style='text-align:left;' ></th>
+                                <th class="sub" style='text-align:left;' ></th>
+                                <th class="sub" style='text-align:left;' ></th>
+                                <th class="sub" style='text-align:left;' ></th>
+                                <th class="sub"  ><?= $grand_cr_total; ?></th>
+                                <th class="sub"  ></th>
+                               <th class="sub" ></th>
+                                <th class="sub"  ><?php if(count($cgpaf)!=0){ echo "--"; }else{ ?><?= $grand_crp_total; ?><?php } ?></th>
+                                <th class="sub" ><?php if(count($cgpaf)!=0){ echo "Pending"; }else{ ?><?=$cgpa; ?>(<?=$grand_crp_total;?>/<?=$grand_cr_total;?>)<?php } ?></th>
+                                
+                                
+                                
+                            </tr>
+                            <tr>
+                              
+                                <th class="sub" colspan="3" style='text-align:left;' ></th>
+                                <th class="sub"  colspan ="5">Grade</th>
+                                <th class="sub" colspan="2" ><?php  if($letter_grade['letter_grade'] !='--'){?><?=$letter_grade['letter_grade'];?>&nbsp;(<?=$letter_grade['des'];?>)<?php }else{ echo "--"; }?></th>
+                                
+                            </tr>
+                                
+                               <tr>
+                               
+                                <th class="sub" colspan="3" style='text-align:left;' ></th>
+                                <th class="sub" colspan="5" >Final Percentage of Marks</th>
+                               
+                                <th class="sub" colspan="2" ><?=$percent;?><?php if($percent!='--'){?>%<?php }?></th>
+                                
+                            </tr>  
+                                
+                               <tr>
+                 <th class="sub" colspan=10>
+                <table class="tablestyle1" width = "100%" >
+                    <tbody>
+                       
+                            <tr>
+                             <th colspan="3" style="border-right:0px solid #000;font-size:18px"><img src="<?php echo $this->mainconfig['publicpath']; ?>images/controler.jpg" alt="..." height="80" width="200" ><br/>Controller of Examinations</th>
+                             <th  colspan="3"><img src="https://chart.googleapis.com/chart?chs=100x100&cht=qr&chl=<?=$url;?>%2F&choe=UTF-8" title="Link to student Grade Sheet" /></th>
+                             <th  colspan="4" style="border-left:0px solid #000;font-size:18px"  ><img src="<?php echo $this->mainconfig['publicpath']; ?>images/principal.jpg" alt="..." height="40" width="200"><br/>Principal</th>
+                           </tr>
+                         
+                            
+                    </tbody>
+                
+               </table>
+               </th>
+            </tr>  
+             
+            <tr>
+                <th style="text-align:left" colspan=3>Abbreviation Code &nbsp; *= Fail  &nbsp;&nbsp;<?php if(in_array($stu_details['academic_id'],array(53,54,49,50))){ echo "**=Qualifying only"; } ?></th>
+            </tr>
+                                
+                             <?php  }  }
+                            } //========[End if for single term]===========// ?>
+                            <?php $gr_pr++; } ?>
+                        </tbody>
+
+                    </table>
+                </td>
+            </tr>
+            
+           <?php   //================[Term iteration ends]=============//?>
+            
+            
+           
+            
+           
+        </tbody>
+
+
+    </table>
+</div>
+</center>
+
+</body>
+
+</html>
+
+<?php 
+   function stackData($parent,$child){
+        $result = array();
+        try{
+            if(is_array($parent) && is_array($child)){
+                
+                foreach($parent as $index => $parent_value){
+                    foreach($parent_value as $parent_key => $parent_key_value){
+                        foreach($child as $child_index => $child_value){
+                            if($parent_key_value == $child_value[$parent_key] && array_key_exists($parent_key, $child_value)){
+                                $result[$parent_key_value][] = $child_value;
+                            }
+                        } 
+                    }  
+                }
+                return $result;
+        }else
+        {
+          throw new Exception('first and second param should be of type array !');  
+        }
+        
+        }
+         catch (Exception $e){
+            echo '<strong>Error Message !</strong>'.$e->getMessage();
+            }
+        }?>

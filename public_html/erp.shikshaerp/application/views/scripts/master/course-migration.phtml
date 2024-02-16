@@ -1,0 +1,202 @@
+<div class="right_col">
+    <div class="padding-md ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-title txt-color-blueDark" >
+                        <div><i class="fa fa-eye"> Core Course Learning</i></div>
+                    </h3>
+                    <?php //echo '<pre>';print_r($this->messages);exit; ?>
+                     <?php if (count($this->messages)) {
+                foreach ($this->messages as $message) { ?>
+                <div class="alert <?php echo $_SESSION['message_class']; ?> ">
+                    <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+                <?php echo $this->escape($message); ?>
+                </div>
+                <?php }
+                } ?>
+                    <div class="panel panel-default">
+                       
+
+                            <div class="panel-body">
+                                <div class="row">
+                           
+                            <div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Stream<span class="asterisk">*</span></label>
+                                <?php echo $this->form->stream; ?>
+                            </div>
+							</div> 
+                                    <div class="col-sm-3 employee_class">
+                                        
+                                        <div class="form-group">
+                                            <label class="control-label">Batch<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->academic_year_id; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"> Term<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->term_id; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                                 <form class="no-margin" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+                                <div class="ajaxData" id="ajaxData">
+                                    
+                                </div>
+                                     <div class="row">
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"><span class="asterisk">Migration Batch*</span></label>
+                                            <?php echo $this->form->mig_academic_id; ?>
+                                            <?php echo $this->form->csrftoken; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"><span class="asterisk">Migration Term*</span></label>
+                                            <?php echo $this->form->mig_term_id; ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="panel-footer">									
+                                    <div class="row">
+                                        <div class="col-sm-7 col-sm-offset-5">
+                                                <div style="float:left;margin-right:2px;" >
+                                                    <button class="btn btn-primary submit" id="submit">Submit</button>
+                                                </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div><!-- /panel -->
+                </div><!-- /.col-->				
+            </div><!-- /.row -->
+
+        </div><!-- /.padding-md -->	
+</div>
+<script>
+//To filter Session
+    $('body').on('change', '#academic_year', function () {
+        $('#department').removeAttr('disabled');
+        var year_id = $('#academic_year').val();
+        if (year_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Session'; ?>',
+                data: {year_id: year_id}
+            }).done(function (data) {
+                $('#session').empty('');
+                $('#session').html(data);
+                $('#session').trigger("chosen:updated");
+            });
+        }
+    });
+  
+    $('body').on('change', '#academic_year_id', function () {
+        var academic_year_id = $('#academic_year_id').val();
+        //alert(academic_year_id);
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-term-name'; ?>',
+            data: {academic_year_id: academic_year_id}
+        }).done(function (data) {
+
+            $('#term_id').empty('');
+            $('#term_id').html(data);
+            $("#term_id").trigger("chosen:updated");
+
+        });
+    });
+    $('body').on('change', '#mig_academic_id', function () {
+        var mig_academic_id = $('#mig_academic_id').val();
+        
+        var academic_year_id = $('#academic_year_id').val();
+        //alert(academic_year_id);
+        //alert(mig_academic_id);
+        
+        if (Number(mig_academic_id) >  Number(academic_year_id) ) {
+           
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-term-name'; ?>',
+                data: {academic_year_id: mig_academic_id}
+            }).done(function (data) {
+
+                $('#mig_term_id').empty('');
+                $('#mig_term_id').html(data);
+                $("#mig_term_id").trigger("chosen:updated");
+
+            });
+        }else{
+           $("#mig_academic_id").find('option:selected').attr("selected",null);
+           $("#mig_academic_id").trigger("chosen:updated");
+           alert('Migration Batch should be New Batch.');
+        }
+        
+        
+    });
+
+
+
+    $('body').on('change', '#term_id', function () {
+        var academic_id = $('#academic_year_id').val();
+        var term_id = $('#term_id').val();
+        if (academic_id && term_id) {
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-core-course-master'; ?>',
+                data: {academic_id: academic_id,term_id:term_id}
+            }).done(function (data) {
+                $('#ajaxData').empty('');
+                $('#ajaxData').html(data);
+            });
+        }else{
+        alert('Please select the required field.');
+        }
+    });
+    
+    
+    $('body').on('change', '#mig_term_id', function () {
+        let term_id = $('#term_id option:selected').text();
+        let mig_term_id = $('#mig_term_id option:selected').text();
+        
+        //alert(mig_term_id);
+        if (mig_term_id ===  term_id) {
+           //alert('I Love Smita.'); 
+        }else{
+           $("#mig_term_id").find('option:selected').attr("selected",null);
+           $("#mig_term_id").trigger("chosen:updated");
+           alert('Term and Migration Term should be same.');
+            
+        }
+    });
+
+
+
+$('body').on('change', '#stream', function () {
+        var stream = $('#stream').val();
+        if (stream) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-academic-on-stream'; ?>',
+                data: {stream: stream}
+            }).done(function (data) {
+                $('#mig_academic_id').empty('');
+                $('#mig_academic_id').html(data);
+                $('#mig_academic_id').trigger("chosen:updated");
+                
+                $('#academic_year_id').empty('');
+                $('#academic_year_id').html(data);
+                $('#academic_year_id').trigger("chosen:updated");
+            });
+        }
+    });
+    
+</script>

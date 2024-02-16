@@ -1,0 +1,209 @@
+
+<style type="text/css">
+
+.register_form{
+    padding-top: 20px;
+    text-align: center;
+}
+.Login_header{
+    border-color: #2e6da4;
+    display: inline-block;
+    margin-bottom: 20px;
+    line-height: 1.42857143;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+     text-align: center;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.register_btn{
+    color: #fff;
+    background-color: #932e90;
+    border-color: #2e6da4;
+    display: inline-block;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    padding: 6px 55px;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+* {
+  box-sizing: border-box;
+}
+.header-text{
+    background-color: #932e90;
+    min-width: 200px;
+    min-height: 30px;
+    margin-bottom: 4em;
+}
+
+
+.regForm {
+  background-color: #ffffff;
+  margin: 100px auto;
+  font-family: Raleway;
+  padding: 40px;
+  width: 35%;
+  border: 4px solid white;
+  border-radius:8px;
+  min-width: 295px;
+}
+.resets_pass {
+    margin-top: 30px !important;
+}
+    .load-box{
+        display:none;
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:rgba(255,255,255,.4);
+        z-index: 999;
+    }
+    
+    .load-box>img{
+        position:absolute;
+        top:60%;
+        left:50%;
+        width:40em;
+        transform: translate(-50%,-50%);
+        
+        
+    }
+    .login_area{
+        padding-top: 5%;
+        
+    }
+    
+    .mob_info{
+        position:absolute;
+    }
+    
+</style>
+
+<div class="login_area">
+<form class="regForm" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+
+    <div class="row">
+        <div class="col-sm-12 employee_class " style="text-align: center" >
+            <b style="color:#932e90">*Note : REGISTERED APPLICANTS LOGIN HERE !.</b>
+        </div>
+        <hr>
+    </div><br>
+    <div class="row">
+        <div class="col-sm-4 employee_class">
+            <div class="form-group disabled" >
+                <label><b>Application Number:</label></h2>
+
+            </div>
+        </div>
+        <div class="col-sm-8 employee_class">
+            <div class="form-group disabled" >
+                 <?php echo $this->form->applicant_no; ?>
+            </div>
+        </div>
+    </div>
+    <!---<div class="row">
+        <div class="col-sm-4 employee_class">
+            <div class="form-group disabled" >
+               <label style="float:left;"><b>Password:</b></label>
+
+            </div>
+        </div>
+        <div class="col-sm-8 employee_class">
+            <div class="form-group disabled" >
+                <?php //echo $this->form->password; ?>
+            </div>
+        </div>
+        <?php //if($_SESSION['flash_message_error']) {?>
+               <p style="color:red;text-shadow:2px 2px 2px rgba(0,0,0,.1); text-align: right"><?php //echo $_SESSION['flash_message_error']; 
+                    //session_unset('flash_message_error');?> </p>
+              
+        <?php //}?>
+    </div>--->
+   
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-3 resets_pass">
+              <!--  <a class="reset_pass" id='forgot_pword' style="color:#932e90;text-shadow:0 0px 0 #932e90;" href="<?php echo $this->mainconfig['host'] . 'entrance-exam-form/forgot-password'; ?>">Forgot  Password?</a>-->
+            </div>
+            <div class="col-sm-offset-9 employee_class register_form" >
+              <button  type="submit" class=" register_btn" id="submit">Log In</button>
+            </div>
+        </div>   
+    </div>
+</form>
+</div>
+
+
+ 
+<script src="<?php echo $this->mainconfig['publicpath']; ?>js/customradio.js"></script> 
+<script>
+   
+    //Check Duplicate email id in table
+    $('#emailError').text("");
+    $("#email_id").change(function(){
+     var email_id = $('#email_id').val();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'entrance-exam-form/ajax-check-duplicate-email'; ?>',
+            data: {email_id:email_id}
+        }).done(function( data ) {
+            //alert(data);
+            if(data==1){
+                $('#emailError').text("*Email id is already registered with us.");
+                $('#email_id').val('');
+            }else{
+                $('#emailError').text("");
+            }
+        }); 
+    });
+    //End
+    $("#check_otp").change(function(){
+       var phone = $('#phone_number').val();
+       var inputOtp= $('#check_otp').val();
+         // alert(inputOtp);
+        if(inputOtp.length == 0 ){
+        alert('Please enter OTP.');
+        }else{
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'entrance-exam-form/ajax-verify-otp'; ?>',
+                data: {phone : phone,inputOtp:inputOtp}
+            }).done(function( data ) {
+                //alert(data);
+                if(data == 1){
+                    $('#otpError').text("");
+                }else{
+                    $('#otpError').text("*Invalid OTP.");
+                    $('#check_otp').val('');
+                }
+            }); 
+        }
+    }); 
+
+//To MATCH PASSWORD
+   
+    $('#cnf_password').blur(function() {
+        if ($('#password').val() == $('#cnf_password').val()) {
+            $('#cnf_password').css("color", "green");
+            $('#cnf_password').val('' + 'Matched');
+            return false;
+        } else { 
+            $('#cnf_password').css("color", "red");
+            $('#cnf_password').val('' + 'Not Matched');
+            return true; 
+        }
+    });
+//End
+</script>

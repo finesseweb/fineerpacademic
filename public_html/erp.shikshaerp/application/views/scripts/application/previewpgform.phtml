@@ -1,0 +1,481 @@
+<?php //echo "<pre>";print_r($this->elective);exit;   ?>
+<style type="text/css">
+
+    .bold-checkbox{
+        position: absolute; top: 12px; font-weight:bold;
+    }
+body.modal-open .supreme-container{
+    display: none;
+        
+        
+}
+</style>
+<link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+
+  
+<style>
+@media print {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+  .visible-xs {
+    display: none !important;
+  }
+  .hidden-xs {
+    display: block !important;
+  }
+  table.hidden-xs {
+    display: table;
+  }
+  tr.hidden-xs {
+    display: table-row !important;
+  }
+  th.hidden-xs,
+  td.hidden-xs {
+    display: table-cell !important;
+  }
+  .hidden-xs.hidden-print {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+       #non-printable { display: none; }
+        #printable { display: block; } 
+        
+  .printdiv:last-child {
+     page-break-inside: avoid;
+}
+body * {
+    visibility: hidden;
+  }
+  #section-to-print, #section-to-print * {
+    visibility: visible;
+  }
+  #section-to-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  .attendance{
+      
+      margin-top: 100%;
+  }
+ 
+}
+ @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 1mm;  /* this affects the margin in the printer settings */
+    }
+
+
+   
+    #custom_data_records{
+        width:100%;
+        text-align: right;
+        font-size:1.5em;
+
+    }
+    
+    .load-box{
+        display:none;
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:rgba(146,40,46,.5);
+        z-index: 999;
+    }
+    
+    .load-box>img{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:40em;
+        transform: translate(-50%,-50%);
+        
+        
+    }
+    
+    
+</style>
+<!-- <link href="<?php echo $this->mainconfig['publicpath']; ?>css/custom.css" rel="stylesheet"> -->
+
+<div class="right_col examid">
+
+    <?php if ($this->type=='view') { ?>
+	
+	
+	 <div class="padding-md">
+            <?php
+             $course_name = new Application_Model_Course();
+            if (count($this->messages)) {
+                foreach ($this->messages as $message) {
+                    ?>
+            <div><?php
+                    if ($_SESSION['admin_login']['admin_login']->flash_error == 0) {
+                        echo 'class="alert alert-danger"';
+                        $_SESSION['admin_login']['admin_login']->flash_error = 1;
+                    } else {
+                        echo "class='alert alert-success'";
+                    }
+                    ?>>
+                        <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+                        <?php echo $this->escape($message); ?>
+                    </div>
+                <?php
+                }
+            }
+       ?>
+                      
+           
+          
+             <div class="row supreme-container">
+                <div class="col-md-12" id="non-printable">
+                    <h3 class="page-title txt-color-blueDark" >
+                        <div><i class="fa fa-eye"> Preview Form </i></div>
+                    </h3>
+                </div>
+          
+                <div class="col-md-12" id="section-to-print">                
+                           
+                            <div class="masterbox panel-default panel">
+                                <div class="panel-body">
+<!--                                <div class="row"> 
+                                     <div class="col-sm-offset-1 col-sm-2">
+                                            <div class="form-group disabled">
+                                                  <figure class="figure">
+                                                <img src="<?php //echo $this->mainconfig['publicpath']; ?>images/img.png" alt="..." class=""> <figcaption class="figure-caption text-center"></figcaption>
+                                          </figure>
+                                            </div>
+                                        </div> 
+                                    <div class="col-sm-6 employee_class">
+                                   <h4 style="text-align: center;">PATNA WOMEN'S COLLEGE </h4>
+                                   <h5 style="text-align: center;">Autonomous  </h5>
+                                   <h4 style="text-align: center;">PATNA  UNIVERSITY </h4>
+                                   
+                                   <h5 style="text-align: center;">Admit Card (Student Copy ) </h5>
+                                   <h6 style="text-align: center;" > <? //$this->dept_id.' '.$this->semester;?> May <? //date('Y');?>  </h6>
+                                   
+                                    <h4 style="text-align: center;">Non Collegiate </h4>
+                                   </div>
+                                     <div class="col-sm-offset-1 col-sm-2">
+                                            <div class="form-group disabled">
+                                                  <figure class="figure">
+                                                <img src="<?php //echo $this->mainconfig['host']; ?><? //$this->stu_pic_path;?>" alt="..." class="img-thumbnail"> <figcaption class="figure-caption text-center"><? //$this->fid?></figcaption>
+                                          </figure>
+                                            </div>
+                                        </div> 
+                                </div>-->
+                                <div class="row">
+
+                                    <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Examination <span class="asterisk">*</span></label>
+    <?php echo $this->form->examination; ?>
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Registration  No<span class="asterisk">*</span></label>
+    <?php echo $this->form->registration_no; ?>
+                                            </div>
+                                        </div>
+                                        
+                                          <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Exam Roll No<span class="asterisk">*</span></label>
+    <?php echo $this->form->exam_roll; ?>
+                                            </div>
+                                        </div>
+                                          
+                                </div>
+                                    <div class="row">
+                                        
+                                            <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Semester <span class="asterisk">*</span></label>
+                                                <input type="text" name="semster" id="semseter" value="<?=$this->semester?>" class="form-control" required="true" readonly="readonly" autocomplete="off">
+                                            </div>
+                                        </div> 
+                                         <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Name <span class="asterisk">*</span></label>
+                                                <input type="text" name="stu_name" id="stu_name" value="<?=$this->stu_name?>" class="form-control" required="true" readonly="readonly" autocomplete="off">
+                                            </div>
+                                        </div> 
+                                        <div class="col-sm-4 employee_class">
+                                            <div class="form-group disabled">
+                                                <label class="control-label">Father's Name<span class="asterisk">*</span></label>  <input type="text" name="stu_name" id="stu_name" value=" <?php echo $this->stu_fname; ?>" class="form-control" required="true" readonly="readonly" autocomplete="off">
+   
+                                            </div>
+                                        </div>
+                                    </div>
+                                  
+
+                                    
+                                <div class="row"  style="margin-top: 10px;">
+                                    <div class="row">
+                                    <div class="col-sm-12 employee_class">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr><!--<th>Date</th>--><th>Course Code</th><th>Paper</th></tr>
+                                            </thead>
+                                            <tbody>
+                                                
+                                                 <?php //print_r($this->checkk);
+                                     ///die();
+                                   foreach($this->subjectdetail as $key=> $value) {
+                                       
+                                       $coursemodel = new Application_Model_Course();
+                                       $getrow = $coursemodel->getRecord($value['course_id']);
+                                   ?>
+                                        
+                                      
+                                        <tr>
+<!--                                                    <td></td>-->
+                                                    <td><?=$getrow['course_code']?></td>
+                                                     <td><?=$getrow['course_name']?></td>
+                                                   
+                                                     
+                                                </tr>
+                               
+                                              
+                                               <?php       } ?>
+                                            </tbody>
+                                            
+                                        </table>
+                                        
+ 
+                                        <p> (In case any examinee is absent, Invigilator must mark her ABSENT and the put his/her Signature)</p>
+                                    </div>
+                                        
+
+                                      </div>
+                                   
+                                    
+<!--                                         <div class="col-sm-6 employee_class" style="margin-top: 20px;">
+                                            <p><strong>Signature of Candidate</strong> </p>
+                                        </div>
+
+                                        <div class="col-sm-6 employee_class" style="margin-top: 20px;">
+                                          <div class="col-sm-offset-4 col-sm-4">
+                                            <div class="form-group disabled">
+                                             
+                                                 <figure class="figure">
+                                                <img src="<?php //echo $this->mainconfig['publicpath']; ?>images/principal.jpg" alt="..."  height="100em" width="400em"> <figcaption class="figure-caption text-center">Principal</figcaption>
+                                          </figure>
+                                            </div>
+                                        </div>
+                                        </div>-->
+                                </div>
+                            </div>  
+                    
+                        
+</div>
+   </div>               
+                                      
+
+
+
+
+
+
+                <div class="panel-footer">                                  
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-5">
+    <?php if ($this->type == 'view') { ?> 
+                                <div style="float:left;margin-right:2px;">
+                                    <!--<a href="#" class="btn btn-primary submit" onclick = "window.print()">Print</a>-->
+
+ </button>
+                                </div>
+                                                       
+                                
+    <?php } ?>
+                        </div>
+                    </div>
+                </div>
+<!--            </form>-->
+        </div><!-- /panel -->
+    </div>
+			
+	
+  
+<?php } else { ?>
+
+
+<?php } ?>
+     </div> 
+
+ <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+
+<script src="<?php echo $this->mainconfig['publicpath']; ?>js/customradio.js"></script> 
+
+

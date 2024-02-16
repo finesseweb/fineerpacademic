@@ -1,0 +1,115 @@
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div class="right_col">
+<div class="load-box">
+    <img src="<?php echo $this->mainconfig['publicpath']; ?>/images/loader.gif" width='200px'  class="loder_img1" />
+</div>
+
+
+
+   <?php if (count($this->messages)) {
+        foreach ($this->messages as $message) {
+            ?>
+            <div class="alert <?php echo $_SESSION['message_class']; ?> ">
+                <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+                <strong>  <?php echo $this->escape($message); ?></strong>
+            </div>
+        <?php }
+    } ?>
+    <!-- widget grid -->
+    <div class="">
+        <div class="">
+            <div class="row">
+                
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars">Applicant Documents List</i>
+
+                    </h3>
+                </div>
+               		
+                
+            </div>
+
+            <div class="x_panel">
+                
+                <div class="x_title">
+                    <div class="col-sm-3 employee_class">
+                        <div class="form-group disabled" >
+                            <label class="control-label">Academic Year<span class="asterisk">*</span></label>
+                            <?php echo $this->form->academic_year_list; ?>
+                        </div>
+                    </div>   
+                    <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label">Degree </label>
+                            <?php echo $this->form->degree_id; ?>
+                        </div>
+                    </div>	
+                   
+                    <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label">Department </label>
+                            <?php echo $this->form->course; ?>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="getDocumentList" class="btn btn-primary" style="float: right" value="0" >Get Documents</button>
+                    
+                    
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+
+                    <div class="padding-md clearfix">
+                        <div class="table-responsive" id="studentData"> 
+                             
+                         </div>
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->		
+    
+</div>
+<script>
+    $('body').on('change', '#degree_id', function () {
+        $('#studentData').empty('');  
+        $('.load-box').css('display','block');
+       $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'multi-step-form/ajax-get-course'; ?>',
+            data: {degree_id: $(this).val()}
+        }).done(function (data) {
+            //alert(data);
+            $('#course').html(data);
+            $('#course').trigger("chosen:updated");
+            $('.load-box').css('display','none');
+            
+        }); 
+    });
+    $('body').on('change', '#course', function () {
+        $('#studentData').empty('');  
+    });
+    $('#getDocumentList').click(function(e){
+    
+        $('.load-box').css('display','block');
+        let degree_id=$('#degree_id').val();
+        let dept_id=$('#course').val();
+        let yearId=$('#academic_year_list').val();
+
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'entrance-report/ajax-get-applicant-document'; ?>',
+            data: {degree_id: degree_id,dept_id:dept_id,yearId:yearId}
+        }).done(function (data) {
+            if(data){
+            $('#studentData').html(data);  
+            $('.load-box').css('display','none');
+            return false;
+            }
+        }); 
+    });
+    
+ </script>

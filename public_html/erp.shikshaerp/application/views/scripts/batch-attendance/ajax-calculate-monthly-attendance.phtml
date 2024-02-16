@@ -1,0 +1,229 @@
+<table class="table table-striped table-bordered mb30 jambo_table bulk_action" id="dataTable"  style="height:100%;">
+                            <thead>
+                                <tr>
+                                    <th class="no-sort">S.No.</th>
+                                    <th>Batch </th>
+                                    <th>Student Name</th>
+                                    <th>Class Roll Number</th>
+                                    <th>UID</th>
+                                    <th style="width: 1em;">Online (Theory)</th>
+                                    <th style="width: 1em;">Offline (Theory)</th>
+                                    <?php foreach ($this->weightage as $k => $val) {
+                                        ?>
+                                        <th id='total_<?=$k;?>'><?php
+                                    echo $val['component'];
+                                        ?>
+                                        </th>
+                                    <?php } ?>
+                                    <th style="width: 1em;">Total Class Attended</th>
+                                    <th style="width: 1em;"> Percent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                $pagination_tr = '';
+                                if (count($this->paginator) != 0) {
+
+                                    foreach ($this->paginator as $results) {
+                                        //echo"<pre>";print_r($results);die;
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i;
+
+                                        $i++;
+                                        ?>
+                                            </td>						
+
+                                            <!---<td><?php echo $results['term_name']; ?></td>
+                                            <td><?php echo $results['cc_name']; ?></td>
+                                            <td><?php  if(empty($results['department'])){ echo $results['course_name'];}else{ echo $results['department'];
+                                            }?></td> --->
+                                            
+                                            <td><?php echo $results['batch']; ?></td>
+                                            <td><?php echo $results['studentName']; ?></td>
+                                            <td><?php echo $results['roll_no']; ?></td>
+                                            <td><?php echo $results['f_id']; ?></td>
+                                            <input type="hidden" name="batch_code[]" id="batch_code" value="<?php echo $results['batch']?$results['batch']:$results['batch']; ?>" />
+                                            <input type="hidden" name="u_id[]" id="student_id" value="<?php echo $results['f_id']; ?>" /> 
+                                          
+                                            <td style="width: 1em;"><?= $results['present_online']; ?>  </td>
+                                            <td style="width: 1em;">  <input type="text" name="offline_attended[]" class="offline_attended form-control"  id = "offline_attended" value="" /> 
+                                             <input type="hidden" name="online_attended[]" class="form-control online_attended"  id = "online_attended" value="<?= $results['present_online']; ?>" />
+                                            </td>
+                                               <!--[Ashutosh]-->
+            <?php foreach ($this->weightage as $k => $valc) { ?>
+                            <td>
+                                <table>
+                                    <tr>
+                                      <?php   ${"tabindex_$k"} = (($k + 1) * count($this->paginator)) + $key  ?>
+                                        <td><input tabindex="<?=${"tabindex_$k"};?>" data-id='#total_<?=$k;?>' name ="component_<?= $valc['id']; ?>[]" data-toggle="number" class="component_<?= $valc['id']; ?>" id="component_<?= $valc['id']; ?>" size="5"  value ="<?=$val['stu_status']== 3 ?'t.c':  $val["component_{$valc['id']}"]; ?>" /></td>
+                                        <td>
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <input tabindex="-<?=$i;?>"  name ="component_<?= $valc['id']; ?>_%[]" value="<?= $val['stu_status']== 3 ?'t.c': $val["component_{$valc['id']}_%"]; ?>" size="5" class='c_percent' />
+                                                    </td>
+                                                    <td><b>%</b></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        <?php } ?>
+                        <!--[end]----->
+                                            
+                                            <td style="width: 1em;">  <input type="text" name=attended_class[]" class="form-control attended_class"  id = "attended_class" value="" readonly="readonly" /> </td>
+                                            
+                                            <td style="width: 1em;">
+                                               <input type="text" name=total_percent[]" class="form-control attended_class"  id = "total_percent" value="" readonly="readonly" />
+                                            </td>
+                                            
+                                        </tr>            
+
+                                    <?php
+                                    }
+                                    $pagination_tr = $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+    <?php echo $pagination_tr; ?>
+<script>
+    setDatatables();
+  
+    //To calculate Total class attended.
+    $('body').on('change', '[name^="offline_attended"]', function (e) {
+        
+        let offline_conducted= $('#offline').val();
+        let total_conducted=$('#conducted_class').val();
+        if(offline_conducted){
+            let offline=$(this).val();
+            let online= $(this).closest("td").find(".online_attended").val();
+            //let attended =$(this).parents().next().find(".attended_class").val();
+            //alert(attended);
+            if(Number(offline)>Number(offline_conducted)){
+                 $(this).val('');
+                alert('Input value should not be greater than total offline class.');
+               
+            }else{
+                let total=Number(online)+ Number(offline);
+                let percentage= Math.round(Number(total/total_conducted*100));
+                //alert(Math.round(percentage));
+                if(total){
+                    $(this).parents().next('td').find('.component_2').val('');
+                    $(this).parents().next('td').find('#component_2').val(total).trigger('change');
+                    /*$(this).parents().next('td').next('td').find("#total_percent").val('');
+                    if(percentage >75){
+                        $(this).parents().next('td').next('td').find("#total_percent").css({'color':'green','text-align':'center'});
+                    }else{
+                         $(this).parents().next('td').next('td').find("#total_percent").css({'color': 'red','text-align':'center'});
+                    }
+                    $(this).parents().next('td').next('td').find("#total_percent").val(percentage);*/
+                }
+            }
+        }else{
+            $(this).val('');
+            //alert('Please Define offline Class');
+        }       
+        
+        
+    });
+    
+    var $quan = $('.offline_attended');
+    $quan.on('keyup', function(e) {
+        if (e.which === 40) {
+            var ind = $quan.index(this);
+            $quan.eq(ind+1).focus();
+//            if($quan.focus())
+//            $quan.eq(ind+1).css({'border': '2px solid green','box-shadow': '0 0 10px #719ECE'});
+        }
+        if (e.which === 38) {
+            var ind = $quan.index(this);
+            $quan.eq(ind-1).focus()
+        }
+    });
+    
+     $('div.dt-buttons').hide();
+    $('input[name^="attended_class"],.c_percent,input[name^="percent_sum"]').css("background-color", "#D3D3D3");
+    
+    $('[name^="component"]').change(function(e){
+        //$('body').on('change', '[name^="component"]', function (e) {
+        //if (e.which != '37' && e.which != '38' && e.which != '39' && e.which != '40' && e.which != 9) {
+            var tot_conducted_cl = $('#conducted_class').val();
+            var name = $(this).attr('name');
+            var number = 0;
+            //alert('smit');
+            if (name == 'component_2[]' ) {
+                            if (parseInt($(this).val()) > parseInt($('[name="theory"]').val())) {
+                                alert('Theory class should not be greater than total theory conducted class.');
+                                $(this).val(0);
+                            }
+                            number1 = isNaN(parseInt($(this).val()))?0:parseInt($(this).val());
+                            number2 = isNaN(parseInt($(this).parents('table table').parent().next('td').find('input').val()))?0:parseInt($(this).parents('table table').parent().next('td').find('input').val());
+                            number =  number1 + number2 ;
+                            number = isNaN(number) ? parseInt($(this).val()) : number;
+                            
+                            $(this).parents('table table').parent().next('td').next().find('input').val(number);
+                            //==========[theory percentage calculation]===========================================//
+                            var theory_percent = Math.round(parseInt($(this).val()) / parseInt($('[name="theory"]').val()) * 100);
+                            $(this).parent().next().find('input').val(isNaN(theory_percent) ? 0 : theory_percent);
+                            var pract_percent = isNaN(parseInt($(this).parents('table table').parent().next('td').find('td').eq(1).find('input').val())) ? 0 : parseInt($(this).parents('table table').parent().next('td').find('td').eq(1).find('input').val());
+                            //=============[Average of percentage]============================//
+                            theory_percent = isNaN(theory_percent)?0:theory_percent;
+                            if (parseInt($('[name="theory"]').val()) > 0 && parseInt($('[name="practical"]').val()) > 0) {
+                                var percent = Math.round((theory_percent + pract_percent) / 2);
+                            } else 
+                            {
+                                var percent = isNaN(theory_percent)?pract_percent:theory_percent;
+                            }
+
+                            percent = percent=0 ? pract_percent: percent;
+                            //=======================[for Total Percentage]========================================//
+                            // if(parseInt($(this).val()) )
+                                $(this).parents('table table').parent().next('td').next().next().find('input').val(percent);
+                                $(this).parents('table table').parent().next('td').next().next().find('input').css("background-color", "#D3D3D3");
+            } else {
+                            if (parseInt($(this).val()) > parseInt($('[name="practical"]').val())) {
+                                alert('Practical class should not be greater than total practical conducted class.');
+                                $(this).val(0);
+                            }
+                            number1 = isNaN(parseInt($(this).val()))?0:parseInt($(this).val()) ;
+                            number2 = isNaN(parseInt($(this).parents('table table').parent().prev('td').find('input').val()))?0:parseInt($(this).parents('table table').parent().prev('td').find('input').val())
+                            number = number1 + number2 ;
+                            number = isNaN(number) ? parseInt($(this).val()) : number;
+
+                            $(this).parents('table table').parent().prev('td').next().next().find('input').val(number);
+                            //===========================[practical percentage calculation]===========================//
+                            var practical_percent = Math.round(parseInt($(this).val()) / parseInt($('[name="practical"]').val()) * 100);
+
+
+                            $(this).parent().next().find('input').val(isNaN(practical_percent) ? 0 : practical_percent);
+var theory_percent = isNaN(parseInt($(this).parents('table table').parent().prev('td').find('td').eq(1).find('input').val())) ? 0 :  parseInt($(this).parents('table table').parent().prev('td').find('td').eq(1).find('input').val());           
+                      
+                 practical_percent = isNaN(practical_percent)?0:practical_percent;
+                   
+                            if (parseInt($('[name="theory"]').val()) > 0 && parseInt($('[name="practical"]').val()) > 0) {
+                                var percent = Math.round((theory_percent + practical_percent) / 2);
+                            } else
+                            {
+                                var percent = isNaN(practical_percent)?theory_percent:practical_percent;
+                            }
+                            percent = percent==0 ? theory_percent : percent;
+                            //==================[for total Percentage]=======================================================//
+                          //  if(parseInt($(this).val()) ||  )
+                                $(this).parents('table table').parent().prev('td').next().next().next().find('input').val(percent);
+                            $(this).parents('table table').parent().prev('td').next().next().next().find('input').css("background-color", "#D3D3D3");
+            }
+
+//        }
+    });
+
+    $('input[data-toggle="number"]').bind('keyup blur', function () {
+        var node = $(this);
+        node.val(node.val().replace(/[^0-9]/g, ''));
+    });
+   // $('input').val(0);
+</script>

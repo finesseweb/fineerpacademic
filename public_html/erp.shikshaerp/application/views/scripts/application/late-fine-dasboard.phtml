@@ -1,0 +1,338 @@
+<?php //echo "<pre>";print_r($this->elective);exit;   ?>
+<?php
+session_start();
+?>
+<style type="text/css">
+
+    .bold-checkbox{
+        position: absolute; top: 12px; font-weight:bold;
+    }
+    
+    body.modal-open .supreme-container{
+    display: none;
+        
+        
+}
+
+</style>
+<link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+
+  
+<style>
+@media print {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
+    float: left;
+  }
+  .col-sm-12 {
+    width: 100%;
+  }
+  .col-sm-11 {
+    width: 91.66666667%;
+  }
+  .col-sm-10 {
+    width: 83.33333333%;
+  }
+  .col-sm-9 {
+    width: 75%;
+  }
+  .col-sm-8 {
+    width: 66.66666667%;
+  }
+  .col-sm-7 {
+    width: 58.33333333%;
+  }
+  .col-sm-6 {
+    width: 50%;
+  }
+  .col-sm-5 {
+    width: 41.66666667%;
+  }
+  .col-sm-4 {
+    width: 33.33333333%;
+  }
+  .col-sm-3 {
+    width: 25%;
+  }
+  .col-sm-2 {
+    width: 16.66666667%;
+  }
+  .col-sm-1 {
+    width: 8.33333333%;
+  }
+  .col-sm-pull-12 {
+    right: 100%;
+  }
+  .col-sm-pull-11 {
+    right: 91.66666667%;
+  }
+  .col-sm-pull-10 {
+    right: 83.33333333%;
+  }
+  .col-sm-pull-9 {
+    right: 75%;
+  }
+  .col-sm-pull-8 {
+    right: 66.66666667%;
+  }
+  .col-sm-pull-7 {
+    right: 58.33333333%;
+  }
+  .col-sm-pull-6 {
+    right: 50%;
+  }
+  .col-sm-pull-5 {
+    right: 41.66666667%;
+  }
+  .col-sm-pull-4 {
+    right: 33.33333333%;
+  }
+  .col-sm-pull-3 {
+    right: 25%;
+  }
+  .col-sm-pull-2 {
+    right: 16.66666667%;
+  }
+  .col-sm-pull-1 {
+    right: 8.33333333%;
+  }
+  .col-sm-pull-0 {
+    right: auto;
+  }
+  .col-sm-push-12 {
+    left: 100%;
+  }
+  .col-sm-push-11 {
+    left: 91.66666667%;
+  }
+  .col-sm-push-10 {
+    left: 83.33333333%;
+  }
+  .col-sm-push-9 {
+    left: 75%;
+  }
+  .col-sm-push-8 {
+    left: 66.66666667%;
+  }
+  .col-sm-push-7 {
+    left: 58.33333333%;
+  }
+  .col-sm-push-6 {
+    left: 50%;
+  }
+  .col-sm-push-5 {
+    left: 41.66666667%;
+  }
+  .col-sm-push-4 {
+    left: 33.33333333%;
+  }
+  .col-sm-push-3 {
+    left: 25%;
+  }
+  .col-sm-push-2 {
+    left: 16.66666667%;
+  }
+  .col-sm-push-1 {
+    left: 8.33333333%;
+  }
+  .col-sm-push-0 {
+    left: auto;
+  }
+  .col-sm-offset-12 {
+    margin-left: 100%;
+  }
+  .col-sm-offset-11 {
+    margin-left: 91.66666667%;
+  }
+  .col-sm-offset-10 {
+    margin-left: 83.33333333%;
+  }
+  .col-sm-offset-9 {
+    margin-left: 75%;
+  }
+  .col-sm-offset-8 {
+    margin-left: 66.66666667%;
+  }
+  .col-sm-offset-7 {
+    margin-left: 58.33333333%;
+  }
+  .col-sm-offset-6 {
+    margin-left: 50%;
+  }
+  .col-sm-offset-5 {
+    margin-left: 41.66666667%;
+  }
+  .col-sm-offset-4 {
+    margin-left: 33.33333333%;
+  }
+  .col-sm-offset-3 {
+    margin-left: 25%;
+  }
+  .col-sm-offset-2 {
+    margin-left: 16.66666667%;
+  }
+  .col-sm-offset-1 {
+    margin-left: 8.33333333%;
+  }
+  .col-sm-offset-0 {
+    margin-left: 0%;
+  }
+  .visible-xs {
+    display: none !important;
+  }
+  .hidden-xs {
+    display: block !important;
+  }
+  table.hidden-xs {
+    display: table;
+  }
+  tr.hidden-xs {
+    display: table-row !important;
+  }
+  th.hidden-xs,
+  td.hidden-xs {
+    display: table-cell !important;
+  }
+  .hidden-xs.hidden-print {
+    display: none !important;
+  }
+  .hidden-sm {
+    display: none !important;
+  }
+  .visible-sm {
+    display: block !important;
+  }
+  table.visible-sm {
+    display: table;
+  }
+  tr.visible-sm {
+    display: table-row !important;
+  }
+  th.visible-sm,
+  td.visible-sm {
+    display: table-cell !important;
+  }
+       #non-printable { display: none; }
+        #printable { display: block; } 
+        
+  .printdiv:last-child {
+     page-break-inside: avoid;
+}
+}
+ @page 
+    {
+        size:  auto;   /* auto is the initial value */
+        margin: 0mm;  /* this affects the margin in the printer settings */
+    }
+
+
+   
+    #custom_data_records{
+        width:100%;
+        text-align: right;
+        font-size:1.5em;
+
+    }
+    
+    .load-box{
+        display:none;
+        position:absolute;
+        width:100%;
+        height:100%;
+        background:rgba(146,40,46,.5);
+        z-index: 999;
+    }
+    
+    .load-box>img{
+        position:absolute;
+        top:50%;
+        left:50%;
+        width:40em;
+        transform: translate(-50%,-50%);
+        
+        
+    }
+    #incorrect,#redirect{
+        display:none;
+    }
+    
+    
+    .right_col{
+        position:absolute;
+        top:50%;
+        left:50%;
+        transform:translate(-50%,-70%);
+        background:#fff;
+         
+         padding:1em;
+    }
+    
+</style>
+<!-- <link href="<?php echo $this->mainconfig['publicpath']; ?>css/custom.css" rel="stylesheet"> -->
+<?php $stu_details = $_SESSION['stu_details'];
+//echo $this->mainurl;
+?>
+<div class="right_col" >
+    <div class="col-md-12">
+        <center><img src="https://pwcadmissions.in/academic/public/images/img.png" alt="..." class="profile_img"></center>
+        <h2 style="text-align: center;">PATNA WOMEN'S COLLEGE </h2>
+                                   <h3 style="text-align: center;">Autonomous  </h3>
+                                   <h4 style="text-align: center;">(PATNA  UNIVERSITY) </h4></div>
+    <div class="col-md-12">
+       
+        <div class="col-md-12">
+                <div class = "panel panel-default">
+        <div class="container-fluid panel-header">
+            <h4 class="text-center"><u><b style="letter-spacing:0.3em;">Late Fine</b></u></h4>
+             <h6 class="text-center"><u><b style="letter-spacing:0em; color:red;">NOte:Kindly pay late fine first then your Semester Fee portal will be opened for the rest payment</b></u></h6>
+        </div>
+        <div class="panel-body">
+            <p style="letter-spacing:0em;"><strong>Name :</strong> <?=$stu_details['name']; ?></p>
+            <p style="letter-spacing:0em;"><strong>Late Fine:</strong>₹<?=$stu_details['finefee'];?></p>
+            <div class="row">
+                <div class="col-sm-6 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label" style="letter-spacing:0em;"> Email <span class="asterisk">*</span></label>
+                                           <input type="text" name="email" id="email" class="form-control" />
+                                        </div>
+                                        </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label" style="letter-spacing:0em;"> Phone <span class="asterisk">*</span></label>
+                                            <input type="text" name="phone_number" id="phone" class="form-control" />
+                                        </div>
+                                        </div>
+                </div>
+            
+        </div>
+        <div class="panel-footer">
+            <button type="button" class="btn-primary">Pay Now</button>
+        </div>
+        </div>
+
+    </div>
+</div>
+    
+ </div>
+<script>
+     $('button').click(function(){
+       var email=$('#email').val();
+       var phone = $('#phone').val();
+       if(email && phone){
+         window.location.replace("<?=$this->mainurl?>application/late-fine-dasboard/type/save/email/"+email+"/phone/"+phone);
+     }
+     else
+     {
+         alert("email and phone should not be empty !");
+     }
+        
+     });
+     </script>
+       
+            
+ 
+              
+
+
+

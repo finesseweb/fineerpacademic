@@ -1,0 +1,620 @@
+<style>
+    
+
+    body>div>h1 {
+
+    display: none;
+
+}
+
+    .bdoypayment {
+        margin-top: 4.5em;
+        padding-left: 24.5em;
+        padding-right: 54.5em;
+
+    }
+
+    label.indent{
+
+        padding-left: 1.8em;
+
+    }
+
+    .cont{
+
+        position:absolute;
+
+        top:50%;
+
+        left:50%;
+
+        transform: translate(-50%,-50%);
+
+        
+
+        
+
+    }
+    .x_panel {
+    position: relative;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px 35px;
+    display: inline-block;
+    background: #fff;
+    border: 2px solid #E6E9ED;
+    
+    }
+   
+    
+
+</style>
+ <?php $declaredTerms =  new Application_Model_Declaredterms();
+        $data = $declaredTerms->getDropDownList(); ?>
+<div class="right_col examid">
+  <?php
+      
+    if (count($this->messages)) {
+        foreach ($this->messages as $message) {
+            ?>
+            <div <?php
+            if ($_SESSION['admin_login']['admin_login']->flash_error == 0) {
+                echo 'class="alert alert-danger"';
+                $_SESSION['admin_login']['admin_login']->flash_error = 1;
+            } else {
+                echo "class='alert alert-success'";
+            }
+            ?>>
+                <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+            <?php echo $this->escape($message); ?>
+            </div>
+        <?php
+        }
+    }
+    ?>
+  <?php  if($this->type=='view') {?>
+     <div class="examid">
+      
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                      
+                    </h3>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">   
+                </div>
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <center><h2 class="title1">CLC/Migration Certificate Fee (Online Payment)</h2></center> </div>
+                           
+                       
+                    <div class="clearfix"></div>
+                </div>
+                <div class="row">  <div class="col-md-offset-5 col-md-4">
+                            <h3 class="title1" style ="color:red;"><?=$this->msg?></h3> </div></div>
+                     </div>
+               
+                <div class="x_content">
+
+                    <div class="padding-md clearfix">
+                       
+                        <div class="table-responsive" id="studentData"> 
+
+<?php 
+//print_r($this->studetais);
+//die();
+?>
+<!--///////   raushan  -->
+ <div class="panel panel-default ">  
+    <div class="panel-body masterbox ">
+     <div class="col-md-12 container " style='background:#932e90; color:#fff;'>
+         <div class="col-md-offset-1 col-md-2 pull-left">
+        <img src="https://pwcadmissions.in/academic/public/images/img.png" alt="..." class="profile_img img-thumbnail">
+        <div class="clearfix"></div>
+        </div>
+        <div class="col-md-5">
+             <h2 style="text-align: center;">PATNA WOMEN'S COLLEGE </h2>
+                                   <h3 style="text-align: center;">Autonomous  </h3>
+                                   <h4 style="text-align: center;">(PATNA  UNIVERSITY) </h4>
+                                   <div class="clearfix"></div>
+        </div>
+        <div class="col-md-offset-2 col-md-2 pull-right" style="
+    position:relative;
+   transform:translateY(20%)
+">
+            <img src="https://pwcadmissions.in/academic/<?=$this->stud_info['filename'];?>" width ="100px" alt="..." class="profile_img img-thumbnail">
+            <div class="clearfix"></div>
+        </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="panel panel-default " >
+
+                        <form class="no-margin" id="formValidate1" action="<?php echo $this->mainconfig['host']; ?>application/transfer-cert-fees/type/save/" method="post" data-validate="parsley" enctype="multipart/form-data" >
+
+                            <div class="panel-body masterbox">
+                                <div class="row">
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Student Name </label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="name" id="name" class="form-control" readonly="readonly" value="<?=$this->stud_info['stu_fname']?>">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Form Id.</label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="stu_id" id="stu_id" class="form-control" readonly="readonly" value="<?=$this->stud_info['stu_id']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+
+
+                                            <label  class="control-label" >Fee type</label>
+                                            <select name="type" id="type" class="form-control" required="required" readonly >
+
+                                                <option   value=""> Select</option>
+                                                <option <?php if($this->fee_type == 'tc'){ echo 'selected'; } ?> value="tc"> CLC & Character Fee</option>
+                                                <option <?php if($this->fee_type == 'migration'){ echo 'selected'; } ?> value="migration"> Migration Fee</option>
+                                            </select>
+
+                                      </div>
+                                    </div>
+                                    <?php if($this->fee_type == 'tc'){  ?>
+                                    
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Father's Name </label>
+                                            <input type="text" name="father_fname" id="father_fname" class="form-control" disabled="disabled" value="<?=$this->stud_info['father_fname']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Mother's Name </label>
+                                            <input type="text" name="mother_fname" id="mother_fname" class="form-control" disabled="disabled" value="<?=$this->stud_info['mother_fname']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >College Roll Number </label>
+                                            <input type="text" name="roll_no" id="roll_no" class="form-control"disabled="disabled" value="<?=$this->stud_info['roll_no']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Exam Roll Number </label>
+                                            <input type="text" name="exam_roll" id="exam_roll" class="form-control" disabled="disabled" value="<?=$this->stud_info['exam_roll']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Reg. Number </label>
+                                            <input type="text" name="reg_no" id="reg_no" class="form-control" disabled="disabled" value="<?=$this->stud_info['reg_no']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Date Of Birth </label>
+                                            <input type="text" name="stu_dob" id="stu_dob" class="form-control" disabled="disabled"" value="<?=$this->stud_info['stu_dob']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Nationality  </label>
+                                            <input type="text" name="stu_nationality" id="stu_nationality" class="form-control" disabled="disabled" value="<?=$this->stud_info['stu_nationality']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Class to which admitted </label>
+                                            <input type="text" name="stu_nationality" id="stu_nationality" class="form-control" disabled="disabled" value=" <?php 
+                                    switch ($this->stud_info['adm_sem']) {
+                                        case "t1":
+                                          echo "Semester-1";
+                                          break;
+                                        case "t2":
+                                          echo "Semester-2";
+                                          break;
+                                        case "t3":
+                                          echo "Semester-3";
+                                          break;
+                                        case "t4":
+                                          echo "Semester-4";
+                                          break;
+                                        case "t5":
+                                          echo "Semester-5";
+                                          break;
+                                        case "t6":
+                                          echo "Semester-6";
+                                          break;
+                                        default:
+                                          echo "Semester-1";
+                                    }
+                                ?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Class in which studied at the time of leaving </label>
+                                            <input type="text" name="stu_nationality" id="stu_nationality" class="form-control" disabled="disabled" value=" <?php 
+                                    switch ($this->stud_info['leaving_sem']) {
+                                        case "t1":
+                                          echo "Semester-1";
+                                          break;
+                                        case "t2":
+                                          echo "Semester-2";
+                                          break;
+                                        case "t3":
+                                          echo "Semester-3";
+                                          break;
+                                        case "t4":
+                                          echo "Semester-4";
+                                          break;
+                                        case "t5":
+                                          echo "Semester-5";
+                                          break;
+                                        case "t6":
+                                          echo "Semester-6";
+                                          break;
+                                        default:
+                                          echo "n/a";
+                                    }
+                                ?>">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Course Studied </label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value="<?=$this->stud_info['batch']?>">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Whether qualified for promotion to higher class  <span class="asterisk">*</span></label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value="<?php
+                                $cgpa= round($this->stud_info['total_grade']/$this->stud_info['total_credit']);
+                                if($cgpa <  6 || $this->stud_info['failed_count'] > 0 ){
+                                    echo 'No';
+                                }else{
+                                    echo 'Yes';
+                                }
+                                ?>  ">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Course Completed </label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value="<?php
+                                $cgpa= round($this->stud_info['total_grade']/$this->stud_info['total_credit']);
+                                if($cgpa <  6 || $this->stud_info['failed_count'] > 0 ){
+                                    echo 'No';
+                                }else{
+                                    echo 'Yes';
+                                }
+                                ?>  ">
+                                        </div>
+                                    </div>
+                                   
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >  Whether all the dues to the College have been paid  </label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value="<?php echo 'Yes'; ?>  ">
+                                        </div>
+                                    </div>
+                                   <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >  Name of the University Examination & Last Examination Date  </label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value=" <?php echo $this->stud_info['batch']."-"; 
+                                  switch ($this->stud_info['leaving_sem']) {
+                                         case "t1":
+                                          echo "Semester-1";
+                                          break;
+                                        case "t2":
+                                          echo "Semester-2";
+                                          break;
+                                        case "t3":
+                                          echo "Semester-3";
+                                          break;
+                                        case "t4":
+                                          echo "Semester-4";
+                                          break;
+                                        case "t5":
+                                          echo "Semester-5";
+                                          break;
+                                        case "t6":
+                                          echo "Semester-6";
+                                          break;
+                                        default:
+                                          echo "n/a";
+                                    } 
+                                   echo '- '. $this->stud_info['last_exam_date']; 
+                                 ?>    ">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >  Result of the Examination Grade with CGPA </label>
+                                            <input type="text" name="batch" id="batch" class="form-control" disabled="disabled" value="<?php
+                                $cgpa= round($this->stud_info['total_grade']/$this->stud_info['total_credit']);
+                                 if($cgpa <  6 || $this->stud_info['failed_count'] > 0 ){
+                                    echo 'Pending';
+                                }else{
+                                    
+                                     switch ($cgpa) {
+                                        case "10":
+                                          echo "Grade (O)";
+                                          break;
+                                        case "9":
+                                          echo "Grade (A+)";
+                                          break;
+                                        case "8":
+                                          echo "Grade (A)";
+                                          break;
+                                        case "7":
+                                          echo "Grade (B)";
+                                          break;
+                                        case "6":
+                                         echo "Grade (C)";
+                                          break;
+                                        case "5":
+                                          echo "Grade (C)";
+                                          break;
+                                        default:
+                                          echo " ";
+                                    }
+                               echo ' with CGPA: '. $cgpa;
+                                }
+                                
+                               ?>  ">
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Aadhar Number <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="stu_aadhar" id="stu_aadhar" class="form-control" required value="<?=$this->stud_info['stu_aadhar']?>">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Date of Admission <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="text" name="stu_doA" id="stu_doA" class="form-control" required value="<?=$this->stud_info['stu_doA']?>">
+                                        </div>
+                                    </div>
+                                   
+
+                                    
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Email Id . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="email" name="stu_email_id" id="stu_email_id"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Phone Number <span class="asterisk">*</span></label>
+                                            <input type="text" name="phone" id="phone"  class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                             
+                                            <label  class="control-label">Payable Amount  <span class="asterisk">*</span></label>
+                                            <input type="text" value="500" name="amount" id="amount" readonly="readonly" class="form-control"> 
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                    <div class="col-sm-12 employee_class">
+                                        <div class="form-group" >
+                                            <ol class="control-label" >
+                                                  <label  class="control-label" > <span class="asterisk"> General Instructions:- </span></label>
+                                                <li>
+                                                     <label   > <span class="asterisk"> Please fill the aadhar number, phone number, date of admission and a valid email id. </span></label>
+                                                </li>
+                                                <li>
+                                                     <label > <span class="asterisk">If You found something incorrect information, Please contact the concerned department. </span></label>
+                                                </li>
+                                            </ol>
+                                            
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="col-sm-8 employee_class">
+                                        <div class="form-group" >
+                                            <div class="form-group"  style="float:right" >
+                                            <input type="submit" name="" value=" Confirm & Pay Now" class="btn btn-primary">
+                                            
+                                        </div>
+                                            
+                                    </div>
+                                    
+                                    </div>
+                                    </div>
+                                    <?php } else { ?>
+                                    <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                             
+                                            <label  class="control-label">Payable Amount  <span class="asterisk">*</span></label>
+                                            <input type="text" value="200" name="amount" id="amount" readonly="readonly" class="form-control"> 
+                                           
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Email Id . <span class="asterisk">*</span></label>
+                                            <?php //echo $this->form->stu_id; ?>
+                                            <input type="email" name="stu_email_id" id="stu_email_id"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                     <div class="col-sm-4 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" > Phone Number <span class="asterisk">*</span></label>
+                                            <input type="text" name="phone" id="phone"  class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    
+                                      <div class="row">
+                                    <div class="col-sm-12 employee_class">
+                                        <div class="form-group" >
+                                            <ol class="control-label" >
+                                                  <label  class="control-label" > <span class="asterisk"> General Instructions:- </span></label>
+                                                <li>
+                                                     <label   > <span class="asterisk"> Please fill a valid email id and phone number. </span></label>
+                                                </li>
+                                                <li>
+                                                     <label > <span class="asterisk">If You found something incorrect information, Please contact the concerned department. </span></label>
+                                                </li>
+                                            </ol>
+                                            
+                                    </div>
+                                    
+                                    </div>
+                                    <div class="col-sm-8 employee_class">
+                                        <div class="form-group" >
+                                            <div class="form-group"  style="float:right" >
+                                            <input type="submit" name="" value="Pay Now" class="btn btn-primary">
+                                            
+                                        </div>
+                                            
+                                    </div>
+                                    
+                                    </div>
+                                    </div>
+                                    <?php  } ?>
+                                </div>
+                            
+                            </div>
+                        </form>
+
+                            </div>
+   
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->   
+     </div>
+            
+          
+<?php 
+
+    
+
+ } else {    ?>
+            
+     
+
+ <div class="examid">
+      
+        <div class="row">
+            <div class="col-sm-12">
+
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                       
+<?=$this->mssg;?>
+                    </h3>
+                </div>
+
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">   
+                </div>
+            </div>
+
+            <div class="x_panel">
+                <div class="x_title">
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <h2 class="title1">CLC/Migration Certificate Fee Collection</h2></div>
+                       
+                    <div class="clearfix"></div>
+                </div>
+                     </div>
+               
+                <div class="x_content">
+
+                    <div class="padding-md clearfix">
+                       
+                        <div class="table-responsive" id="studentData"> 
+<div class="panel panel-default">
+                        <form class="no-margin" id="formValidate1" action="<?php echo $this->mainconfig['host']; ?>application/transfer-cert-fees/type/view/" method="post" data-validate="parsley" enctype="multipart/form-data" >
+
+                            <div class="panel-body">
+                                <div class="row">
+
+                                    <div class="col-sm-2 employee_class">
+                                        <div class="form-group" >
+                                            <label  class="control-label" >Form ID . <span class="asterisk">*</span></label>
+                                            <input type="text" name="stu_id" id="stu_id" placeholder="F-20XX-XXXX" class="form-control" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 employee_class">
+                                        <div class="form-group" >
+
+
+                                            <label  class="control-label" >Fee type<span class="asterisk">*</span></label>
+                                            <select name="type" id="type" class="form-control" required="required" >
+
+                                                <option value="tc"> CLC & Character Fee</option>
+                                                <option value="migration"> Migration Fee</option>
+                                            </select>
+
+                                      </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-3 col-sm-offset-1 employee_class">
+                                        <label></label>
+                                        <div class="form-group" >
+                                            <input type="submit" class="btn btn-primary" name="submit" value="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                                  
+                                    
+
+
+                                </div>
+                            </div>
+                        </form>
+
+                            </div>
+   
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->   
+     </div>
+
+
+
+
+
+     
+     <?php
+ }
+
+    ?>
+      
+    </div>
+
+ 
+<script>
+$('#stu_doA').datepicker('dd/mm/YYYY');
+</script>

@@ -1,0 +1,286 @@
+<style>
+   
+    
+    
+    
+</style>
+<div class="right_col">
+    <?php if($_SESSION['update_message']) {?>
+    
+      <div class="alert alert-success ">
+                <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+            <?php echo $_SESSION['update_message']; unset($_SESSION['update_message']) ;?>
+               
+            </div> 
+        <?php }?>
+    
+    <?php if ($this->type) { 
+         ?>
+        
+        <div class="padding-md">
+            <div class="row">
+                <div class="col-md-12 " >
+                    <h3 class="page-title txt-color-blueDark" >
+                        <div><i class="fa fa-eye">Character Certificate </i></div>
+                    </h3>
+                    <div class="panel panel-default">
+                        <form class="regForm" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label  class="control-label" >Applicant Name<span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="applicant_name" value="<?php echo  $this->item_result['applicant_name']; ?>"  readonly="true">
+                                           
+                                        </div>
+                                    </div>
+                                        <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label"> Form Id <span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="form_id" id="stu_id" value="<?php echo $this->item_result['form_id']; ?>"  readonly="true">
+                                        </div>
+                                        </div>
+                                        <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">  Email <span class="asterisk">*</span></label>
+                                            <input type="text" class="form-control" name="email_id" id="email_id" value="<?php echo $this->item_result['email_id']; ?>"  readonly="true">
+                                         
+                                        </div>
+                                        </div>    
+                                        
+
+                                        <div class="col-sm-3 employee_class">
+                                             <div class="form-group">
+                                                <label class="control-label">Course<span class="asterisk">*</span></label>
+                                                <input type="text" class="form-control" name="course" id="course" value="<?php echo $this->item_result['course']; ?>"  readonly="true">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 employee_class">
+                                             <div class="form-group">
+                                                <label class="control-label">Payment Mode<span class="asterisk">*</span></label>
+                                                <input type="text" class="form-control" name="mode" id="mode" value="<?php echo $this->item_result['payment_mode']; ?>" readonly="true">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3 employee_class">
+                                             <div class="form-group">
+                                                <label class="control-label">Challan No.<span class="asterisk">*</span></label>
+                                                <input type="text" class="form-control" name="challan" id="challan" value="<?php echo $this->item_result['challan_no']; ?>" readonly="true">
+
+                                            </div>
+                                        </div>
+                                   
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                  
+                    </div> 
+                </div>
+                <div>
+                    <div class="panel-footer">									
+                        <div class="row">
+                            <div class="col-sm-7 col-sm-offset-5">
+                                <?php if ($this->type == 'add') { ?> 
+                                    <div style="float:left;margin-right:2px;">
+                                        <button class="btn btn-primary submit" onclick="return confirmUpdate()">Submit</button>
+                                    </div>
+                                    <div style="float:left;padding:0px 10px;">
+                                        <button type="reset" class="btn btn-danger btn-default">Reset</button>
+                                    </div>
+                                <?php } else { ?>
+                                    <div style="float:left;">
+                                         <button class="btn btn-primary submit" id="updateMobile">Update</button>
+                                    </div>
+                                    <div style="float:left;">
+                                        <a class="btn btn-primary" href="<?php echo $this->mainconfig['host']; ?>master/update-offline-applicant-info/">Back</a>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 </form>
+            </div><!-- /panel -->
+        </div><!-- /.col-->				
+    </div><!-- /.row -->
+</div>
+    </div><!-- /.padding-md -->	
+<?php } else { ?>
+    
+    <div class="load-box">
+    <img src="<?php echo $this->mainconfig['publicpath']; ?>/images/loader.gif" width='200px'  class="loder_img1" />
+ </div>  
+	<div class="row">
+		<div class="col-md-12">
+		<h3 class="page-title txt-color-blueDark" >
+			<div> <i class="fa fa-bars">Download Bulk Migration Certificate </i> </i></div>
+		</h3>
+			<div class="panel panel-default">
+				<form class="no-margin" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+					
+					<div class="panel-body">
+							<div class="row">
+															
+							<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Batch<span class="asterisk">*</span></label>
+                                <?php echo $this->form->academic_year_id; ?>
+                            </div>
+							</div> 
+                               
+							<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Participant Name</label>
+                                <?php echo $this->form->stu_id; ?>
+                            </div>
+							</div>
+							
+					
+							</div>
+							<div class="row">
+						<div class="col-sm-3">
+							<div class="form-group">
+                              <label class="control-label">&nbsp;</label>
+							<input type="text" id="batch" class="form-control" style="background-color:#fdf59a;"  readonly />
+							</div>
+						</div>
+						</div>
+						<div id="getstudent" class="col-sm-12">
+							</div>
+							<div class="row">
+							    <div class="col-md-offset-3 col-md-3 text-right"><button class="downloadAll btn btn-primary" type ="button"  id="download_pdf">download <i class="fa fa-download"></i></button></div>
+							    <div class=" col-md-3 text-left"><button class="cancel btn btn-primary" type ="button" >Stop <i class="fa fa-close"></i></button></div>
+							</div>
+							</div>
+						
+				</form>
+			</div><!-- /panel -->
+		</div><!-- /.col-->				
+	</div><!-- /.row -->
+    
+        <div class="panel panel-default"> 
+               
+            <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars">Download Individual Migration Certificate by Form Id </i>
+
+                    </h3>
+                </div>
+            </div>
+                <div class="panel-body cont">
+                </div>
+                <div class="col-md-12">
+                   
+                    <span id="updatemsg" style="color:green;"></span>
+                   <div class="col-sm-3 employee_class">
+                        <div class="form-group">
+                            <label class="control-label" style="float:left;">Enter Your Form Id:<span class="asterisk">*</span></label>
+                            <input type="text" name="form_id" id="form_id" value="" class="form-control" placeholder="Enter Your Form Id" pattern="\d+" title="xxx.." autocomplete="off">
+                        </div>
+                   </div><hr>
+                <div style="float:left;padding-left:10%;">
+                    <button class="btn btn-primary submit" id="char_cert">Submit</button>
+                </div>
+                </div>
+                 <div class="col-md-12">
+                   <div class="table-responsive" id="studentData"> 
+                       
+                    </div>
+                </div>
+                
+            </div>    
+           
+
+        </div>
+       
+        </div></center>
+
+        
+    <?php 
+    
+    }
+    ?>
+
+<script>
+$("#char_cert").click(function(){
+    //alert('kk');
+    var form_id= $('#form_id').val().trim();
+        if (form_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'student/ajax-get-student-info-for-migration'; ?>',
+                data: {form_id: form_id}
+            }).done(function (data) {
+                $('#studentData').empty('');
+                $('#studentData').html(data);
+            });
+        }
+});
+
+
+$('body').on('change', '#academic_year_id', function() {
+    $('.load-box').css('display','block');	
+      getstudentDetails();
+});
+function getstudentDetails() {
+        $url = '<?php echo $this->mainconfig['host']; ?>student/get-student-mig-card';
+        $.post($url,
+                {
+                    'academic_id': $('#academic_year_id').val(),
+					'year_id': $('#year_id').val(),
+                    'term_id': $('#term_id').val(),
+					'stu_id': $('#stu_id').val()
+        })
+                .done(function(data) {
+                  
+                    //$('#payslipData').html('');
+                     $('.load-box').css('display','none');
+                     $('#getstudent').empty();
+                    $('#getstudent').html(data);
+                    setDatatables();
+                     
+                });
+
+    }   
+
+$("#academic_year_id").change(function() {
+	var academic_year_id=$("#academic_year_id").val();
+	
+    if(academic_year_id !=''){
+        $('.load-box').css('display','block');
+        $.ajax({ 
+			type: "POST",
+			url:"<?php echo $this->mainconfig['host'].'report/ajax-get-student-details';?>",
+			data: { academic_year_id : academic_year_id}
+		}).done( function( data ) { 
+	     //alert(data);	
+			$("#stu_id").html(data);
+		
+            $('.load-box').css('display','none');
+		});
+	}
+});
+
+$('body').on('change', '#academic_year_id', function() {		
+    var academic_id=$('#academic_year_id').val();
+    if(academic_id){
+    $('#batch').show();
+        $.ajax({ 
+                type: "POST",
+                url:'<?php echo $this->mainconfig['host'].'master/ajax-get-batch-code';?>',
+                data: {academic_id:academic_id}
+            }).done(function( data ) {
+                var result = $.parseJSON(data);
+                if((data!='')){
+                    $('#batch').val(result['short_code']);
+                }
+        });
+    }
+	 
+ });
+</script>

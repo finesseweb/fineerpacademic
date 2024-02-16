@@ -1,0 +1,726 @@
+
+<div class="right_col">
+<div class="load-box">
+    <img src="<?php echo $this->mainconfig['publicpath']; ?>/images/loader.gif" width='200px'  class="loder_img1" />
+</div> 
+    <?php if ($this->type) { ?>
+        <div class="padding-md ">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="page-title txt-color-blueDark" >
+                        <div><i class="fa fa-eye">Grade Allocation</i></div>
+                    </h3>
+                    <div class="panel panel-default">
+
+                        <form class="no-margin" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+
+                            <div class="panel-body">
+                                <?php
+                                $hide_filter_block = '"';
+                                if (in_array($this->role_id, $this->administrator_role)) {
+                                    $hide_filter_block = '';
+                                }
+                                ?>
+                                <div class="row" <?php echo $hide_filter_block; ?> >
+
+
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Session</label>
+                                            <?php echo $this->form->session; ?>
+                                        </div>
+                                    </div>	
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Semester<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->cmn_terms; ?>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class=" col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Degree</label>
+                                            <?php echo $this->form->degree_id; ?>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Course Category<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->cc_id; ?>
+                                        </div>
+                                    </div>
+                                   
+
+                                </div>    
+                                <div class="row">
+                                    
+                                     <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Course Group<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->ge_id; ?>
+                                        </div>
+                                    </div> 
+                                    
+                                    
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Department<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->department_id; ?>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <?php /* <div class="col-sm-3 employee_class">
+                                      <div class="form-group">
+                                      <label class="control-label">Year<span class="asterisk">*</span></label>
+                                      <?php echo $this->form->year; ?>
+                                      </div>
+                                      </div> */ ?>
+
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Exam Coordinator<span class="asterisk">*</span></label>
+                                            <?php echo $this->form->employee_id; ?>
+                                        </div>
+
+                                    </div>	
+
+                                    <div id="term_ids"></div>
+
+                                    <div class="col-sm-3 employee_class">
+                                        <div class="form-group">
+                                            <label class="control-label">Hon's course</label>
+                                            <?php echo $this->form->department; ?>
+                                        </div>
+
+                                    </div>	
+
+
+                                    <div id="course_ids"></div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">&nbsp;</label>
+                                            <b><input type="text" id="course_name" class="form-control" style="background-color: rgb(253, 245, 154); display: block;" disabled autocomplete="off"></b>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" <?php echo $hide_filter_block; ?>>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <input type="text" id="batch" class="form-control"  style="background-color:#fdf59a;" readonly /></div>
+                                    </div>
+                                </div>
+                                <div class="row" <?php echo $hide_filter_block; ?>>
+
+
+                                    <div id="components_ids"></div>
+                                </div>
+                                <div class="" id="grade_data">
+                                </div>
+                                <input type="hidden" name="students_name" id="students_name" value="<?php echo $this->students_name; ?>"/> 
+                                
+                                <input type="hidden" name="grade_allocate_id" id="grade_allocate_id" value="<?php echo $this->grade_allocate_id; ?>" />
+                            
+                            </div>
+
+                            <div class="panel-footer">									
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <?php if ($this->type == 'add') { ?> 
+                                            <div style="float:left;margin-right:2px;">
+                                                <button class="btn btn-primary submit" id ="add_bt" onclick="return ConfirmDelete()" data-toggle="tooltip" data-placement="top" title="clear search text before add">Submit</button>
+                                            </div>
+                                            <div style="float:left;padding:0px 10px;">
+                                                <button type="reset" class="btn btn-danger btn-default">Reset</button>
+                                            </div>
+                                        <?php
+                                        } else {
+                                            //1. Hide 'Update' button if GradeReport is generated
+                                            //2. Show 'Update' button a)to the faculty to whom this course is assigned. and b) only if the faculty has not submitted to DEAN
+                                            //3. Show 'Update' button a) if DEAN/Director is logged in b)GradeReport is not generated.
+                                            $login_empl_id = $this->login_storage->empl_id;
+
+
+                                            if (!$this->isGradeReportPublished) {
+                                                //  echo "<pre>";print_r($this->administrator_role); exit;
+                                                if (($login_empl_id == $this->grade_detail['employee_id']) || in_array($this->role_id, $this->administrator_role)) {
+                                                    ?>
+
+                                                    <div style="float:left;">
+                                                        <button class="btn btn-primary submit" data-toggle="tooltip" data-placement="top" title="clear search text before update" onclick="return ConfirmDelete()" id ="update_bt">Update</button>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            } else {
+                                                echo '<div class="pull-right font-weight-bold">Grade is already published. You can\'t edit it</div>';
+                                            }
+                                            ?>
+                                            <div style="float:left;">
+                                                <a class="btn btn-primary" href="<?php echo $this->mainconfig['host']; ?>grade-allocation/index">Back</a>
+                                            </div>
+                                        <?php } ?>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    </form>
+                </div><!-- /panel -->
+            </div><!-- /.col-->				
+        </div><!-- /.row -->
+
+    </div><!-- /.padding-md -->	
+<?php } else { ?>
+
+    <?php if (count($this->messages)) {
+        foreach ($this->messages as $message) {
+            ?>
+            <div class="alert alert-success ">
+                <a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+            <?php echo $this->escape($message); ?>
+            </div>
+        <?php }
+    } ?>
+    <!-- widget grid -->
+    <div class="">
+        <div class="">
+            <div class="row">
+
+                <div class="col-xs-12 col-sm-7 col-md-7 col-lg-4">
+                    <h3 class="page-title txt-color-blueDark">
+                        <i class="fa fa-bars"> Grade Allocation</i>
+
+                    </h3>
+                </div>
+                <?php
+                //    if(in_array($this->role_id, $this->administrator_role)){
+                ?>		
+                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-8">	 
+
+                    <a class="btn btn-primary pull-right" style="margin-top: 25px;" href="<?php echo $this->mainconfig['host']; ?>grade-allocation/index/type/add">Add </a>
+                </div>
+                <?php
+                //  }
+                ?>
+            </div>
+
+            <div class="x_panel">
+
+                <div class="x_title">
+                    <div class="row">
+                        <div class="col-sm-3 employee_class">
+                            <h2>Grade Details</h2>
+                         </div>
+                        <div class="col-sm-2 employee_class">
+                            <div class="form-group">
+                                <label class="control-label">Session </label>
+                                <?php echo $this->form->session_filter; ?>
+                            </div>
+                        </div>	
+                        <div class="col-sm-2 employee_class">
+                            <div class="form-group">
+                                <label class="control-label">Degree </label>
+                                <?php echo $this->form->degree_id; ?>
+                            </div>
+                        </div>	
+                        <div class="col-sm-2 employee_class">
+                            <div class="form-group">
+                                <label class="control-label">Course Group </label>
+                                <?php echo $this->form->course_group; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-right panel_toolbox">
+                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        </li>
+                        <li><a class=""><i class="fa fa-close"></i></a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+
+                <div class="x_content">
+                    
+                    <div class="padding-md clearfix">
+                        <div class="table-responsive" id="studentData"> 
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>S.No.</th>
+                                    <th>Batch</th>
+                                    <th>Exam Coordinator</th>
+                                    <th>Term</th>
+                                    <th>Course</th>
+                                    <th>Course Code</th>
+                                    <th class="no_print">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                $pagination_tr = '';
+                                if (count($this->paginator) != 0) {
+                                    //echo "<pre>"; print_r($this->paginator);die;
+                                    foreach ($this->paginator as $results) {
+                                        //print_r($results);die;
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i;
+
+                                        $i++;
+                                        ?>
+                                            </td>						
+
+                                            <td><?php echo $results['academic_year']; ?></td>
+                                            <?php $HRMModel_model = new Application_Model_HRMModel();
+                                            $emp = $HRMModel_model->getEmployeeData($results['employee_id']);
+                                            ?>
+                                            <td><?php echo $emp['empl_firstname']; ?></td>
+                                            <td><?php echo $results['term_name']; ?></td>
+                                            <td><?php echo $results['course_name']; ?></td>
+                                            <td><?php echo $results['course_code']; ?></td>
+                                            <td><a href="<?php echo $this->mainconfig['host']; ?>grade-allocation/index/type/edit/id/<?php echo $results['grade_id']; ?>" class="edit" title="Edit"><span class="fa fa-edit fa-lg"></span></a><?php if (in_array($this->role_id, $this->administrator_role)) { ?><!--&nbsp; | &nbsp;  <a href="<?php echo $this->mainconfig['host']; ?>grade-allocation/index/type/delete/id/<?php echo $results['grade_id']; ?>" onclick="return ConfirmDelete();" title="Delete" class="delete"> <span class="fa fa-trash-o fa-lg"></span> </a>--><?php } ?></td>
+
+                                        </tr>            
+
+                                    <?php
+                                    }
+                                    $pagination_tr = $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+                                }
+                                ?>
+
+                            </tbody>
+                        </table>
+                        </div>
+    <?php echo $pagination_tr; ?>
+                    </div><!-- /.padding-md -->
+                </div><!-- /panel -->
+            </div>
+        </div>
+    </div><!-- /.padding-md -->		
+<?php } ?>
+</div>
+<script>
+    //modifiedDataTable();
+    $(document).ready(function () {
+    
+        //$("#stu_dob").datepicker({ dateFormat: 'dd-mm-yy' });  
+        $('#stu_dob').datepicker({format: 'dd-mm-yyyy'});
+    });
+
+
+ function ConfirmDelete()
+    {
+        
+        $('[data-toggle="tooltip"]').tooltip();   
+        var search_val = $('input[type="search"]').val();
+        var x = search_val;
+        if (x){
+            $('.load-box').css('display','none');
+            return false;
+        
+        }
+        else{
+            $('.load-box').css('display','block');
+            return true;
+        }
+    }
+
+
+    /* $("#year").change(function() {
+     var academic_id=$("#academic_id").val();
+     //alert(academic_id);
+     var year=$("#year").val();
+     $.ajax({ 
+     type: "POST",
+     url:"<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-grade-allocation'; ?>",
+     data: { academic_year_id : academic_id,year: year}
+     }).done( function( data ) { 
+     //	alert(data);	
+     $("#grade_data").html(data);
+     });
+     
+     }); */
+    $('body').on('change', '#department_id', function () {
+        var department_id = $('#department_id').val();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-employee'; ?>',
+            data: {department_id: department_id}
+        }).done(function (data) {
+
+            $('#employee_id').empty('');
+            $('#employee_id').html(data);
+        })
+    })
+    //Added by kedar for filter
+    
+
+    //Added by kedar for filter
+    $('body').on('change', '#course_group', function () {
+        var session_id = $('#session_filter').val();
+        var course_group = $('#course_group').val();
+        var degree_id = $('#degree_id').val();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-student-by-course-group'; ?>',
+            data: {session_id:session_id,course_group: course_group,degree_id:degree_id}
+        }).done(function (data) {
+            //alert(data);
+            $('#studentData').empty('');
+            $('.load-box').css('display','none');
+            $('#studentData').html(data);
+        });
+    });
+//$('body').on('change','#employee_id',function() { 
+//var academic_year_id = $('#academic_id').val();
+//var department_id = $('#department_id').val();
+//var employee_id = $('#employee_id').val();
+//	
+//	$.ajax({
+//	type: "POST",
+//			url:'<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-employee-terms'; ?>',
+//			data: {department_id : department_id,employee_id:employee_id,academic_year_id:academic_year_id}
+//	
+//	}).done(function( data ) {
+//		
+//		$('#grade_data').empty('');
+//		$('#grade_data').html(data);
+//	})
+//})
+
+
+
+
+
+//$('body').on('change','#employee_id',function() { 
+//    
+//    
+//var employee_id = $('#employee_id').val();
+//var department_id = $('#department_id').val();
+//var academic_year_id = $('#academic_id').val();
+//
+//        $.ajax({
+//		type: "POST",
+//			url:'<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-terms'; ?>',
+//			data: {employee_id : employee_id,department_id:department_id,academic_year_id:academic_year_id}
+//		}).done(function( data ) {
+//			//alert(data);
+//			$('#term_ids').empty('');
+//			$('#term_ids').html(data);
+//	});
+//        
+//        
+//});
+
+    var employee_id = $('#employee_id option:selected').val();
+    var department_id = $('#department_id option:selected').val();
+    var academic_year_id = $('#academic_id option:selected').val();
+    var grade_allocate_id = $('#grade_allocate_id').val();
+    var department = $('#department').val();
+    var ct_id = $('#cc_id option:selected').val();
+    var ge_id = $('#ge_id option:selected').val();
+    var term_id = $('#cmn_terms option:selected').val();
+     var session = $('#session option:selected').val();
+     var degree_id = $('#degree_id option:selected').val();
+    
+    
+    
+    
+    
+    
+    if (term_id) {
+           $('.load-box').css('display','block');
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-Get-Courses-Edit-New1'; ?>',
+            data: {Ct_id: ct_id, employee_id: employee_id, department_id: department_id, term_id: term_id, ge_id: ge_id, cc_dept: department, grade_allocate_id: grade_allocate_id,session:session,degree_id:degree_id}
+        }).done(function (data) {
+
+            $('#course_ids').empty('');
+            $('#course_ids').html(data);
+            
+            var ct_id = $('#ge_id').val();
+            var term_id = $('#cmn_terms').val();
+            var course_id = $('#course_id').val();
+            var session = $('#session').val();
+            if (course_id != '') {
+                
+                
+                 
+                
+                
+                var academic_id = $("#academic_id").val();
+                $.ajax({
+                    type: "POST",
+                    url: "<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-student-details-new'; ?>",
+                    //data: { academic_year_id : academic_id,component_name:component_name,component_id:component_id,grade_allocate_id:grade_allocate_id,course_id:course_id}
+data: {employee_id: employee_id, department_id: department_id, ct_id: ct_id, term_id: term_id, course_id: course_id, honors_id: department, session_id: session, grade_allocate_id: grade_allocate_id,session:session,degree_id:degree_id}
+                }).done(function (data) {
+                    //	alert(data);	
+                    $("#grade_data").html(data);
+                    
+                      $.ajax({
+            type: "POST",
+            url: "<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-course-code'; ?>",
+            data: {course_id: course_id}
+        }).done(function (data) {
+            $('#course_name').show();
+            $('#course_name').empty('');
+            $('#course_name').val(data);
+            $('.load-box').hide();
+        });      
+                });
+            }
+        });
+
+    }
+
+
+    $('body').on('change', '#cc_id', function () {
+        var cc_id = $('#cc_id').val();
+        var term_id = $('#cmn_terms').val();
+        var session = $('#session').val();
+          $('#ge_id').empty('');
+        if (cc_id) {
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-course-group'; ?>',
+                data: {cc_id: cc_id, term_id: term_id,session:session}
+            }).done(function (data) {
+              
+                $('#ge_id').html(data);
+                $('#ge_id').trigger("chosen:updated");
+            });
+        }
+    });
+
+
+    $('body').on('change', '#employee_id,#cmn_terms,#department_id,#cc_id,#ge_id,#department', function () {
+
+        var employee_id = $('#employee_id').val();
+        var department_id = $('#department_id').val();
+        var department = $('#department').val();
+        var ct_id = $('#cc_id').val();
+        var ge_id = $('#ge_id').val();
+        var term_id = $('#cmn_terms').val();
+        var session = $('#session').val();
+        var degree_id = $('#degree_id').val();
+        $('.load-box').css('display','block');
+            $('#course_ids').empty('');
+            $('#course_name').hide();
+             $("#grade_data").empty();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-base-of-course'; ?>',
+            data: {Ct_id: ct_id, employee_id: employee_id, department_id: department_id, term_id: term_id, ge_id: ge_id, cc_dept: department,session:session}
+        }).done(function (data) {
+
+            
+            $('#course_ids').html(data);
+            $('#course_ids').trigger("chosen:updated"); 
+            $(".chosen-select").chosen();
+             $('.load-box').css('display','none');
+        });
+       
+
+    });
+
+
+    $('#course_name').hide();
+    $('body').on('change', '#course_id', function () {
+        var employee_id = $('#employee_id').val();
+        var department_id = $('#department_id').val();
+        var ct_id = $('#ge_id').val();
+        var term_id = $('#cmn_terms').val();
+        var course_id = $('#course_id').val();
+        var honors_id = $('#department').val();
+        var session_id = $('#session').val();
+        var degree_id= $('#degree_id').val();
+        $('.load-box').css('display','block');
+        
+       
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-student-details-new'; ?>",
+            data: {employee_id: employee_id, department_id: department_id, ct_id: ct_id, term_id: term_id, course_id: course_id, honors_id: honors_id, session_id: session_id,degree_id:degree_id}
+        }).done(function (data) {
+
+            $('#grade_data').empty('');
+            $('.load-box').css('display','none');
+            $("#grade_data").html(data);
+
+        
+            $('<div class="row" id="moved-buttons" style="margin-top:1em; margin-right:.09em;"></div>').appendTo('#datatable-responsive_filter')
+            $('div[class="dt-buttons btn-group"]').appendTo('#moved-buttons');
+
+            //  table.ajax.reload();
+            
+             $.ajax({
+            type: "POST",
+            url: "<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-course-code'; ?>",
+            data: {course_id: course_id}
+        }).done(function (data) {
+            //alert(data);
+            $('#course_name').show();
+            $('#course_name').empty('');
+            $('#course_name').val(data);
+            
+        });
+
+        });
+    });
+    
+    
+//End
+    $('body').on('change', '#component_id', function () {
+        var academic_id = $("#academic_id").val();
+        var component_name = $('#component_id option:selected').text();
+        //alert(component_name)
+        var component_id = $('#component_id option:selected').val();
+        //alert(academic_id);
+        /* $.ajax({ 
+         type: "POST",
+         url:"<?php echo $this->mainconfig['host'] . 'grade-allocation/ajax-get-student-details'; ?>",
+         data: { academic_year_id : academic_id,component_name:component_name,component_id:component_id}
+         }).done( function( data ) { 
+         //	alert(data);	
+         $("#grade_data").html(data);
+         }); */
+
+    });
+
+
+    $('body').on('change', '#academic_id', function () {
+        var academic_id = $('#academic_id').val();
+        if (academic_id) {
+            $('#batch').show();
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-batch-code'; ?>',
+                data: {academic_id: academic_id}
+            }).done(function (data) {
+                var result = $.parseJSON(data);
+                if ((data != '')) {
+                    $('#batch').val(result['short_code']);
+                }
+            });
+        }
+
+    });
+    $('body').on('change', '#degree_id', function () {
+        var degree_id = $('#degree_id').val();
+        if (degree_id) {
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-course-cat'; ?>',
+                data: {degree_id: degree_id}
+            }).done(function (data) {
+                    $('#cc_id').empty();
+                    $('#cc_id').html(data);
+                    $('#cc_id').trigger("chosen:updated");
+                    
+                    $.ajax({
+                   type: "POST",
+                   url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Dept'; ?>',
+                   data: {degree_id: degree_id}
+               }).done(function (data) {
+                   $('#department').empty('');
+                   $('#department').html(data);
+               });
+            
+                
+            });
+        }
+
+    });
+
+    var academic_id = $('#academic_id option:selected').val();
+    if (academic_id) {
+        $('#batch').show();
+        $.ajax({
+            type: "POST",
+            url: '<?php echo $this->mainconfig['host'] . 'master/ajax-get-batch-code'; ?>',
+            data: {academic_id: academic_id}
+        }).done(function (data) {
+            var result = $.parseJSON(data);
+            if ((data != '')) {
+                $('#batch').val(result['short_code']);
+            }
+        });
+    } else {
+        $('#batch').hide();
+    }
+    $('#print').click(function () {
+        window.print('#grade_data');
+    });
+    
+    
+
+$(function()
+{   
+    $(".monthPicker").datepicker({
+        dateFormat: 'MM yy',
+        changeMonth: true,
+        changeYear: true,
+        showButtonPanel: true,
+       
+
+//        onClose: function(dateText, inst) {
+//            var month = $("#ui-datepicker-div .ui-datepicker-month :selected").val();
+//            var year = $("#ui-datepicker-div .ui-datepicker-year :selected").val();
+//            $(this).val($.datepicker.formatDate('MM yy', new Date(year, month, 1)));
+//        }
+    });
+  
+
+    $(".monthPicker").focus(function () {
+        
+         $('.table-condensed>tbody').hide();
+         $('.table-condensed>thead>tr:nth-child(2)').find('th').remove();
+         $('.table-condensed>thead>tr:nth-child(2)').append("<th><button class='btn-primary'>Today</button></th><th></th><th><button id ='ok' class='btn-primary'>Done</button></th>");
+         
+        
+    });
+    
+    $(".switch").mouseup(function(){
+        var str = $(this).text();
+                   var str_arr =   str.split(' ');
+        alert(JSON.stringify(str_arr));
+    });
+
+ $("#ok").click(function(){
+    $(".monthPicker").empty();
+    alert($('.table-condensed>thead>tr:nth-child(1)>th:nth-child(2)').text());
+    //$(".monthPicker").val($('.table-condensed>thead>tr:nth-child(1)>th:nth-child(2)').text());
+ });
+
+});
+
+$('button').click(function(){
+
+//$('button').attr('disabled','disabled')
+});
+
+$('body').on('click','.sorting_desc,.sorting_asc',function(){
+ $('.load-box').css('display','block');
+var x = 1;
+    $('th[id^="total"]').each(function(col){
+        var id = $(this).attr('id');
+      
+$('input[data-id="#'+id+'"]').each(function(e){
+            $(this).attr('tabindex',(x));
+            x+=1;
+    });
+});
+$('.load-box').hide();
+});
+</script>

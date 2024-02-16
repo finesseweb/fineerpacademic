@@ -1,0 +1,338 @@
+<?php
+      // echo "<prE>";print_r($this->response_data);exit;
+    $trn_col = 6;
+    $trn_extra_col = 1;
+?>
+<style>
+    #hiderow,
+    .delete {
+        display: none;
+    } 
+    .words{
+      font: 10px/1.4 Georgia, serif !important;  
+      padding:0px !important;
+      margin:0px !important;
+      text-align: left !important;
+    }
+    * { margin: 0; padding: 0; }
+    body { font: 16px/1.4 Georgia, serif; }
+    #page-wrap {text-align: center; margin: 20px 0 0 0;  }
+            #page-wrap h4{border-bottom: 1px solid black;}
+    textarea { border: 0; font: 14px Georgia, Serif; overflow: hidden; resize: none; }
+    table { border-collapse: collapse; }
+    table td, table th { border: 1px solid black; padding: 5px; }
+    
+    #fade-logo{
+        position:absolute;
+        top:12%;
+        left:40%;
+        transform:translate(-30%,-30%);
+        transform:rotate(-10deg);
+        z-index:-9999;
+        opacity:0.1;
+        width:500px;
+    }
+    #image1{
+         width:500px;
+    }
+    #details{
+        text-align: center;
+        font: 28px Georgia, Serif;
+    }
+    #header { height: 20px; width: 100%; margin: 20px 0; background: #222; text-align: center; color: white; font: bold 15px Helvetica, Sans-Serif; text-decoration: uppercase; letter-spacing: 20px; padding: 8px 0px; }
+
+    #address { width: 350px; height: 150px; float: left; }
+    #customer { overflow: hidden; }
+
+    #logo { text-align: right; margin-right:40px; float: right; position: relative; margin-top: 25px; border: 1px solid #fff; max-width: 540px; max-height: 100px; overflow: hidden; }
+    #logo:hover, #logo.edit { border: 1px solid #000; margin-top: 0px; max-height: 125px; }
+    #logoctr { display: none; }
+    #logo:hover #logoctr, #logo.edit #logoctr { display: block; text-align: right; line-height: 25px; background: #eee; padding: 0 5px; }
+    #logohelp { text-align: left; display: none; font-style: italic; padding: 10px 5px;}
+    #logohelp input { margin-bottom: 5px; }
+    .edit #logohelp { display: block; }
+    .edit #save-logo, .edit #cancel-logo { display: inline; }
+    #image{
+        text-align:center;
+    }
+    .edit #image, #save-logo, #cancel-logo, .edit #change-logo, .edit #delete-logo { display: none; }
+    #customer-title { font-size: 20px; font-weight: bold; float: left; }
+
+    #meta { margin-top: 1px; width: 350px; float: right; }
+    #meta td { text-align: right;  }
+    #meta td.meta-head { text-align: left; background: #eee; }
+    #meta td textarea { width: 100%; height: 20px; text-align: right; }
+
+    #items { clear: both; width: 100%; margin: 30px 0 0 0; border: 1px solid black; }
+    #items th { background: #eee; }
+    #items textarea { width: 80px; height: 50px; }
+    #items tr.item-row td { border: 0; vertical-align: top; }
+    #items td.description { width: 300px; }
+    #items td.item-name { width: 175px; }
+    #items td.description textarea, #items td.item-name textarea { width: 100%; }
+    #items td.total-line { border-right: 0; text-align: right; }
+    #items td.total-value { border-left: 0; padding: 10px; }
+    #items td.total-value textarea { height: 20px; background: none; }
+    #items td.balance { background: #eee; }
+    #items td.blank { border: 0; }
+
+    #terms { text-align: center; margin: 20px 0 0 0; }
+    #terms h5 { text-transform: uppercase; font: 13px Helvetica, Sans-Serif; letter-spacing: 10px; border-bottom: 1px solid black; padding: 0 0 8px 0; margin: 0 0 8px 0; }
+    #terms textarea,#page-wrap textarea,#terms p{ width: 100%; text-align: center;}
+
+    textarea:hover, textarea:focus, #items td.total-value textarea:hover, #items td.total-value textarea:focus, .delete:hover { background-color:#EEFF88; }
+
+    .delete-wpr { position: relative; }
+    .delete { display: block; color: #000; text-decoration: none; position: absolute; background: #EEEEEE; font-weight: bold; padding: 0px 3px; border: 1px solid; top: -6px; left: -22px; font-family: Verdana; font-size: 12px; }
+
+
+</style>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+        <title>Editable Invoice</title>
+        <link rel='stylesheet' type='text/css' href='css/style.css' />
+        <link rel='stylesheet' type='text/css' href='css/print.css' media="print" />
+        <script type='text/javascript' src='js/jquery-1.3.2.min.js'></script>
+        <script type='text/javascript' src='js/example.js'></script>
+    </head>
+    <body>
+        
+        <div id ="fade-logo">
+             <img id="image1" src="<?= $this->mainconfig['publicpath']; ?>/images/img.png" alt="logo" />
+        </div>
+        
+        <div id="page-wrap">
+            <?php $termdetails =  new Application_Model_Declaredterms(); ?>
+            <h4>TRANSACTIONS FOR <?=$termdetails->getRecordbydes($this->response_data[0]['semester'])['term_name'];?></h4>
+        </div>
+            <div id="identity">
+                <textarea id="address" >
+PATNA WOMEN'S COLLEGE
+AUTONOMOUS
+PATNA UNIVERSITY
+3rd Cycle NAAC Accredited at A Grade with CGPA 3.58/4
+College with Potential for Excellence(CPE) status accorded by UGC
+BAILEY ROAD,PATNA - 800 001, BIHAR
+                </textarea>
+
+                <div id="logo" >
+
+                    <div id="logoctr">
+                        <a href="javascript:;" id="change-logo" title="Change logo">Change Logo</a>
+                        <a href="javascript:;" id="save-logo" title="Save changes">Save</a>
+                        |
+                        <a href="javascript:;" id="delete-logo" title="Delete logo">Delete Logo</a>
+                        <a href="javascript:;" id="cancel-logo" title="Cancel changes">Cancel</a>
+                    </div>
+
+                    <div id="logohelp">
+                   <input id="imageloc" type="text" size="50" value="" /><br />
+                        (max width: 540px, max height: 100px)
+                    </div>
+                    
+                    
+                <?php // echo '<pre>'; print_r($this->mainconfig['host'].$_SESSION['admin_login']['admin_login']->participants_file);exit; ?>
+                    <img style='width:100px;'id="image" src="<?= $this->mainconfig['host']; ?><?=$this->details['filename'];?>" alt="logo" />
+                </div>
+
+            </div>
+
+        
+            <div style="clear:both;"></div>
+            <div id="customer">
+                <table id="meta">
+                    <tr>
+                        <td class="meta-head">Name</td>
+                        <td><textarea><?=$this->details['stu_fname'].' '.$this->details['stu_lname'];?></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="meta-head">Form Id.</td>
+                        <td><textarea><?=$this->details['stu_id'];?></textarea></td>
+                    </tr>
+                    <tr>
+                        <?php 
+                                            
+                                            $date_arr = explode('-',$this->data['due_date']);
+                                            ?>
+                        <td class="meta-head">Last Date</td>
+                        <td><textarea id="date">--</textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="meta-head">Amount Due</td>
+                        <td><div class="due">INR <?= $this->data['due_fee']; ?></div><br>
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <table id="items">
+                <tr>
+                    <?php foreach($this->Category_data as $key => $val) {?>
+                    <th><?=$val['category_name'];?></th>
+                    <?php } ?>
+                    <th>Fee to Pay</th>
+                </tr>
+
+                <tr class="item-row">
+                    <?php $subtot = $tot = 0 ; foreach($this->Category_data as $key => $val) { ?>
+                    <?php $fee = array_values($this->result[$val['category_id']])[0]['fee']; 
+                    $tot+=$fee;?>
+                    
+                    <td class="item-name">INR <?=$fee;?></td>
+                <?php }  ?>
+                    <td><span class="price">INR <?=$tot; ?></span></td>
+
+                </tr>
+                <tr>
+                    <td id='details' colspan="<?=count($this->Category_data)+1;?>">
+                        Transaction Details   
+                    </td>
+                </tr>
+                <tr>
+<th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col ;?>">SL</th>
+                    <th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col ;?>">Transaction ID</th>
+                    <th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>">Transaction Amount</th>
+                    <th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>">Transaction Status</th>
+                    <th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>">Fee type</th>
+                    <th colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col + $trn_extra_col  ;?>">Transaction Date</th>
+    
+
+                </tr>
+
+                <?php $i = 0;
+                foreach ($this->response_data as $key => $value) { ?>
+                    <tr>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>"><?=$i + 1; ?></td>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>"><?=$value['mmp_txn']; ?></td>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>"><?='INR ' ?><?=$value['fee']; ?></td>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>"><?php if($value['f_code'] == 'Ok'){echo 'Success'; $subtot+=$value['fee']; }else if($value['f_code'] == 'F'){ echo 'Failure';}else if($value['f_code'] == 'C'){echo "Refund";}; ?></td>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col;?>"><?=$value['description']; ?></td>
+                        <td colspan="<?=floor(count($this->Category_data)/$trn_col)+count($this->Category_data)%$trn_col + $trn_extra_col ;?>"><?=$value['date']; ?></td>
+                    </tr>
+    <?php $i++;
+} ?>
+                <tr>
+                    <td colspan="<?=count($this->Category_data)-3;?>" class="blank"> </td>
+                    <td colspan="1" class="total-line" style="text-align:left;">Subtotal</td>
+                    <td colspan="3" class="total-value"><div id="subtotal">INR <?= $tot ?></div></td>
+                </tr>
+                <tr>
+
+                    <td colspan="<?=count($this->Category_data)-3;?>" class="blank"> </td>
+                    <td colspan="1" class="total-line" style="text-align:left;">Total</td>
+                    <td colspan="3" class="total-value"><div id="total">INR <?= $tot; ?></div></td>
+                </tr>
+                <tr>
+                    <td colspan="<?=count($this->Category_data)-3;?>" class="blank"> </td>
+                    <td colspan="1" class="total-line" style="text-align:left;">Amount Paid</td>
+
+                    <td colspan="3" class="total-value"><textarea id="paid">INR <?= $subtot; ?></textarea></td>
+                </tr>
+                <tr>
+                    <td colspan="<?=count($this->Category_data)-3;?>" class="blank"> </td>
+                    <td colspan="1" class="total-line" style="text-align:left;">Amount Paid in Words</td>
+
+                    <td colspan="3" class="total-value"><?=numberTowords($subtot); ?> ONLY/--</td>
+                </tr>
+               
+            </table>
+
+            <div id="terms">
+                <h5>Terms</h5>
+                <center><p class='words'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text
+                    ever 1500s</p></center>
+            </div>
+
+        </div>
+
+    </body>
+<?php
+function numberTowords($num)
+{
+
+$ones = array(
+0 =>"ZERO",
+1 => "ONE",
+2 => "TWO",
+3 => "THREE",
+4 => "FOUR",
+5 => "FIVE",
+6 => "SIX",
+7 => "SEVEN",
+8 => "EIGHT",
+9 => "NINE",
+10 => "TEN",
+11 => "ELEVEN",
+12 => "TWELVE",
+13 => "THIRTEEN",
+14 => "FOURTEEN",
+15 => "FIFTEEN",
+16 => "SIXTEEN",
+17 => "SEVENTEEN",
+18 => "EIGHTEEN",
+19 => "NINETEEN",
+"014" => "FOURTEEN"
+);
+$tens = array( 
+0 => "ZERO",
+1 => "TEN",
+2 => "TWENTY",
+3 => "THIRTY", 
+4 => "FORTY", 
+5 => "FIFTY", 
+6 => "SIXTY", 
+7 => "SEVENTY", 
+8 => "EIGHTY", 
+9 => "NINETY" 
+); 
+$hundreds = array( 
+"HUNDRED", 
+"THOUSAND", 
+"MILLION", 
+"BILLION", 
+"TRILLION", 
+"QUARDRILLION" 
+); /*limit t quadrillion */
+$num = number_format($num,2,".",","); 
+$num_arr = explode(".",$num); 
+$wholenum = $num_arr[0]; 
+$decnum = $num_arr[1]; 
+$whole_arr = array_reverse(explode(",",$wholenum)); 
+krsort($whole_arr,1); 
+$rettxt = ""; 
+foreach($whole_arr as $key => $i){
+	
+while(substr($i,0,1)=="0")
+		$i=substr($i,1,5);
+if($i < 20){ 
+/* echo "getting:".$i; */
+$rettxt .= $ones[$i]; 
+}elseif($i < 100){ 
+if(substr($i,0,1)!="0")  $rettxt .= $tens[substr($i,0,1)]; 
+if(substr($i,1,1)!="0") $rettxt .= " ".$ones[substr($i,1,1)]; 
+}else{ 
+if(substr($i,0,1)!="0") $rettxt .= $ones[substr($i,0,1)]." ".$hundreds[0]; 
+if(substr($i,1,1)!="0")$rettxt .= " ".$tens[substr($i,1,1)]; 
+if(substr($i,2,1)!="0")$rettxt .= " ".$ones[substr($i,2,1)]; 
+} 
+if($key > 0){ 
+$rettxt .= " ".$hundreds[$key]." "; 
+}
+} 
+if($decnum > 0){
+$rettxt .= " and ";
+if($decnum < 20){
+$rettxt .= $ones[$decnum];
+}elseif($decnum < 100){
+$rettxt .= $tens[substr($decnum,0,1)];
+$rettxt .= " ".$ones[substr($decnum,1,1)];
+}
+}
+return $rettxt;
+}
+
+?>
+</html>
+

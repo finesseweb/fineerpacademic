@@ -1,0 +1,318 @@
+
+<div class="padding-md right_col">
+    <?php if (count($this->messages))   { 
+    foreach ($this->messages as $message) {?>
+     <div class="alert <?php echo $_SESSION['message_class']; ?>  ">
+<a type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
+<?php echo $this->escape($message); ?>
+</div>
+ <?php } } ?>
+        <div class="load-box">
+            <img src="<?php echo $this->mainconfig['publicpath']; ?>/images/loader.gif" width='200px'  class="loder_img1" />
+        </div>   
+<div class="row">
+    <div class="col-md-12">
+	<h3 class="page-title txt-color-blueDark" >
+            <div><i class="fa fa-eye"> Generate Ranking</i></div>
+	</h3>
+        
+        
+    <?php if ($this->type) { ?>       
+<div class="panel panel-default">
+	<form class="no-margin" id="formValidate1" action="<?php echo $this->form->getAction() ?>" method="post" data-validate="parsley" >
+					
+		<div class="panel-body">
+		    <div class="row">
+			<div class="col-sm-3 pul-right ">
+                            <div class="form-group">
+                                 <label class="control-label">Academic Year<span class="asterisk">*</span></label>
+                                  <?php echo $this->form->academic_year_list; ?>
+                            </div>   
+                        </div>  	
+                                                            
+                        <div class="col-sm-3 pul-right ">
+                            <div class="form-group">
+                                 <label class="control-label">Session<span class="asterisk">*</span></label>
+                        
+                                <?php echo $this->form->session; ?>
+                            </div>   
+                        </div>  	
+			<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Batch<span class="asterisk">*</span></label>
+                                <?php echo $this->form->academic_year_id; ?>
+                            </div>
+			</div> 
+							
+<!--							<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Year<span class="asterisk">*</span></label>
+                                <?php echo $this->form->year_id; ?>
+                            </div>
+							</div>
+							
+							<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Participant Name</label>
+                                <?php echo $this->form->stu_id; ?>
+                            </div>
+							</div>-->
+							
+							
+		    </div>
+			<div class="row">
+                            <div class="col-sm-3">
+                                    <div class="form-group">
+                                         <label class="control-label">&nbsp;</label>
+							<input type="text" id="batch" class="form-control" style="background-color:#fdf59a;"  readonly />
+                                    </div>
+                            </div>
+			</div>
+				<div id="getstudent" class="col-sm-12">
+                                                    
+				</div>
+		</div>
+                                    
+                    <div class="row">
+			<div class="col-md-offset-3 col-md-3 text-right"><button class=" btn btn-primary" type ="submit" >Submit </button></div>
+			</div>	
+	</form>
+					
+</div>
+        
+        
+        
+    <?php }
+    
+    else {?>
+      <div class="panel panel-default">
+		 <div class="col-xs-12">	 
+
+                        <a class="btn btn-primary pull-right" style="margin-top: 25px;" href="<?php echo $this->mainconfig['host']; ?>report/generatefinalresult/type/add">Add </a>
+                    </div>			
+		<div class="panel-body">
+                    
+		    <div class="row">
+                        
+                          
+			<div class="col-sm-3 pul-right ">
+                            <div class="form-group">
+                                 <label class="control-label">Academic Year<span class="asterisk">*</span></label>
+                                  <?php echo $this->form->academic_year_list; ?>
+                            </div>   
+                        </div>  	
+                                                              
+                        <div class="col-sm-3 pul-right ">
+                            <div class="form-group">
+                                 <label class="control-label">Session<span class="asterisk">*</span></label>
+                        
+                                <?php echo $this->form->session; ?>
+                            </div>   
+                        </div>  	
+			<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Batch<span class="asterisk">*</span></label>
+                                <?php echo $this->form->academic_year_id; ?>
+                            </div>
+			</div>
+                        <div class="col-sm-3 employee_class">
+                        <button type="button" id="getRecord" class="btn btn-primary" style="float: right; margin-bottom: 50px; margin-top: 25px;" value="0">Get Record</button>
+							
+		</div>			
+<!--	<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Year<span class="asterisk">*</span></label>
+                                <?php echo $this->form->year_id; ?>
+                            </div>
+							</div>
+							
+							<div class="col-sm-3 employee_class">
+                            <div class="form-group">
+                              <label class="control-label">Participant Name</label>
+                                <?php echo $this->form->stu_id; ?>
+                            </div>
+							</div>-->
+							
+							
+		    </div>
+                    <div class="row clearfix " id="getallrecord">
+                            
+			 
+				<div class="col-sm-12">
+                                 <div class="padding-md clearfix">
+			<table class="table table-striped table-bordered mb30 jambo_table bulk_action" id="datatable-responsive" width="100%">
+				<thead>
+					<tr>
+					    <th>Participant ID </th>
+						<th>Participant Name</th>
+                                                <th>Create date </th>
+						<th>Total SGPA </th>
+                                                <th>Total CGPA </th>
+					</tr>
+				</thead>
+				<tbody>
+				<tbody>
+
+					<?php $result=$this->corecourseresult;
+
+                                          $term_string = '';
+
+                                            if(!empty($this->term_id)){
+
+                                                $term_string = '/term/'.$this->term_id; 
+
+                                            }
+
+					      foreach($result as $results) {
+
+					?>
+
+					<tr>
+
+					<td><?php echo $results['stu_id'];?>
+                                            <input type="hidden" name="stu_id[]" value="<?=$results['stu_id']?>" readonly="readonly"> 
+                                         </td>
+                                         <td><input type="hidden" name="stu_name[]" value="<?=$results['stu_fname'].' '.$results['stu_lname']?>" readonly="readonly"> 
+                                         <?php echo $results['stu_fname'].' '.$results['stu_lname'];?></td> 
+                                        <td><input type="text" name="added_year[]" value="<?=date('Y',strtotime($results['added_date']))?>" readonly="readonly"> 
+                                            <input type="text" name="added_month[]" value="<?=date('M',strtotime($results['added_date']))?>" readonly="readonly">  </td>
+                                        <td><input type="text" name="total_sgpc[]" value="<?=$results['total_sgpa']?>" readonly="readonly"> </td>
+                                        <td><input type="text" name="total_cgpa[]" value="<?=$results['cgpa']?>" readonly="readonly"> </td>
+					</tr>
+					<?php } ?>										
+				</tbody>
+			</table>
+			 <?php //echo $pagination_tr; ?>
+		</div>                   
+				</div>
+                        </div>
+		</div>
+    
+					
+</div>  
+        
+        
+    <?php }
+    ?><!-- /panel -->
+</div><!-- /.col-->				
+</div><!-- /.row -->
+</div><!-- /.padding-md -->	
+
+
+<script>
+ jQuery(document).ready(function() {
+		$('#batch').hide();
+        $('body').on('change', '#year_id,#academic_year_id,#stu_id', function() {
+			  $('.load-box').css('display','block');
+            getstudentDetails();
+        });
+	});
+ 
+	
+    function getstudentDetails() {
+        $url = '<?php echo $this->mainconfig['host']; ?>report/get-student-result';
+        $.post($url,
+                {
+                    'academic_id': $('#academic_year_id').val(),
+					'year_id': $('#year_id').val(),
+					'stu_id': $('#stu_id').val()
+        })
+                .done(function(data) {
+                  
+                    //$('#payslipData').html('');
+                    $('#getstudent').html(data);
+                      $('.load-box').hide();
+                });
+
+    }
+
+ $("#academic_year_id").change(function() {
+	 var academic_year_id=$("#academic_year_id").val();
+
+  if(academic_year_id !=''){
+        //$('.load-box').css('display','block');
+	 $.ajax({ 
+			type: "POST",
+			url:"<?php echo $this->mainconfig['host'].'report/ajax-get-student-names';?>",
+			data: { academic_year_id : academic_year_id}
+		}).done( function( data ) { 
+	     //alert(data);	
+			$("#stu_id").html(data);
+                          $('.load-box').css('display','none');
+		});
+	}
+});
+
+
+ $('body').on('change', '#academic_year_id', function() {		
+var academic_id=$('#academic_year_id').val();
+   if(academic_id){
+   $('#batch').show();
+	$.ajax({ 
+			type: "POST",
+			url:'<?php echo $this->mainconfig['host'].'master/ajax-get-batch-code';?>',
+			data: {academic_id:academic_id}
+		}).done(function( data ) {
+			var result = $.parseJSON(data);
+			if((data!='')){
+				$('#batch').val(result['short_code']);
+			}
+	  });
+	 }
+	 
+ });
+ 
+  $('body').on('change', '#academic_year_list', function () {
+        $('#department').removeAttr('disabled');
+        var year_id = $('#academic_year_list').val();
+        if (year_id) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Session'; ?>',
+                data: {year_id: year_id}
+            }).done(function (data) {
+                $('#session').empty('');
+                $('#session').html(data);
+                $('#session').trigger("chosen:updated");
+            });
+        }
+    });
+ 
+     $('body').on('change', '#session', function () {
+        $('#department').removeAttr('disabled');
+        var session = $('#session').val();
+       // alert(session);
+        if (session) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'master/ajax-Get-Batch'; ?>',
+                data: {session: session}
+            }).done(function (data) {
+                $('#academic_year_id').empty('');
+                $('#academic_year_id').html(data);
+                $('#academic_year_id').trigger("chosen:updated");
+            });
+        }
+    });
+    
+    
+ $('body').on('click', '#getRecord', function () {
+        $('#department').removeAttr('disabled');
+        var academic_year_id = $('#academic_year_id').val();
+      
+       // alert(session);
+        if (session) {
+            
+            $.ajax({
+                type: "POST",
+                url: '<?php echo $this->mainconfig['host'] . 'report/get-students-list-by-academic'; ?>',
+                data: {academic_year_id: academic_year_id}
+            }).done(function (data) {
+                $('#getallrecord').html(data);
+            });
+        }
+    });
+    
+</script>

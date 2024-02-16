@@ -1,0 +1,841 @@
+
+<style>
+@media print {
+  
+  button,fieldset{
+      position:fixed !important;
+      display:none !important;
+  }
+  
+  
+    #applicationFormPreview{
+            position:absolute !important;
+      top:0px !important;
+      width:100%;
+  }
+  
+
+  
+  .pagebreak {
+       clear: both;
+      page-break-after: always; }
+}
+ @page 
+    {
+        position:absolute !important;
+        size:  auto;   /* auto is the initial value */
+        margin: 1mm;
+        margin-top:0; */
+       /* this affects the margin in the printer settings */
+    }   
+   
+   
+    
+</style>
+<div class="appForm" id="applicationFormPreview">
+<div class="multistepformArea" id="applicationFormPreview">
+       <div style="float:right;padding-bottom: 3em;" id="divbutton">
+            <button type="button" id="printAppForm2"  class="btn btn-primary" onclick="window.print()">Print</button>
+        </div>
+  <form class="regForm" id="formValidate1" action="" method="post" data-validate="parsley" >
+        <div class="row" id="section-to-print">
+        <div class="col-sm-12 employee_class pagebreak">
+                
+            <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                <thead>
+                    <tr>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+               
+                        <td class="col-sm-2 col-sm-offset-1">
+                           
+                            <div class="form-group">
+                                 <img src="<?php echo $this->mainconfig['publicpath']; ?>img/logo.png" width="120" height="130"> 
+                              
+                               
+                            </div>
+                 
+
+                        </td>
+
+                        <td class="col-sm-8">
+                            <div class = 'sub' style="text-align: center;">
+                                <h4> PATNA WOMEN'S COLLEGE</h4>
+                                <h5>AUTONOMOUS</p></h5>
+                                <h4>PATNA UNIVERSITY</h4>
+                                <h5>3rd Cycle NAAC Accredited at A Grade with CGPA 3.58/4</h5>
+                                <h5>College with Potential for Excellence(CPE) status accorded by UGC</h5>
+                                <h5> BAILEY ROAD,PATNA - 800 001, BIHAR</h5>
+                                <h5>Application Form</h5>
+                                <h5><?= $this->paginator['course_name'] ?> -Sem-1 -  <?= $this->paginator['session'] ?></h5>
+                        </div>
+                        </td>
+                        <td class="col-sm-2 col-sm-offset-1">
+                            <div class="form-group" style="padding-top: 1em;">
+                                 <img src="<?php echo $this->baseUrl($this->paginator['photo']);?>" alt="img" height="160" width="190">
+                                  <h4 style="text-align: center"> <?= $this->paginator['form_id'] ?> </h4><br>
+                            </div>
+                        </td>
+           
+
+                    </tr>
+                  
+                </tbody>
+            </table>
+                <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:15%" id="a"> Applicant Information</th>
+                            <th style="width:15%"></th>  
+                            <th style="width:8%"></th>  
+                            <th style="width:15%"></th>  
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                           
+                            <td class="">
+                              Name
+                            </td>
+                           
+                            <td class="">
+                               <?= $this->paginator['applicant_name'] ?>
+                            </td>
+                            <td class="">
+                              Gender
+                            </td>
+                           
+                            <td class="">
+                                <?php if($this->paginator['gender'] == 1){
+                                    echo 'Female';
+                                }else{
+                                    echo 'Transgender';
+                                }  ?>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                           
+                            <td class="">
+                              Date of Birth
+                            </td>
+                           
+                            <td class="">
+                                <?= $this->paginator['dob'] ?>
+                            </td>
+                            <td class="">
+                             Nationality
+                            </td>
+                            <td>
+                                <?php if($this->paginator['nationality']){
+                                    echo $this->paginator['nationality'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                           
+                            <td class=""> Aadhar No</td>
+                            <td class=""> <?php echo $this->paginator['aadhar'];?> </td>
+                            <td class="">Phone No</td>
+                            <td class="">
+                                <?php if($this->paginator['phone']){
+                                    echo $this->paginator['phone'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?>
+                            </td>
+                                                       
+                        </tr>
+                        <tr>
+                           
+                            <td class="">Email Id</td>
+                            <td class=""> <?php echo $this->paginator['email_id'];?> </td>
+                            <td class="">Father Contact No</td>
+                            <td class="">
+                                <?php if($this->paginator['father_contact']){
+                                    echo $this->paginator['father_contact'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?>
+                            </td>
+
+                           
+                        </tr>
+                        <tr>
+                           
+                            <td class="">
+                              Father's Name
+                            </td>
+                           
+                            <td class="">
+                               
+                                <?php echo $this->paginator['father_name'];?>
+                            </td>
+                            <td class="">
+                              Religion
+                            </td>
+                           
+                            <td class="">
+                                <?php if($this->paginator['religion'] == 'others'){
+                                    echo $this->paginator['others_religion'];
+                                 }else{
+                                   echo $this->paginator['religion'];
+                                 }  ?>
+                            </td>
+                           
+                        </tr>
+                        <tr>
+                           
+                            <td class="">
+                              Mother's Name
+                            </td>
+                           
+                            <td class="">
+                                <?= $this->paginator['mother_name'] ?>
+                            </td>
+                            <td class="">Guardian Name</td>
+                            <td class="">
+                                <?php if($this->paginator['guard_name']){
+                                    echo $this->paginator['guard_name'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?>
+                            </td>
+                           
+                        </tr>
+                         <tr>
+                            <td class="">
+                              Category
+                            </td>
+                           
+                            <td class="">
+                                <?php if($this->paginator['caste_category']){
+                                    echo $this->paginator['caste_category'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">Caste</td>
+                            <td class="">  <?php if($this->paginator['caste']){
+                                    echo $this->paginator['caste'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?> </td>
+                              
+                        </tr>
+                        <tr>
+                            <td class="col-sm-2"> Caste Certificate Number  </td>
+                            <td class="col-sm-2" colspan="3"> <?php if($this->paginator['certificate_no']){
+                                    echo $this->paginator['certificate_no'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?> 
+                            </td>
+                           
+                           
+                        </tr>
+                         <tr>
+                            <td class="">
+                              State
+                            </td>
+                           
+                            <td class="">
+                                <?php if($this->paginator['p_state']){
+                                    echo $this->paginator['p_state'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?>
+                            </td>
+                            <td class="">Home Town</td>
+                            <td class="">  <?php if($this->paginator['p_homeTown']){
+                                    echo $this->paginator['p_homeTown'];
+                                 }else{
+                                   echo  'N/A';
+                                 }  ?> </td>
+                           
+
+                           
+                        </tr>
+                         <tr>
+                            <td class="col-sm-2"> Permanent Address  </td>
+                            <td class="col-sm-2" colspan="3"><b>Village:</b> <?= $this->paginator['p_address'] ?>,<b>Post-Office:</b><?= $this->paginator['p_postOffice'] ?>,<b>Police St.</b>:<?= $this->paginator['p_policeSt'] ?>,<b>District:</b><?= $this->paginator['p_district'] ?>,<b>State</b>:<?= $this->paginator['p_state'] ?>,<b>Pin Code:</b><?= $this->paginator['p_code'] ?>
+                        </td>
+                           
+                           
+                        </tr>
+                         <tr>
+                            <td class="col-sm-2"> Local Address  </td>
+                            <td class="col-sm-2" colspan="3"><b>Village: </b><?= $this->paginator['l_address'] ?>,<b>Post-Office:</b><?= $this->paginator['l_postOffice'] ?>,<b>Police St.</b>:<?= $this->paginator['l_policeSt'] ?>,<b>District:</b><?= $this->paginator['l_district'] ?>,<b>State:</b><?= $this->paginator['l_state'] ?>,<b>Pin Code:</b><?= $this->paginator['l_code'] ?>
+                        </td>
+                           
+                           
+                        </tr>
+                    </tbody>
+                </table>
+                <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1" >
+                    <?php if(!empty($this->paginator['degree'] == 1)){ ?>
+            
+                    <?php
+                    $cc_id_InArray = ["4", "16", "17","18","19","20","21"];
+                    if (in_array($this->paginator['course'], $cc_id_InArray, TRUE)) { ?>
+                    <p><legend>Preference:</legend></p>
+                    <?php } else{ ?>
+                     &nbsp;<p><legend>&nbsp;&nbsp;i. First Preference:</legend></p>
+                    <?php }?>
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                       <label class="control-label">Core Course:<span class="asterisk">*</span></label><br>
+                       <?php if(!empty($this->paginator['corecourse1'])){
+                             echo $this->paginator['corecourse1'];
+                         } else {
+                             echo 'N/A';
+                         }
+                         ?>
+                    </div>
+                </div>	
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                       <label class="control-label">Generic Elective:<span class="asterisk">*</span></label><br>
+                       <?php if(!empty($this->paginator['ge1'])){
+                             echo $this->paginator['ge1'];
+                         } else {
+                             echo 'N/A';
+                         }
+                         ?>
+                    </div>
+                </div>	
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                       <label class="control-label">AECC<span class="asterisk">*</span></label><br>
+                        <?php echo $this->paginator['aecc1']; ?>
+                    </div>
+                </div>	
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                       <label class="control-label">Compulsary Subject<span class="asterisk">*</span></label><br>
+                        <?php echo $this->paginator['comp_evs']; ?>
+                    </div>
+                </div>	
+            
+                <?php 
+                $cc_id_InArray = ["4", "16", "17","18","19","20","21"];
+                if (!in_array($this->paginator['course'], $cc_id_InArray, TRUE)) { ?>
+           
+                    &nbsp;<p><legend>&nbsp;&nbsp; ii.Second Preference:</legend></p>
+                
+            
+          <!------Second Row ------->
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                        <label class="control-label"> Core Course<span class="asterisk">*</span></label><br>
+                         <?php if(!empty($this->paginator['corecourse2'])){
+                             echo $this->paginator['corecourse2'];
+                         } else {
+                             echo 'N/A';
+                         }
+                         ?>
+                    </div>
+                </div>
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                        <label class="control-label">Generic Elective<span class="asterisk">*</span></label><br>
+                        <?php if(!empty($this->paginator['ge2'])){
+                             echo $this->paginator['ge2'];
+                         } else {
+                             echo 'N/A';
+                         }
+                         ?>
+                    </div>
+                </div>
+                
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                       <label class="control-label">AECC<span class="asterisk">*</span></label><br>
+                        <?php if(!empty($this->paginator['aecc2'])){
+                             echo $this->paginator['aecc2'];
+                         } else {
+                             echo 'N/A';
+                         }
+                         ?>
+                    </div>
+                </div>	
+                <div class="col-sm-3 employee_class">
+                    <div class="form-group">
+                        <label class="control-label">Compulsory Subject<span class="asterisk">*</span></label><br>
+                        <?php echo $this->paginator['comp_evs']; ?>
+                    </div>
+                </div>
+             	
+                
+          
+                <?php }} ?>
+                   
+                </table> 
+            <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a"> Appearing Status</th>
+                           
+                            <th style="width:15%">
+                           </th>  
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                       
+                        <tr>
+                           
+                            <td class="">
+                             Appearing Status
+                            </td>
+                           
+                            <td class="">
+                              <?php if($this->paginator['appearingStatus'] == 1){
+                                echo 'Yes';
+                            } else {
+                                echo 'No';
+                            }
+                            ?>
+                            </td>
+                           
+                           
+                           
+                        </tr>
+                       
+                    </tbody>
+                </table> 
+
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+            <?php if($this->paginator['degree'] != 1){ ?>
+                    &nbsp;<p><legend>  &nbsp; i. Academic Details</legend></p>
+                    <thead>
+                        <tr>
+                            <th>Name Of Examination</th>
+                            <th>Board/University</th>
+                            <th>Name of Institution</th>
+                            <th>Division/Grade</th>    
+                            <th>Subject</th>
+                            <th>Passing Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if($this->paginator['course_name'] == 'M.C.A'){  ?>
+                        <tr>
+                            <td><b>Matriculation</b></td>
+                            <td>
+                                
+                                <?=  !empty($this->paginator['mat_board']) ? $this->paginator['mat_board'] :'N/A' ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['mat_school']; ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['mat_division'];  ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['mat_subject'];  ?>
+                            </td>
+                            <td>
+                                <?php   echo $this->paginator['mat_pass_year'];  ?>
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td><b>10+2</b></td>
+                            <td>
+                                <?php echo  $this->paginator['i_board'];  ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['school'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['i_division']; ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['subject']; ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['i_pass_year'];  ?>
+                            </td>
+                                
+                        </tr>
+                        
+                        <tr>
+                            <td><b> BCA/B.Sc in CS</b></td>
+                            <td>
+                                <?php echo  $this->paginator['bca_board'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo  $this->paginator['bca_school']; ?>
+                            </td>
+                            <td>
+                                <?php echo  $this->paginator['bca_division'];    ?>
+                            </td>
+                            <td>
+                                <?php  echo  $this->paginator['bca_subject']; ?>
+                            </td>
+                            <td>
+                                <?php  echo  $this->paginator['bca_pass_year'];  ?>
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td> <b>Graduation with Maths and one year Diploma in computing </b></td>
+                            <td>
+                                <?=  !empty($this->paginator['grad_math_board'])?$this->paginator['grad_math_board']:'N/A' ?>
+                                
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_math_school'])?$this->paginator['grad_math_school']:'N/A' ?>
+                               
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_math_division'])?$this->paginator['grad_math_division']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_math_subject'])?$this->paginator['grad_math_subject']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_math_pass_year'])?$this->paginator['grad_math_pass_year']:'N/A' ?>
+                            </td>
+                                
+                        </tr>
+                       <!--- <tr>
+                            <td> <b>Certification CS</b></td>
+                            <td>
+                                <?php echo $this->paginator['cert_board'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['cert_school'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['cert_division'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['cert_subject'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['cert_pass_year'];   ?>
+                            </td>
+                                
+                        </tr>---->
+                        <tr>
+                            <td><b> Other </b></td>
+                            <td>
+                                <?php echo $this->paginator['other_board'];    ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['other_school'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['other_division'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['other_subject']; ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['other_pass_year'];  ?>
+                            </td>
+                                
+                        </tr>
+                        <?php }else { ?>
+                        <tr>
+                            <td><b>Matriculation</b></td>
+                            <td>
+                                <?php echo $this->paginator['mat_board'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['mat_school'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['mat_division'];  ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['mat_subject'];  ?>
+                            </td>
+                            <td>
+                                <?php echo$this->paginator['mat_pass_year'];  ?>
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td><b>Intermediate</b></td>
+                            <td>
+                                <?php echo $this->paginator['i_board']; ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['school'];   ?>
+                            </td>
+                            <td>
+                                <?php  echo$this->paginator['i_division'];     ?>
+                            </td>
+                            <td>
+                                <?php  echo $this->paginator['subject']; ?>
+                            </td>
+                            <td>
+                                <?php echo $this->paginator['i_pass_year'];   ?>
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td><b> Graduation  </b></td>
+                            <td>
+                                <?= !empty($this->paginator['grad_board'])?$this->paginator['grad_board']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_school'])?$this->paginator['grad_school']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_division'])?$this->paginator['grad_division']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_subject'])?$this->paginator['grad_subject']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['grad_pass_year'])?$this->paginator['grad_pass_year']:'N/A' ?>
+                            </td>
+                                
+                        </tr>
+                        <tr>
+                            <td><b> Other </b></td>
+                           <td>
+                                <?= !empty($this->paginator['other_board'])?$this->paginator['other_board']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['other_school'])?$this->paginator['other_school']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['other_division'])?$this->paginator['other_division']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['other_subject'])?$this->paginator['other_subject']:'N/A' ?>
+                            </td>
+                            <td>
+                                <?= !empty($this->paginator['other_pass_year'])?$this->paginator['other_pass_year']:'N/A' ?>
+                                
+                            </td>
+                                
+                        </tr>
+                        <?php } ?>
+                    </tbody>
+                </table> 
+            </div>
+            <div class="col-sm-12">
+             
+                        &nbsp;<p><legend>  &nbsp; ii. Last Examination Details</legend></p>
+
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action coreTable">
+                            <thead>
+                                <tr>
+                                    <th>Name of Institution</th>
+                                    <th>Place</th>
+                                    <th>Board/University</th>
+                                    <th>Passing Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td> <?= !empty($this->paginator['l_institution'])?$this->paginator['l_institution']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['l_place'])?$this->paginator['l_place']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['last_board'])?$this->paginator['last_board']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['l_p_year'])?$this->paginator['l_p_year']:'N/A' ?></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    <?php }else{ ?>
+                       
+                    &nbsp;<p><legend>  &nbsp;i. Intermediate Education Details</legend></p>
+                <table class="table table-striped table-bordered mb30 jambo_table bulk_action coreTable">
+                    <thead>
+                        <tr>
+                            <th>School/College</th>
+                            <th>Board/University</th>
+                            <th>Division/Grade</th>
+                            <th>Roll No</th>
+                            <th>Obtained Marks</th>
+                            <th>Total Marks</th>
+                            <th>Percentage </th>
+                            <th>Passing Year</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr>
+                            <td> <?= !empty($this->paginator['school'])?$this->paginator['school']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['i_board'])?$this->paginator['i_board']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['i_division'])?$this->paginator['i_division']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['i_roll'])?$this->paginator['i_roll']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['obt_marks'])?$this->paginator['obt_marks']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['total_marks'])?$this->paginator['total_marks']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['percent'])?$this->paginator['percent']:'N/A' ?></td>
+                            <td> <?= !empty($this->paginator['i_pass_year'])?$this->paginator['i_pass_year']:'N/A' ?></td>
+                               
+                        </tr>
+                   
+                    </tbody>
+                </table>
+                     &nbsp;<p><legend>  &nbsp;ii. Last Examination Details</legend></p>
+
+                        <table class="table table-striped table-bordered mb30 jambo_table bulk_action coreTable">
+                            <thead>
+                                <tr>
+                                    <th>Name of Institution</th>
+                                    <th>Place</th>
+                                    <th>Board/University</th>
+                                    <th>Passing Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td> <?= !empty($this->paginator['l_institution'])?$this->paginator['l_institution']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['l_place'])?$this->paginator['l_place']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['last_board'])?$this->paginator['last_board']:'N/A' ?></td>
+                                    <td> <?= !empty($this->paginator['l_p_year'])?$this->paginator['l_p_year']:'N/A' ?></td>
+
+                                </tr>
+
+                            </tbody>
+                        </table>
+                
+               <?php } ?>
+            
+                    
+                </table>   
+       
+       
+        </div>
+            
+   
+     </div>
+      <div class=" panel-default panel" id="transaction"> 
+                  
+             <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            <th  style="width:5%" id="a">Extra-Curricular Activities</th>
+                           
+                            <th style="width:15%">
+                           </th>   
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td class="">
+                             Extra-Curricular Activities
+                            </td>
+                            
+                            <td class="">
+                               <?php if($this->paginator['ExtraCurricularSelection']){
+                                    echo $this->paginator['ExtraCurricularSelection'];
+                                 }else{
+                                    echo 'N/A';
+                                 }  ?>
+                            </td>     
+                        </tr>
+                        <tr>
+                            
+                          
+                        </tr>
+                        
+                    </tbody>
+                </table>   
+        
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                        <tr>
+                            
+                            <td colspan="2">
+                                <h4 style=" text-align:center" ><b> Declaration</b></h4>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td  style="width:5%" ></td>
+                            <td>I declare that all particulars furnished above are true and correct. I have studied the College prospectus and promise to abide by the rules and regulations of the College.
+</td>
+                        </tr>
+                        <tr>
+                            <td  style="width:5%; vertical-align: bottom" >
+                                Date:_______________
+                                   
+                            </td>
+                            <td style="height: 4em; vertical-align: bottom;text-align: right">
+                                Signature of Applicant
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+        <table id='a' class="table table-striped table-bordered mb30 jambo_table bulk_action " border="1">
+
+                    <thead>
+                        <tr>
+                            
+                             
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                       
+                        <tr>
+                            <td  style="width:5%" ></td>
+                            <td>I give an assurance that my daughter/ward will observe the rules and regulations of the College faithfully.
+</td>
+                        </tr>
+                        <tr>
+                            <td  style="width:5% ;vertical-align: bottom" >
+                                Date:_______________
+                            </td>
+                            <td style="height: 4em; vertical-align: bottom; text-align: right">
+                                Signature of Parent/Guardian
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>   
+               </form>
+                 
+                   
+        
+               <br>     
+           
+        </div>
+                           <div style="float:right;padding-bottom: 3em;" >
+                            
+                            <button type="button" id="printAppForm1" class="btn btn-primary" onclick="window.print()">Print</button>
+                        </div></div>
+</div>
+
+
+<script>
+//  $( "#printAppForm2" ).click(function() {
+//   
+//  $('#downloadArea').hide();
+//  $('#divbutton').hide();
+//});
+</script>

@@ -1,0 +1,68 @@
+
+<?php //echo '<pre>'; ?>
+<table class="table table-striped table-bordered mb30 jambo_table bulk_action dataTable" id="datatable-responsive" style="height:100%">
+    
+                            <thead>
+                                <tr>
+
+                                    <th class="no-sort">S.No.</th>
+
+                                    <th>Student Name</th>
+                                    <th>UID</th>
+                                    <th>Semester</th>
+                                    <th>Transaction Id</th>
+                                    
+                                    <th>Status</th>
+                                    <th>Pay Mode</th>
+                                    <th>Amount</th>
+                                    <th>Batch</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                $i = 1;
+                                $pagination_tr = '';
+                                if (count($this->paginator) != 0) {
+
+                                    foreach ($this->paginator as $results) {
+                                      //echo '<pre>'; print_r($results);
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $i;
+
+                                        $i++;
+                                        ?>
+                                            </td>						
+
+                                            <td><?php echo $results['name']; ?></td>
+                                            <td><?php echo $results['stu_id']; ?></td>
+                                            <td><?php echo $results['term_name']; ?></td>
+                                            <td><?php echo $results['mmp_txn']; ?></td>
+                                            <td><?= !empty($results['live_status']) ?$results['live_status'] :'Success' ; ?></td>
+                                            <td><?php echo $results['pay_mode']; ?></td>
+                                            <td><?= !empty($results['fee']) ?$results['fee']:'N/A'?></td>
+                                            <td><?php echo $results['batch']; ?></td>
+                                            <td><?php echo $results['submit_date']; ?></td>
+                                            
+                                        </tr>            
+
+                                    <?php
+                                    }
+                                    $pagination_tr = $this->paginationControl($this->paginator, 'Sliding', 'pagination.phtml');
+                                }else{?>
+                                                <tr>
+                                                    <td colspan="6">
+                                                        <h2 style="color:red">
+                                                            No Records Available.
+                                                </h2>
+                                            </td>
+                                        </tr>
+                                <?php } ?>
+
+                            </tbody>
+                        </table>
+<script>
+   
+    setDatatables();
+</script>
